@@ -1,5 +1,5 @@
 {
-  "name": "pneuma-tokens",
+  "name": "palmetto-design-tokens",
   "version": "1.0.0",
   "description": "Design tokens that power all Palmetto UIs.",
   "main": "build/index.js",
