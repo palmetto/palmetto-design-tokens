@@ -8,13 +8,6 @@
         "destination": "tokens.scss",
         "format": "scss/variables"
       }]
-    },
-    "js": {
-      "transformGroup": "js",
-      "files": [{
-        "destination": "tokens.js",
-        "format": "javascript/es6"
-      }]
     }
   }
 }
