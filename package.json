@@ -12,7 +12,7 @@
     "clean": "rm -rf build",
     "prepublishOnly": "yarn build"
   },
-  "repository": "https://github.com/palmetto/pneuma-tokens.git",
+  "repository": "https://github.com/palmetto/palmetto-design-tokens.git",
   "author": "Juan Fabrega <juanantoniofabrega@gmail.com>",
   "license": "MIT",
   "private": false,
