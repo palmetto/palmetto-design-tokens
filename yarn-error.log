@@ -1,0 +1,49 @@
+Arguments: 
+  /usr/local/Cellar/node/13.11.0/bin/node /usr/local/bin/yarn add style-dictionary --dev
+
+PATH: 
+  /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+
+Yarn version: 
+  1.22.4
+
+Node version: 
+  13.11.0
+
+Platform: 
+  darwin x64
+
+Trace: 
+  SyntaxError: /Users/palmetto/Documents/dev/palmetto/pneuma-tokens/package.json: Unexpected token } in JSON at position 332
+      at JSON.parse (<anonymous>)
+      at /usr/local/lib/node_modules/yarn/lib/cli.js:1625:59
+      at Generator.next (<anonymous>)
+      at step (/usr/local/lib/node_modules/yarn/lib/cli.js:310:30)
+      at /usr/local/lib/node_modules/yarn/lib/cli.js:321:13
+
+npm manifest: 
+  {
+    "name": "pneuma-tokens",
+    "version": "1.0.0",
+    "description": "Design tokens that power all Palmetto UIs.",
+    "main": "build/index.js",
+    "files": [
+      "build",
+      "properties"
+    ],
+    "scripts": {
+      "build": "node_modules/.bin/style-dictionary build",
+      "clean": "rm -rf build",
+      "prepublishOnly": "npm run build",
+    },
+    "repository": "https://github.com/palmetto/pneuma-tokens.git",
+    "author": "Juan Fabrega <juanantoniofabrega@gmail.com>",
+    "license": "MIT",
+    "private": false
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

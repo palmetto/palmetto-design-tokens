@@ -1,0 +1,22 @@
+{
+  "name": "pneuma-tokens",
+  "version": "1.0.0",
+  "description": "Design tokens that power all Palmetto UIs.",
+  "main": "build/index.js",
+  "files": [
+    "build",
+    "properties"
+  ],
+  "scripts": {
+    "build": "node_modules/.bin/style-dictionary build",
+    "clean": "rm -rf build",
+    "prepublishOnly": "yarn build"
+  },
+  "repository": "https://github.com/palmetto/pneuma-tokens.git",
+  "author": "Juan Fabrega <juanantoniofabrega@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "devDependencies": {
+    "style-dictionary": "^2.10.0"
+  }
+}
