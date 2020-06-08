@@ -11,10 +11,11 @@
     },
     "css": {
       "transformGroup": "css",
+      "buildPath": "build/css/",
       "files": [
         {
-          "format": "css/variables",
-          "destination": "variables.css"
+          "destination": "tokens.css",
+          "format": "css/variables"
         }
       ]
     }
