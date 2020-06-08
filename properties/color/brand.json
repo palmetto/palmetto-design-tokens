@@ -17,6 +17,14 @@
         "darker":  { "value": "{color.base.blue.900.value}" }
       },
 
+      "tertiary": {
+        "lighter": { "value": "{color.base.indigo.100.value}" },
+        "light":   { "value": "{color.base.indigo.300.value}" },
+        "base":    { "value": "{color.base.indigo.500.value}" },
+        "dark":    { "value": "{color.base.indigo.700.value}" },
+        "darker":  { "value": "{color.base.indigo.900.value}" }
+      },
+
       "grey": {
         "lighter": { "value": "{color.base.grey.100.value}" },
         "light":   { "value": "{color.base.grey.300.value}" },
