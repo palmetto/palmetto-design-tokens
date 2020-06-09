@@ -1,4 +1,6 @@
 # Palmetto Design Tokens
+[![npm version](https://badge.fury.io/js/%40palmetto%2Fpalmetto-design-tokens.svg)](https://badge.fury.io/js/%40palmetto%2Fpalmetto-design-tokens)
+
 A central location to store shared attributes of the Palmetto Design System. These attributes include: colors, fonts, spacing, and more. Using [Amazon's Style Dictionary](https://amzn.github.io/style-dictionary/) we transform attributes into usable variables for a variety of platforms.
 
 
@@ -51,6 +53,9 @@ CSS
 To build tokens locally run `npm run build` or `yarn build`
 
 In order to test any local changes you'll need to build tokens, and symlink your local package into any project that consumes it. See [NPM link](https://docs.npmjs.com/cli/link) or [Yarn link](https://classic.yarnpkg.com/en/docs/cli/link/) for more details.
+
+
+## Releases
 
 
 ## How can I contribute to this project?
