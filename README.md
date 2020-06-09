@@ -55,8 +55,28 @@ To build tokens locally run `npm run build` or `yarn build`
 In order to test any local changes you'll need to build tokens, and symlink your local package into any project that consumes it. See [NPM link](https://docs.npmjs.com/cli/link) or [Yarn link](https://classic.yarnpkg.com/en/docs/cli/link/) for more details.
 
 
-## Releases
+## Releases/Publishing
+A new version of the package will be published on NPM when a new github release is created. **Releases should only be tagged off of the `master` branch, or a specific release branch, but NOT feature branches**.
 
+Before creating a release, ensure that you've updated the `package.json` to reflect the latest version. If you skip this step, the npm publish will fail. Please follow [Semantic Versioning](https://semver.org) as follows:
+
+* MAJOR version when you make incompatible API changes,
+* MINOR version when you add functionality in a backwards compatible manner, and
+* PATCH version when you make backwards compatible bug fixes.
+
+To draft a release follow these steps: 
+
+1. Under your repository name, click Releases.
+
+1. Click Draft a new release.
+
+1. Type a version number for your release. Versions are based on Git tags. We recommend naming tags that fit within semantic versioning.
+
+1. Use the drop-down menu, and select the branch that contains the project you want to release.
+
+1. Type a title and description for your release.
+
+1. If you're ready to publicize your release, click Publish release. To work on the release later, click Save draft.
 
 ## How can I contribute to this project?
 1. Find an issue that you are interested in addressing or a feature that you would like to add. See [Issues Page](https://github.com/palmetto/palmetto-design-tokens/issues). If you don't see any issues here, feel free to create one.
