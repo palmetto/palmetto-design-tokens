@@ -5,8 +5,9 @@
       "transformGroup": "scss",
       "buildPath": "build/scss/",
       "files": [{
-        "destination": "tokens.scss",
-        "format": "scss/variables"
+        "destination": "colors.scss",
+        "format": "scss/variables",
+        "filter": "isColor"
       }]
     },
     "css": {
@@ -14,8 +15,18 @@
       "buildPath": "build/css/",
       "files": [
         {
-          "destination": "tokens.css",
-          "format": "css/variables"
+          "destination": "colors.css",
+          "format": "css/variables",
+          "filter": "isColor"
+        }
+      ]
+    },
+    "js": {
+      "buildPath": "build/js/",
+      "files": [
+        {
+          "destination": "colors.js",
+          "format": "javascript/module"
         }
       ]
     }
