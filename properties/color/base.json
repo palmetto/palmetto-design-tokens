@@ -39,28 +39,28 @@
         "900"  : { "value": "#190900", "attributes": {"font": "inverse"}}
       },
       "green": {
-        "50"  : { "value": "#e2fbed", "attributes": {"font": "base"}},
-        "100"  : { "value": "#c2ebd4", "attributes": {"font": "base"}},
-        "200"  : { "value": "#9fddba", "attributes": {"font": "base"}},
-        "300"  : { "value": "#7ccf9e", "attributes": {"font": "base"}},
-        "400"  : { "value": "#58c184", "attributes": {"font": "base"}},
-        "500"  : { "value": "#3ea76a", "attributes": {"font": "base"}},
-        "600"  : { "value": "#2e8252", "attributes": {"font": "inverse"}},
-        "700"  : { "value": "#1f5d3a", "attributes": {"font": "inverse"}},
-        "800"  : { "value": "#0f3921", "attributes": {"font": "inverse"}},
-        "900"  : { "value": "#001506", "attributes": {"font": "inverse"}}
+        "50"  : { "value": "#e2fee8", "attributes": {"font": "base"}},
+        "100"  : { "value": "#b9f6c6", "attributes": {"font": "base"}},
+        "200"  : { "value": "#8fefa2", "attributes": {"font": "base"}},
+        "300"  : { "value": "#63e87f", "attributes": {"font": "base"}},
+        "400"  : { "value": "#3ae25b", "attributes": {"font": "base"}},
+        "500"  : { "value": "#21c841", "attributes": {"font": "base"}},
+        "600"  : { "value": "#179c32", "attributes": {"font": "inverse"}},
+        "700"  : { "value": "#0d6f23", "attributes": {"font": "inverse"}},
+        "800"  : { "value": "#034312", "attributes": {"font": "inverse"}},
+        "900"  : { "value": "#001801", "attributes": {"font": "inverse"}}
       },
       "blue": {
-        "50" : { "value": "#e0f5ff", "attributes": {"font": "base"}},
-        "100" : { "value": "#bcdbf5", "attributes": {"font": "base"}},
-        "200" : { "value": "#95c1ea", "attributes": {"font": "base"}},
-        "300" : { "value": "#6da7de", "attributes": {"font": "base"}},
-        "400" : { "value": "#468fd3", "attributes": {"font": "base"}},
-        "500" : { "value": "#2c75b9", "attributes": {"font": "inverse"}},
-        "600" : { "value": "#1f5b91", "attributes": {"font": "inverse"}},
-        "700" : { "value": "#124169", "attributes": {"font": "inverse"}},
-        "800" : { "value": "#052742", "attributes": {"font": "inverse"}},
-        "900" : { "value": "#000e1c", "attributes": {"font": "inverse"}}
+        "50" : { "value": "#e3efff", "attributes": {"font": "base"}},
+        "100" : { "value": "#bbd0f8", "attributes": {"font": "base"}},
+        "200" : { "value": "#91b1ee", "attributes": {"font": "base"}},
+        "300" : { "value": "#6792e4", "attributes": {"font": "base"}},
+        "400" : { "value": "#3d73dc", "attributes": {"font": "base"}},
+        "500" : { "value": "#235ac2", "attributes": {"font": "inverse"}},
+        "600" : { "value": "#1a4698", "attributes": {"font": "inverse"}},
+        "700" : { "value": "#10326e", "attributes": {"font": "inverse"}},
+        "800" : { "value": "#051e45", "attributes": {"font": "inverse"}},
+        "900" : { "value": "#000a1d", "attributes": {"font": "inverse"}}
       },
       "indigo": {
         "50" : { "value": "#e6ecff", "attributes": {"font": "base"}},
