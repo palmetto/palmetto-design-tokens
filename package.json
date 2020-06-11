@@ -8,7 +8,7 @@
     "properties"
   ],
   "scripts": {
-    "build": "node_modules/.bin/style-dictionary build",
+    "build": "node build.js",
     "clean": "rm -rf build",
     "prepublishOnly": "yarn build"
   },
