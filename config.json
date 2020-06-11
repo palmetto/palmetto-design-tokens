@@ -22,11 +22,13 @@
       ]
     },
     "js": {
+      "transformGroup": "js",
       "buildPath": "build/js/",
       "files": [
         {
           "destination": "colors.js",
-          "format": "javascript/module"
+          "format": "javascript/module",
+          "filter": "isColor"
         }
       ]
     }
