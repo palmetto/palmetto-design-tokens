@@ -1,6 +1,6 @@
 {
   "name": "@palmetto/palmetto-design-tokens",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Design tokens that power all Palmetto UIs.",
   "main": "build/index.js",
   "files": [
