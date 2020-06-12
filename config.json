@@ -37,7 +37,7 @@
       "files": [{
         "destination": "utilities.css",
         "format": "utilityClass",
-        "filter": "isNotBase"
+        "filter": "isNotTypeBase"
       }]
     },
     "sassUtilities": {
@@ -46,7 +46,7 @@
       "files": [{
         "destination": "utilities.scss",
         "format": "utilityClass",
-        "filter": "isNotBase"
+        "filter": "isNotTypeBase"
       }]
     },
     "js": {

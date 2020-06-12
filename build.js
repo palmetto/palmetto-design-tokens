@@ -15,7 +15,7 @@ StyleDictionary.registerFilter({
 });
 
 StyleDictionary.registerFilter({
-  name: 'isNotBase',
+  name: 'isNotTypeBase',
   matcher: (prop) => prop.attributes.type !== 'base',
 });
 
