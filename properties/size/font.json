@@ -1,0 +1,36 @@
+{
+    "size": {
+        "font": {
+            "xs": {
+                "value": "0.75",
+                "comment": "Small and hard to read for many people so use with caution"
+            },
+            "sm": {
+                "value": "0.875"
+            },
+            "md": {
+                "value": "1",
+                "comment": "For paragraph body copy"
+            },
+            "lg": {
+                "value": "1.25"
+            },
+            "xl": {
+                "value": "1.5"
+            },
+            "2xl": {
+                "value": "2.25"
+            },
+            "3xl": {
+                "value": "3"
+            },
+            "4xl": {
+                "value": "5"
+            },
+            "5xl": {
+                "value": "6",
+                "comment": "For Hero or Marketing titles"
+            }
+        }
+    }
+}
