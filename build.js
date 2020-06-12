@@ -14,6 +14,44 @@ StyleDictionary.registerFilter({
   matcher: (prop) => prop.attributes.category === 'size',
 });
 
+StyleDictionary.registerFilter({
+  name: 'isNotBase',
+  matcher: (prop) => prop.attributes.type !== 'base',
+});
+
+var utilities = [
+  {
+      "name": "font",
+      "tokenType": "color",
+      "CSSprop": "color"
+  },
+  {
+      "name": "background",
+      "tokenType": "color",
+      "CSSprop": "background-color"
+  }
+];
+
+
+StyleDictionary.registerFormat({
+  name: 'utilityClass',
+  formatter: function(dictionary, platform) {
+    let output = '';
+    dictionary.allProperties.forEach(function(prop) {
+      const tokenType = prop.path.slice(0,1)[0];
+
+      utilities.forEach(function(utility) {
+        if (tokenType === utility.tokenType) {
+          const utilityClass = `u-has-${utility.name}-${prop.attributes.item}-${prop.attributes.subitem}`;
+          output += `.${utilityClass} { ${utility.CSSprop}: ${prop.value} !important; }\n\n`
+        }
+      });
+    });
+
+    return output;
+  }
+});
+
 // APPLY THE CONFIGURATION
 // IMPORTANT: the registration of custom transforms
 // needs to be done _before_ applying the configuration
