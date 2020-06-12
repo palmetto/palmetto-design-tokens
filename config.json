@@ -31,6 +31,24 @@
         }
       ]
     },
+    "cssUtilities": {
+      "buildPath": "build/utilities/",
+      "transformGroup": "css",
+      "files": [{
+        "destination": "utilities.css",
+        "format": "utilityClass",
+        "filter": "isNotBase"
+      }]
+    },
+    "sassUtilities": {
+      "buildPath": "build/utilities/",
+      "transformGroup": "scss",
+      "files": [{
+        "destination": "utilities.scss",
+        "format": "utilityClass",
+        "filter": "isNotBase"
+      }]
+    },
     "js": {
       "transformGroup": "js",
       "buildPath": "build/js/",
