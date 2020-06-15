@@ -1,16 +1,17 @@
 const StyleDictionary = require('style-dictionary');
+const { properties } = require('style-dictionary');
 
 console.log('Build started...');
 console.log('\n==============================================');
 
 // Register Custom Filters
 StyleDictionary.registerFilter({
-  name: 'isColor',
+  name: 'isCategoryColor',
   matcher: (prop) => prop.attributes.category === 'color',
 });
 
 StyleDictionary.registerFilter({
-  name: 'isFontSize',
+  name: 'isCategorySize',
   matcher: (prop) => prop.attributes.category === 'size',
 });
 

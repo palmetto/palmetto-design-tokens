@@ -7,12 +7,12 @@
       "files": [{
           "destination": "colors.scss",
           "format": "scss/variables",
-          "filter": "isColor"
+          "filter": "isCategoryColor"
         },
         {
-          "destination": "fonts.scss",
+          "destination": "sizes.scss",
           "format": "scss/variables",
-          "filter": "isFontSize"
+          "filter": "isCategorySize"
         }
       ]
     },
@@ -22,12 +22,12 @@
       "files": [{
           "destination": "colors.css",
           "format": "css/variables",
-          "filter": "isColor"
+          "filter": "isCategoryColor"
         },
         {
-          "destination": "fonts.css",
+          "destination": "sizes.css",
           "format": "css/variables",
-          "filter": "isFontSize"
+          "filter": "isCategorySize"
         }
       ]
     },
@@ -55,11 +55,11 @@
       "files": [{
         "destination": "colors.js",
         "format": "javascript/module",
-        "filter": "isColor"
+        "filter": "isCategoryColor"
       }, {
-        "destination": "fonts.js",
+        "destination": "sizes.js",
         "format": "javascript/module",
-        "filter": "isFontSize"
+        "filter": "isCategorySize"
       }]
     }
   }
