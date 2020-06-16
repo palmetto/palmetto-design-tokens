@@ -1,0 +1,16 @@
+{
+  "size": {
+    "spacing": {
+      "xs": { "value": "0.25" },
+      "sm": { "value": "0.5" },
+      "md": { "value": "1" },
+      "lg": { "value": "2" },
+      "xl": { "value": "3" },
+      "2xl": { "value": "4" },
+      "3xl": { "value": "5" },
+      "4xl": { "value": "6" },
+      "5xl": { "value": "8" },
+      "base": { "value": "{size.spacing.md.value}" }
+    }
+  }
+}

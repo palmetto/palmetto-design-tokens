@@ -5,32 +5,76 @@
       "transformGroup": "scss",
       "buildPath": "build/scss/",
       "files": [{
-        "destination": "colors.scss",
-        "format": "scss/variables",
-        "filter": "isColor"
-      }]
+          "destination": "variables-color.scss",
+          "format": "scss/variables",
+          "filter": "isColor"
+        },
+        {
+          "destination": "variables-size.scss",
+          "format": "scss/variables",
+          "filter": "isFontSize"
+        }
+      ]
     },
     "css": {
       "transformGroup": "css",
       "buildPath": "build/css/",
-      "files": [
-        {
-          "destination": "colors.css",
+      "files": [{
+          "destination": "variables-color.css",
           "format": "css/variables",
           "filter": "isColor"
+        },
+        {
+          "destination": "variables-size.css",
+          "format": "css/variables",
+          "filter": "isFontSize"
+        }
+      ]
+    },
+    "cssUtilities": {
+      "buildPath": "build/utilities/",
+      "transformGroup": "css",
+      "files": [
+        {
+          "destination": "utilities-size.css",
+          "format": "utilityClass",
+          "filter": "isCategorySize"
+        },
+        {
+          "destination": "utilities-color.css",
+          "format": "utilityClass",
+          "filter": "isCategoryColor"
+        }
+      ]
+    },
+    "sassUtilities": {
+      "buildPath": "build/utilities/",
+      "transformGroup": "scss",
+      "files": [
+        {
+          "destination": "utilities-size.scss",
+          "format": "utilityClass",
+          "filter": "isCategorySize"
+        },
+        {
+          "destination": "utilities-color.scss",
+          "format": "utilityClass",
+          "filter": "isCategoryColor"
         }
       ]
     },
     "js": {
       "transformGroup": "js",
       "buildPath": "build/js/",
-      "files": [
-        {
-          "destination": "colors.js",
-          "format": "javascript/module",
-          "filter": "isColor"
-        }
-      ]
+      "files": [{
+        "destination": "variables-color.js",
+        "format": "javascript/module",
+        "filter": "isColor"
+      }, {
+        "destination": "variables-size.js",
+        "format": "javascript/module",
+        "filter": "isFontSize"
+      }]
     }
   }
 }
