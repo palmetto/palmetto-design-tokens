@@ -5,12 +5,12 @@
       "transformGroup": "scss",
       "buildPath": "build/scss/",
       "files": [{
-          "destination": "colors.scss",
+          "destination": "variables-color.scss",
           "format": "scss/variables",
           "filter": "isColor"
         },
         {
-          "destination": "fonts.scss",
+          "destination": "variables-size.scss",
           "format": "scss/variables",
           "filter": "isFontSize"
         }
@@ -20,12 +20,12 @@
       "transformGroup": "css",
       "buildPath": "build/css/",
       "files": [{
-          "destination": "colors.css",
+          "destination": "variables-color.css",
           "format": "css/variables",
           "filter": "isColor"
         },
         {
-          "destination": "fonts.css",
+          "destination": "variables-size.css",
           "format": "css/variables",
           "filter": "isFontSize"
         }
@@ -34,30 +34,44 @@
     "cssUtilities": {
       "buildPath": "build/utilities/",
       "transformGroup": "css",
-      "files": [{
-        "destination": "utilities.css",
-        "format": "utilityClass",
-        "filter": "isNotTypeBase"
-      }]
+      "files": [
+        {
+          "destination": "utilities-size.css",
+          "format": "utilityClass",
+          "filter": "isCategorySize"
+        },
+        {
+          "destination": "utilities-color.css",
+          "format": "utilityClass",
+          "filter": "isCategoryColor"
+        }
+      ]
     },
     "sassUtilities": {
       "buildPath": "build/utilities/",
       "transformGroup": "scss",
-      "files": [{
-        "destination": "utilities.scss",
-        "format": "utilityClass",
-        "filter": "isNotTypeBase"
-      }]
+      "files": [
+        {
+          "destination": "utilities-size.scss",
+          "format": "utilityClass",
+          "filter": "isCategorySize"
+        },
+        {
+          "destination": "utilities-color.scss",
+          "format": "utilityClass",
+          "filter": "isCategoryColor"
+        }
+      ]
     },
     "js": {
       "transformGroup": "js",
       "buildPath": "build/js/",
       "files": [{
-        "destination": "colors.js",
+        "destination": "variables-color.js",
         "format": "javascript/module",
         "filter": "isColor"
       }, {
-        "destination": "fonts.js",
+        "destination": "variables-size.js",
         "format": "javascript/module",
         "filter": "isFontSize"
       }]

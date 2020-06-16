@@ -15,21 +15,31 @@ StyleDictionary.registerFilter({
 });
 
 StyleDictionary.registerFilter({
+  name: 'isCategorySizeAndTypeFont',
+  matcher: (prop) => prop.attributes.category === 'size' && prop.attributes.type === 'font',
+});
+
+StyleDictionary.registerFilter({
   name: 'isNotTypeBase',
   matcher: (prop) => prop.attributes.type !== 'base',
 });
 
 var utilities = [
   {
-      "name": "font",
+      "name": "font-color",
       "tokenType": "color",
       "CSSprop": "color"
   },
   {
-      "name": "background",
+      "name": "background-color",
       "tokenType": "color",
       "CSSprop": "background-color"
-  }
+  },
+  {
+    "name": "font-size",
+    "tokenType": "size",
+    "CSSprop": "font-size"
+}
 ];
 
 
@@ -42,8 +52,11 @@ StyleDictionary.registerFormat({
 
       utilities.forEach(function(utility) {
         if (tokenType === utility.tokenType) {
-          const utilityClass = `u-has-${utility.name}-${prop.attributes.item}-${prop.attributes.subitem}`;
-          output += `.${utilityClass} { ${utility.CSSprop}: ${prop.value} !important; }\n\n`
+          let utilityClass = `${utility.name}-${prop.attributes.item}`;
+          if (prop.attributes.subitem && prop.attributes.subitem !== 'base') {
+            utilityClass += `-${prop.attributes.subitem}`;
+          }
+          output += `.${utilityClass} { ${utility.CSSprop}: ${prop.value} }\n\n`
         }
       });
     });
