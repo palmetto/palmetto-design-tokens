@@ -27,19 +27,22 @@ StyleDictionary.registerFilter({
 var utilities = [
   {
       "name": "font-color",
-      "tokenType": "color",
+      "tokenCategory": "color",
+      "tokenType": "font",
       "CSSprop": "color"
   },
   {
       "name": "background-color",
-      "tokenType": "color",
+      "tokenCategory": "color",
+      "tokenType": "brand",
       "CSSprop": "background-color"
   },
   {
     "name": "font-size",
-    "tokenType": "size",
+    "tokenCategory": "size",
+    "tokenType": "font",
     "CSSprop": "font-size"
-}
+  },
 ];
 
 
@@ -48,10 +51,10 @@ StyleDictionary.registerFormat({
   formatter: function(dictionary, platform) {
     let output = '';
     dictionary.allProperties.forEach(function(prop) {
-      const tokenType = prop.path.slice(0,1)[0];
-
+      const tokenCategory = prop.attributes.category;
+      const tokenType = prop.attributes.type;
       utilities.forEach(function(utility) {
-        if (tokenType === utility.tokenType) {
+        if (tokenCategory === utility.tokenCategory && tokenType === utility.tokenType) {
           let utilityClass = `${utility.name}-${prop.attributes.item}`;
           if (prop.attributes.subitem && prop.attributes.subitem !== 'base') {
             utilityClass += `-${prop.attributes.subitem}`;
