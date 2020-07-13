@@ -1,0 +1,22 @@
+{
+  "size": {
+    "breakpoint": {
+      "sm": {
+        "value": "30",
+        "comment": "480px, devices smaller than tablets"
+      },
+      "md": {
+        "value": "48",
+        "comment": "768px, devices larger than phone"
+      },
+      "lg": {
+        "value": "64",
+        "comment": "1024px, devices larger than tablet"
+      },
+      "xl": {
+        "value": "90",
+        "comment": "1440px, devices with high resolution displays"
+      }
+    }
+  }
+}
