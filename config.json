@@ -5,63 +5,69 @@
       "transformGroup": "scss",
       "buildPath": "build/scss/",
       "files": [{
-          "destination": "variables-color.scss",
-          "format": "scss/variables",
-          "filter": "isCategoryColor"
-        },
-        {
-          "destination": "variables-size.scss",
-          "format": "scss/variables",
-          "filter": "isCategorySize"
-        }
-      ]
+        "destination": "variables-color.scss",
+        "format": "scss/variables",
+        "filter": "isCategoryColor"
+      }, {
+        "destination": "variables-size.scss",
+        "format": "scss/variables",
+        "filter": "isCategorySize"
+      }, {
+        "destination": "variables-border-radius.scss",
+        "format": "scss/variables",
+        "filter": "isCategorySizeAndTypeBorderRadius"
+      }]
     },
     "css": {
       "transformGroup": "css",
       "buildPath": "build/css/",
       "files": [{
-          "destination": "variables-color.css",
-          "format": "css/variables",
-          "filter": "isCategoryColor"
-        },
-        {
-          "destination": "variables-size.css",
-          "format": "css/variables",
-          "filter": "isCategorySize"
-        }
-      ]
+        "destination": "variables-color.css",
+        "format": "css/variables",
+        "filter": "isCategoryColor"
+      }, {
+        "destination": "variables-size.css",
+        "format": "css/variables",
+        "filter": "isCategorySize"
+      }, {
+        "destination": "variables-border-radius.css",
+        "format": "css/variables",
+        "filter": "isCategorySizeAndTypeBorderRadius"
+      }]
     },
     "cssUtilities": {
       "buildPath": "build/utilities/",
       "transformGroup": "css",
-      "files": [
-        {
-          "destination": "utilities-size.css",
-          "format": "utilityClass",
-          "filter": "isCategorySize"
-        },
-        {
-          "destination": "utilities-color.css",
-          "format": "utilityClass",
-          "filter": "isCategoryColor"
-        }
-      ]
+      "files": [{
+        "destination": "utilities-size.css",
+        "format": "utilityClass",
+        "filter": "isCategorySize"
+      }, {
+        "destination": "utilities-color.css",
+        "format": "utilityClass",
+        "filter": "isCategoryColor"
+      }, {
+        "destination": "utilities-border-radius.css",
+        "format": "utilityClass",
+        "filter": "isCategorySizeAndTypeBorderRadius"
+      }]
     },
     "sassUtilities": {
       "buildPath": "build/utilities/",
       "transformGroup": "scss",
-      "files": [
-        {
-          "destination": "utilities-size.scss",
-          "format": "utilityClass",
-          "filter": "isCategorySize"
-        },
-        {
-          "destination": "utilities-color.scss",
-          "format": "utilityClass",
-          "filter": "isCategoryColor"
-        }
-      ]
+      "files": [{
+        "destination": "utilities-size.scss",
+        "format": "utilityClass",
+        "filter": "isCategorySize"
+      }, {
+        "destination": "utilities-color.scss",
+        "format": "utilityClass",
+        "filter": "isCategoryColor"
+      }, {
+        "destination": "utilities-border-radius.scss",
+        "format": "utilityClass",
+        "filter": "isCategorySizeAndTypeBorderRadius"
+      }]
     },
     "js": {
       "transformGroup": "js",
@@ -74,7 +80,12 @@
         "destination": "variables-size.js",
         "format": "javascript/module",
         "filter": "isCategorySize"
+      }, {
+        "destination": "variables-border-radius.js",
+        "format": "javascript/module",
+        "filter": "isCategorySizeAndTypeBorderRadius"
       }]
     }
   }
 }
+

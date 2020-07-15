@@ -20,22 +20,26 @@ StyleDictionary.registerFilter({
 });
 
 StyleDictionary.registerFilter({
+  name: 'isCategorySizeAndTypeBorderRadius',
+  matcher: (prop) => prop.attributes.category === 'size' && prop.attributes.type === 'border-radius',
+});
+
+StyleDictionary.registerFilter({
   name: 'isNotTypeBase',
   matcher: (prop) => prop.attributes.type !== 'base',
 });
 
-var utilities = [
-  {
-      "name": "font-color",
-      "tokenCategory": "color",
-      "tokenType": "font",
-      "CSSprop": "color"
+var utilities = [{
+    "name": "font-color",
+    "tokenCategory": "color",
+    "tokenType": "font",
+    "CSSprop": "color"
   },
   {
-      "name": "background-color",
-      "tokenCategory": "color",
-      "tokenType": "brand",
-      "CSSprop": "background-color"
+    "name": "background-color",
+    "tokenCategory": "color",
+    "tokenType": "brand",
+    "CSSprop": "background-color"
   },
   {
     "name": "font-size",
@@ -43,17 +47,23 @@ var utilities = [
     "tokenType": "font",
     "CSSprop": "font-size"
   },
+  {
+    "name": "border-radius",
+    "tokenCategory": "size",
+    "tokenType": "border-radius",
+    "CSSprop": "border-radius"
+  },
 ];
 
 
 StyleDictionary.registerFormat({
   name: 'utilityClass',
-  formatter: function(dictionary, platform) {
+  formatter: function (dictionary, platform) {
     let output = '';
-    dictionary.allProperties.forEach(function(prop) {
+    dictionary.allProperties.forEach(function (prop) {
       const tokenCategory = prop.attributes.category;
       const tokenType = prop.attributes.type;
-      utilities.forEach(function(utility) {
+      utilities.forEach(function (utility) {
         if (tokenCategory === utility.tokenCategory && tokenType === utility.tokenType) {
           let utilityClass = `${utility.name}-${prop.attributes.item}`;
           if (prop.attributes.subitem && prop.attributes.subitem !== 'base') {
@@ -80,3 +90,4 @@ StyleDictionaryExtended.buildAllPlatforms();
 
 console.log('\n==============================================');
 console.log('\nBuild completed!');
+
