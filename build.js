@@ -42,6 +42,12 @@ var utilities = [{
     "CSSprop": "background-color"
   },
   {
+    "name": "border-color",
+    "tokenCategory": "color",
+    "tokenType": "brand",
+    "CSSprop": "border-color"
+  },
+  {
     "name": "font-size",
     "tokenCategory": "size",
     "tokenType": "font",
@@ -90,4 +96,3 @@ StyleDictionaryExtended.buildAllPlatforms();
 
 console.log('\n==============================================');
 console.log('\nBuild completed!');
-
