@@ -1,7 +1,6 @@
 {
   "size": {
     "border-radius": {
-      "circle": { "value": "50%" },
       "xs": { "value": "0.125" },
       "sm": { "value": "0.25" },
       "md": { "value": ".5" },
