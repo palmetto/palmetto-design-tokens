@@ -61,8 +61,7 @@ var utilities = [{
   },
 ];
 
-const spacingUtilities = [
-  {
+const spacingUtilities = [{
     "name": "margin",
     "abbreviation": "m",
     "tokenCategory": "size",
@@ -89,7 +88,7 @@ StyleDictionary.registerFormat({
       const tokenCategory = prop.attributes.category;
       const tokenType = prop.attributes.type;
 
-      // Most utilities that follow standard patterns. 
+      // Most utilities that follow standard patterns.
       utilities.forEach(utility => {
         if (tokenCategory === utility.tokenCategory && tokenType === utility.tokenType) {
           let utilityClass = `${utility.name}-${prop.attributes.item}`;
@@ -122,11 +121,11 @@ StyleDictionary.registerFormat({
             } else if (compound.includes(variation)) { // For values applied to multiple sides.
               property = utility.name;
               if (variation === '') {
-                output += `.${utilityClass} { ${property}: ${prop.value} }\n\n`; 
+                output += `.${utilityClass} { ${property}: ${prop.value} }\n\n`;
               } else if (variation === 'h') {
-                output += `.${utilityClass} { ${property}: 0 ${prop.value} }\n\n`; 
+                output += `.${utilityClass} { ${property}: 0 ${prop.value} }\n\n`;
               } else if (variation === 'v') {
-                output += `.${utilityClass} { ${property}: ${prop.value} 0 }\n\n`; 
+                output += `.${utilityClass} { ${property}: ${prop.value} 0 }\n\n`;
               }
             }
           });
