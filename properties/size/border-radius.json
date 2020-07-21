@@ -1,0 +1,10 @@
+{
+  "size": {
+    "border-radius": {
+      "xs": { "value": "0.125" },
+      "sm": { "value": "0.25" },
+      "md": { "value": ".5" },
+      "lg": { "value": "1" }
+    }
+  }
+}
