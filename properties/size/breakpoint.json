@@ -1,21 +1,21 @@
 {
   "size": {
     "breakpoint": {
-      "sm": {
-        "value": "30",
-        "comment": "480px, devices smaller than tablets"
+      "phone": {
+        "value": "480",
+        "comment": "devices smaller than tablets"
       },
-      "md": {
-        "value": "48",
-        "comment": "768px, devices larger than phone"
+      "tablet": {
+        "value": "768",
+        "comment": "devices larger than phone"
       },
-      "lg": {
-        "value": "64",
-        "comment": "1024px, devices larger than tablet"
+      "desktop": {
+        "value": "1024",
+        "comment": "devices larger than tablet"
       },
-      "xl": {
-        "value": "90",
-        "comment": "1440px, devices with high resolution displays"
+      "hd": {
+        "value": "1440px",
+        "comment": "devices with high resolution displays"
       }
     }
   }

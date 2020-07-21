@@ -25,6 +25,11 @@ StyleDictionary.registerFilter({
 });
 
 StyleDictionary.registerFilter({
+  name: 'isCategorySizeAndTypeBreakpoint',
+  matcher: (prop) => prop.attributes.category === 'size' && prop.attributes.type === 'breakpoint',
+});
+
+StyleDictionary.registerFilter({
   name: 'isNotTypeBase',
   matcher: (prop) => prop.attributes.type !== 'base',
 });
