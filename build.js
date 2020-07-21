@@ -115,9 +115,9 @@ StyleDictionary.registerFormat({
               if (variation === 'all') {
                 output += `.${utilityClass} { ${property}: ${prop.value} }\n\n`; 
               } else if (variation === 'x') {
-                output += `.${utilityClass} { ${property}: 0 ${prop.value} 0 ${prop.value} }\n\n`; 
+                output += `.${utilityClass} { ${property}: 0 ${prop.value} }\n\n`; 
               } else if (variation === 'y') {
-                output += `.${utilityClass} { ${property}: ${prop.value} 0 ${prop.value} 0 }\n\n`; 
+                output += `.${utilityClass} { ${property}: ${prop.value} 0 }\n\n`; 
               }
             }
           });
