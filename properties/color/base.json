@@ -27,16 +27,16 @@
         "900"  : { "value": "#1F1600", "attributes": {"font": "inverse"}}
       },
       "yellow": {
-        "50"  : { "value": "#FFFADD", "attributes": {"font": "base"}},
-        "100"  : { "value": "#FCF1B3", "attributes": {"font": "base"}},
-        "200"  : { "value": "#F8E885", "attributes": {"font": "base"}},
-        "300"  : { "value": "#F6DE56", "attributes": {"font": "base"}},
-        "400"  : { "value": "#F3D529", "attributes": {"font": "base"}},
-        "500"  : { "value": "#D9BC11", "attributes": {"font": "base"}},
-        "600"  : { "value": "#D9BC11", "attributes": {"font": "base"}},
-        "700"  : { "value": "#796804", "attributes": {"font": "inverse"}},
-        "800"  : { "value": "#483F00", "attributes": {"font": "inverse"}},
-        "900"  : { "value": "#1A1500", "attributes": {"font": "inverse"}}
+        "50"  : { "value": "#FFFADA", "attributes": {"font": "base"}},
+        "100"  : { "value": "#FFF1AD", "attributes": {"font": "base"}},
+        "200"  : { "value": "#FFE77D", "attributes": {"font": "base"}},
+        "300"  : { "value": "#FFDE4B", "attributes": {"font": "base"}},
+        "400"  : { "value": "#FFD41A", "attributes": {"font": "base"}},
+        "500"  : { "value": "#E6BB00", "attributes": {"font": "base"}},
+        "600"  : { "value": "#B39100", "attributes": {"font": "base"}},
+        "700"  : { "value": "#806800", "attributes": {"font": "inverse"}},
+        "800"  : { "value": "#4E3E00", "attributes": {"font": "inverse"}},
+        "900"  : { "value": "#1C1500", "attributes": {"font": "inverse"}}
       },
       "green": {
         "50"  : { "value": "#C3ECD8", "attributes": {"font": "base"}},
@@ -101,7 +101,7 @@
       "grey": {
         "50"  : { "value": "#ECF5F0", "attributes": {"font": "base"}},
         "100"  : { "value": "#D5DCD7", "attributes": {"font": "base"}},
-        "200"  : { "value": "#A0ADA4", "attributes": {"font": "base"}},
+        "200"  : { "value": "#BBC4BE", "attributes": {"font": "base"}},
         "300"  : { "value": "#A0ADA4", "attributes": {"font": "base"}},
         "400"  : { "value": "#86968A", "attributes": {"font": "base"}},
         "500"  : { "value": "#6C7C70", "attributes": {"font": "base"}},

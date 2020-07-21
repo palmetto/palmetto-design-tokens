@@ -5,63 +5,53 @@
       "transformGroup": "scss",
       "buildPath": "build/scss/",
       "files": [{
-          "destination": "variables-color.scss",
-          "format": "scss/variables",
-          "filter": "isCategoryColor"
-        },
-        {
-          "destination": "variables-size.scss",
-          "format": "scss/variables",
-          "filter": "isCategorySize"
-        }
-      ]
+        "destination": "variables-color.scss",
+        "format": "scss/variables",
+        "filter": "isCategoryColor"
+      }, {
+        "destination": "variables-size.scss",
+        "format": "scss/variables",
+        "filter": "isCategorySize"
+      }]
     },
     "css": {
       "transformGroup": "css",
       "buildPath": "build/css/",
       "files": [{
-          "destination": "variables-color.css",
-          "format": "css/variables",
-          "filter": "isCategoryColor"
-        },
-        {
-          "destination": "variables-size.css",
-          "format": "css/variables",
-          "filter": "isCategorySize"
-        }
-      ]
+        "destination": "variables-color.css",
+        "format": "css/variables",
+        "filter": "isCategoryColor"
+      }, {
+        "destination": "variables-size.css",
+        "format": "css/variables",
+        "filter": "isCategorySize"
+      }]
     },
     "cssUtilities": {
       "buildPath": "build/utilities/",
       "transformGroup": "css",
-      "files": [
-        {
-          "destination": "utilities-size.css",
-          "format": "utilityClass",
-          "filter": "isCategorySize"
-        },
-        {
-          "destination": "utilities-color.css",
-          "format": "utilityClass",
-          "filter": "isCategoryColor"
-        }
-      ]
+      "files": [{
+        "destination": "utilities-size.css",
+        "format": "utilityClass",
+        "filter": "isCategorySize"
+      }, {
+        "destination": "utilities-color.css",
+        "format": "utilityClass",
+        "filter": "isCategoryColor"
+      }]
     },
     "sassUtilities": {
       "buildPath": "build/utilities/",
       "transformGroup": "scss",
-      "files": [
-        {
-          "destination": "utilities-size.scss",
-          "format": "utilityClass",
-          "filter": "isCategorySize"
-        },
-        {
-          "destination": "utilities-color.scss",
-          "format": "utilityClass",
-          "filter": "isCategoryColor"
-        }
-      ]
+      "files": [{
+        "destination": "utilities-size.scss",
+        "format": "utilityClass",
+        "filter": "isCategorySize"
+      }, {
+        "destination": "utilities-color.scss",
+        "format": "utilityClass",
+        "filter": "isCategoryColor"
+      }]
     },
     "js": {
       "transformGroup": "js",
@@ -78,3 +68,4 @@
     }
   }
 }
+
