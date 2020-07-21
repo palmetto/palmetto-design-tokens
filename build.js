@@ -68,7 +68,7 @@ const spacingUtilities = [
     "tokenCategory": "size",
     "tokenType": "spacing",
     "CSSprop": "margin",
-    "variations": ["", "top", "right", "bottom", "left", "x", "y"],
+    "variations": ["", "top", "right", "bottom", "left", "h", "v"],
   },
   {
     "name": "padding",
