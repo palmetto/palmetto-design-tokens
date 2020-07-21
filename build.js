@@ -61,21 +61,66 @@ var utilities = [{
   },
 ];
 
+const spacingUtilities = [
+  {
+    "name": "margin",
+    "abbreviation": "m",
+    "tokenCategory": "size",
+    "tokenType": "spacing",
+    "CSSprop": "margin",
+    "variations": ["all", "top", "right", "bottom", "left", "x", "y"],
+  },
+  {
+    "name": "padding",
+    "abbreviation": "p",
+    "tokenCategory": "size",
+    "tokenType": "spacing",
+    "CSSprop": "padding",
+    "variations": ["all", "top", "right", "bottom", "left", "x", "y"],
+  },
+]
+
 
 StyleDictionary.registerFormat({
   name: 'utilityClass',
   formatter: function (dictionary, platform) {
     let output = '';
-    dictionary.allProperties.forEach(function (prop) {
+    dictionary.allProperties.forEach(prop => {
       const tokenCategory = prop.attributes.category;
       const tokenType = prop.attributes.type;
-      utilities.forEach(function (utility) {
+
+      utilities.forEach(utility => {
         if (tokenCategory === utility.tokenCategory && tokenType === utility.tokenType) {
           let utilityClass = `${utility.name}-${prop.attributes.item}`;
           if (prop.attributes.subitem && prop.attributes.subitem !== 'base') {
             utilityClass += `-${prop.attributes.subitem}`;
           }
-          output += `.${utilityClass} { ${utility.CSSprop}: ${prop.value} }\n\n`
+          output += `.${utilityClass} { ${utility.CSSprop}: ${prop.value} }\n\n`;
+        }
+      });
+
+      spacingUtilities.forEach(utility => {
+        if (tokenCategory === utility.tokenCategory && tokenType === utility.tokenType) {
+          const single = ['top', 'right', 'bottom', 'left'];
+          const compound = ['all', 'x', 'y'];
+          utility.variations.forEach(variation => {
+            let property;
+            let utilityClass = `${utility.abbreviation}-${variation}-${prop.attributes.item}`;
+            if (single.includes(variation)) {
+              property = `${utility.name}-${variation}`;
+              output += `.${utilityClass} { ${property}: ${prop.value} }\n\n`;
+            }
+            else if (compound.includes(variation)) {
+              property = utility.name;
+              if (variation === 'all') {
+                output += `.${utilityClass} { ${property}: ${prop.value} }\n\n`; 
+              } else if (variation === 'x') {
+                output += `.${utilityClass} { ${property}: 0 ${prop.value} 0 ${prop.value} }\n\n`; 
+              } else if (variation === 'y') {
+                output += `.${utilityClass} { ${property}: ${prop.value} 0 ${prop.value} 0 }\n\n`; 
+              }
+            }
+          });
         }
       });
     });
