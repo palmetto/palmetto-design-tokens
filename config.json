@@ -1,84 +1,84 @@
 {
-    "source": ["properties/**/*.json"],
-    "platforms": {
-      "scss": {
-        "transformGroup": "scss",
-        "buildPath": "build/scss/",
-        "files": [{
-          "destination": "variables-color.scss",
-          "format": "scss/variables",
-          "filter": "isCategoryColor"
-        }, {
-          "destination": "variables-size.scss",
-          "format": "scss/variables",
-          "filter": "isCategorySize"
-        }]
-      },
-      "css": {
-        "transformGroup": "css",
-        "buildPath": "build/css/",
-        "files": [{
-          "destination": "variables-color.css",
-          "format": "css/variables",
-          "filter": "isCategoryColor"
-        }, {
-          "destination": "variables-size.css",
-          "format": "css/variables",
-          "filter": "isCategorySize"
-        }]
-      },
-      "cssUtilities": {
-        "buildPath": "build/utilities/",
-        "transformGroup": "css",
-        "files": [{
-          "destination": "utilities-size.css",
-          "format": "utilityClass",
-          "filter": "isCategorySize"
-        }, {
-          "destination": "utilities-color.css",
-          "format": "utilityClass",
-          "filter": "isCategoryColor"
-        }]
-      },
-      "sassUtilities": {
-        "buildPath": "build/utilities/",
-        "transformGroup": "scss",
-        "files": [{
-          "destination": "utilities-size.scss",
-          "format": "utilityClass",
-          "filter": "isCategorySize"
-        }, {
-          "destination": "utilities-color.scss",
-          "format": "utilityClass",
-          "filter": "isCategoryColor"
-        }]
-      },
-      "js": {
-        "transformGroup": "js",
-        "buildPath": "build/js/",
-        "files": [{
-          "destination": "variables-color.js",
-          "format": "javascript/module",
-          "filter": "isCategoryColor"
-        }, {
-          "destination": "variables-size.js",
-          "format": "javascript/module",
-          "filter": "isCategorySize"
-        }]
-      },
-      "web": {
-        "transformGroup": "js",
-        "buildPath": "build/json/",
-        "files": [{
-          "destination": "variables-color.json",
-          "format": "json",
-          "filter": "isCategoryColor"
-        }, {
-          "destination": "variables-size.json",
-          "format": "json",
-          "filter": "isCategorySize"
-        }]
-      }
+  "source": ["properties/**/*.json"],
+  "platforms": {
+    "scss": {
+      "transformGroup": "scss",
+      "buildPath": "build/scss/",
+      "files": [{
+        "destination": "variables-color.scss",
+        "format": "scss/variables",
+        "filter": "isCategoryColor"
+      }, {
+        "destination": "variables-size.scss",
+        "format": "scss/variables",
+        "filter": "isCategorySize"
+      }]
+    },
+    "css": {
+      "transformGroup": "css",
+      "buildPath": "build/css/",
+      "files": [{
+        "destination": "variables-color.css",
+        "format": "css/variables",
+        "filter": "isCategoryColor"
+      }, {
+        "destination": "variables-size.css",
+        "format": "css/variables",
+        "filter": "isCategorySize"
+      }]
+    },
+    "cssUtilities": {
+      "buildPath": "build/utilities/",
+      "transformGroup": "css",
+      "files": [{
+        "destination": "utilities-size.css",
+        "format": "utilityClass",
+        "filter": "isCategorySize"
+      }, {
+        "destination": "utilities-color.css",
+        "format": "utilityClass",
+        "filter": "isCategoryColor"
+      }]
+    },
+    "sassUtilities": {
+      "buildPath": "build/utilities/",
+      "transformGroup": "scss",
+      "files": [{
+        "destination": "utilities-size.scss",
+        "format": "utilityClass",
+        "filter": "isCategorySize"
+      }, {
+        "destination": "utilities-color.scss",
+        "format": "utilityClass",
+        "filter": "isCategoryColor"
+      }]
+    },
+    "js": {
+      "transformGroup": "js",
+      "buildPath": "build/js/",
+      "files": [{
+        "destination": "variables-color.js",
+        "format": "javascript/module",
+        "filter": "isCategoryColor"
+      }, {
+        "destination": "variables-size.js",
+        "format": "javascript/module",
+        "filter": "isCategorySize"
+      }]
+    },
+    "web": {
+      "transformGroup": "js",
+      "buildPath": "build/json/",
+      "files": [{
+        "destination": "variables-color.json",
+        "format": "json",
+        "filter": "isCategoryColor"
+      }, {
+        "destination": "variables-size.json",
+        "format": "json",
+        "filter": "isCategorySize"
+      }]
     }
   }
-  
+}
+
