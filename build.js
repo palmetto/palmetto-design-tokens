@@ -104,7 +104,7 @@ StyleDictionary.registerFormat({
       spacingUtilities.forEach(utility => {
         if (tokenCategory === utility.tokenCategory && tokenType === utility.tokenType) {
           const single = ['top', 'right', 'bottom', 'left']; // CSS Atribute specifies the variation. E.G: 'margin-bottom: <value>'
-          const compound = ['all', 'h', 'v']; // CSS Attribute applied to multiple sides of an element: E.G: 'margin: <value> <value>'
+          const compound = ['', 'h', 'v']; // CSS Attribute applied to multiple sides of an element: E.G: 'margin: <value> <value>'
 
           // Iterate through variations
           utility.variations.forEach(variation => {
@@ -121,7 +121,7 @@ StyleDictionary.registerFormat({
               output += `.${utilityClass} { ${property}: ${prop.value} }\n\n`;
             } else if (compound.includes(variation)) { // For values applied to multiple sides.
               property = utility.name;
-              if (variation === 'all') {
+              if (variation === '') {
                 output += `.${utilityClass} { ${property}: ${prop.value} }\n\n`; 
               } else if (variation === 'h') {
                 output += `.${utilityClass} { ${property}: 0 ${prop.value} }\n\n`; 
