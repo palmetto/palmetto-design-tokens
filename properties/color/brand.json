@@ -69,10 +69,13 @@
         "base":    { "value": "{color.base.grey.700.value}" }
       },
       "light": {
-        "base":    { "value": "{color.base.white.value}" }
+        "base":    { "value": "{color.base.grey.100.value}" }
       },
       "black": {
         "base":    { "value": "{color.base.black.value}" }
+      },
+      "white": {
+        "base":    { "value": "{color.base.white.value}" }
       }
     }
   }
