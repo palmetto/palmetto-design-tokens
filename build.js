@@ -68,7 +68,7 @@ const spacingUtilities = [
     "tokenCategory": "size",
     "tokenType": "spacing",
     "CSSprop": "margin",
-    "variations": ["all", "top", "right", "bottom", "left", "x", "y"],
+    "variations": ["", "top", "right", "bottom", "left", "x", "y"],
   },
   {
     "name": "padding",
@@ -76,7 +76,7 @@ const spacingUtilities = [
     "tokenCategory": "size",
     "tokenType": "spacing",
     "CSSprop": "padding",
-    "variations": ["all", "top", "right", "bottom", "left", "x", "y"],
+    "variations": ["", "top", "right", "bottom", "left", "h", "v"],
   },
 ]
 
@@ -89,6 +89,7 @@ StyleDictionary.registerFormat({
       const tokenCategory = prop.attributes.category;
       const tokenType = prop.attributes.type;
 
+      // Most utilities that follow standard patterns. 
       utilities.forEach(utility => {
         if (tokenCategory === utility.tokenCategory && tokenType === utility.tokenType) {
           let utilityClass = `${utility.name}-${prop.attributes.item}`;
@@ -99,24 +100,32 @@ StyleDictionary.registerFormat({
         }
       });
 
+      // Spacing utilities which follow specific patterns with multiple variations
       spacingUtilities.forEach(utility => {
         if (tokenCategory === utility.tokenCategory && tokenType === utility.tokenType) {
-          const single = ['top', 'right', 'bottom', 'left'];
-          const compound = ['all', 'x', 'y'];
+          const single = ['top', 'right', 'bottom', 'left']; // CSS Atribute specifies the variation. E.G: 'margin-bottom: <value>'
+          const compound = ['all', 'h', 'v']; // CSS Attribute applied to multiple sides of an element: E.G: 'margin: <value> <value>'
+
+          // Iterate through variations
           utility.variations.forEach(variation => {
             let property;
-            let utilityClass = `${utility.abbreviation}-${variation}-${prop.attributes.item}`;
+            let utilityClass;
+
+            // Name the class with it's variation
+            if (variation) utilityClass = `${utility.abbreviation}-${variation}-${prop.attributes.item}`;
+            else utilityClass = `${utility.abbreviation}-${prop.attributes.item}`;
+
+            // For specific sides of an element
             if (single.includes(variation)) {
               property = `${utility.name}-${variation}`;
               output += `.${utilityClass} { ${property}: ${prop.value} }\n\n`;
-            }
-            else if (compound.includes(variation)) {
+            } else if (compound.includes(variation)) { // For values applied to multiple sides.
               property = utility.name;
               if (variation === 'all') {
                 output += `.${utilityClass} { ${property}: ${prop.value} }\n\n`; 
-              } else if (variation === 'x') {
+              } else if (variation === 'h') {
                 output += `.${utilityClass} { ${property}: 0 ${prop.value} }\n\n`; 
-              } else if (variation === 'y') {
+              } else if (variation === 'v') {
                 output += `.${utilityClass} { ${property}: ${prop.value} 0 }\n\n`; 
               }
             }
