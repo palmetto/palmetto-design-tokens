@@ -123,9 +123,9 @@ StyleDictionary.registerFormat({
               if (variation === '') {
                 output += `.${utilityClass} { ${property}: ${prop.value} }\n\n`;
               } else if (variation === 'h') {
-                output += `.${utilityClass} { ${property}: 0 ${prop.value} }\n\n`;
+                output += `.${utilityClass} { ${property}-left: ${prop.value}; ${property}-right: ${prop.value} }\n\n`;
               } else if (variation === 'v') {
-                output += `.${utilityClass} { ${property}: ${prop.value} 0 }\n\n`;
+                output += `.${utilityClass} { ${property}-top: ${prop.value}; ${property}-bottom: ${prop.value} }\n\n`;
               }
             }
           });

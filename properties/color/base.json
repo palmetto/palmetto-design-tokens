@@ -44,7 +44,7 @@
         "200"  : { "value": "#A0DEBF", "attributes": {"font": "base"}},
         "300"  : { "value": "#7BD0A5", "attributes": {"font": "base"}},
         "400"  : { "value": "#58C38D", "attributes": {"font": "base"}},
-        "500"  : { "value": "#2F8459", "attributes": {"font": "base"}},
+        "500"  : { "value": "#3EA973", "attributes": {"font": "base"}},
         "600"  : { "value": "#2F8459", "attributes": {"font": "inverse"}},
         "700"  : { "value": "#1F5E3F", "attributes": {"font": "inverse"}},
         "800"  : { "value": "#0F3925", "attributes": {"font": "inverse"}},
