@@ -22,7 +22,7 @@
         "400"  : { "value": "#FFAA1A", "attributes": {"font": "base"}},
         "500"  : { "value": "#E68900", "attributes": {"font": "base"}},
         "600"  : { "value": "#B37600", "attributes": {"font": "base"}},
-        "700"  : { "value": "#4F3D00", "attributes": {"font": "inverse"}},
+        "700"  : { "value": "#815D00", "attributes": {"font": "inverse"}},
         "800"  : { "value": "#4F3D00", "attributes": {"font": "inverse"}},
         "900"  : { "value": "#1F1600", "attributes": {"font": "inverse"}}
       },
@@ -44,7 +44,7 @@
         "200"  : { "value": "#A0DEBF", "attributes": {"font": "base"}},
         "300"  : { "value": "#7BD0A5", "attributes": {"font": "base"}},
         "400"  : { "value": "#58C38D", "attributes": {"font": "base"}},
-        "500"  : { "value": "#2F8459", "attributes": {"font": "base"}},
+        "500"  : { "value": "#3EA973", "attributes": {"font": "base"}},
         "600"  : { "value": "#2F8459", "attributes": {"font": "inverse"}},
         "700"  : { "value": "#1F5E3F", "attributes": {"font": "inverse"}},
         "800"  : { "value": "#0F3925", "attributes": {"font": "inverse"}},
@@ -105,7 +105,7 @@
         "300"  : { "value": "#A0ADA4", "attributes": {"font": "base"}},
         "400"  : { "value": "#86968A", "attributes": {"font": "base"}},
         "500"  : { "value": "#6C7C70", "attributes": {"font": "base"}},
-        "600"  : { "value": "#546158", "attributes": {"font": "inverse"}},
+        "600"  : { "value": "#4D524F", "attributes": {"font": "inverse"}},
         "700"  : { "value": "#3C453E", "attributes": {"font": "inverse"}},
         "800"  : { "value": "#2A2D2B", "attributes": {"font": "inverse"}},
         "900"  : { "value": "#080F08", "attributes": {"font": "inverse"}}

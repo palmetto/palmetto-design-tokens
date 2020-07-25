@@ -65,7 +65,19 @@
         "format": "javascript/module",
         "filter": "isCategorySize"
       }]
+    },
+    "json": {
+      "transformGroup": "js",
+      "buildPath": "build/json/",
+      "files": [{
+        "destination": "variables-color.json",
+        "format": "json",
+        "filter": "isCategoryColor"
+      }, {
+        "destination": "variables-size.json",
+        "format": "json",
+        "filter": "isCategorySize"
+      }]
     }
   }
 }
-
