@@ -3,19 +3,23 @@
     "breakpoint": {
       "phone": {
         "value": "480",
-        "comment": "devices smaller than tablets"
+        "comment": "devices smaller than tablets",
+        "unit": "px"
       },
       "tablet": {
         "value": "768",
-        "comment": "devices larger than phone"
+        "comment": "devices larger than phone",
+        "unit": "px"
       },
       "desktop": {
         "value": "1024",
-        "comment": "devices larger than tablet"
+        "comment": "devices larger than tablet",
+        "unit": "px"
       },
       "hd": {
-        "value": "1440px",
-        "comment": "devices with high resolution displays"
+        "value": "1440",
+        "comment": "devices with high resolution displays",
+        "unit": "px"
       }
     }
   }

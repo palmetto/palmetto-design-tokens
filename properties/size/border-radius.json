@@ -1,10 +1,11 @@
 {
   "size": {
     "border-radius": {
-      "xs": { "value": "0.125" },
-      "sm": { "value": "0.25" },
-      "md": { "value": ".5" },
-      "lg": { "value": "1" }
+      "xs": { "value": "0.125", "unit": "rem" },
+      "sm": { "value": "0.25", "unit": "rem" },
+      "md": { "value": ".5", "unit": "rem" },
+      "lg": { "value": "1", "unit": "rem" },
+      "circle": { "value": "50", "unit": "%" }
     }
   }
 }
