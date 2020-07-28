@@ -14,21 +14,6 @@ StyleDictionary.registerFilter({
   matcher: (prop) => prop.attributes.category === 'size',
 });
 
-StyleDictionary.registerFilter({
-  name: 'isCategorySizeAndTypeFont',
-  matcher: (prop) => prop.attributes.category === 'size' && prop.attributes.type === 'font',
-});
-
-StyleDictionary.registerFilter({
-  name: 'isCategorySizeAndTypeBorderRadius',
-  matcher: (prop) => prop.attributes.category === 'size' && prop.attributes.type === 'border-radius',
-});
-
-StyleDictionary.registerFilter({
-  name: 'isNotTypeBase',
-  matcher: (prop) => prop.attributes.type !== 'base',
-});
-
 var utilities = [{
     "name": "font-color",
     "tokenCategory": "color",
@@ -82,7 +67,7 @@ const spacingUtilities = [{
 
 StyleDictionary.registerFormat({
   name: 'utilityClass',
-  formatter: function (dictionary, platform) {
+  formatter: function (dictionary) {
     let output = '';
     dictionary.allProperties.forEach(prop => {
       const tokenCategory = prop.attributes.category;
@@ -135,6 +120,17 @@ StyleDictionary.registerFormat({
 
     return output;
   }
+});
+
+StyleDictionary.registerTransform({
+  name: 'size/use-unit',
+  type: 'value',
+  matcher: function(prop) {
+    return prop.attributes.category === 'size';
+  },
+  transformer: function(prop) {
+    return prop.original.value + prop.original.unit;
+  },
 });
 
 // APPLY THE CONFIGURATION
