@@ -3,22 +3,22 @@
     "breakpoint": {
       "sm": {
         "value": "576",
-        "comment": "small devices, landscape phones",
+        "comment": "small devices, landscape phones and larger",
         "unit": "px"
       },
       "md": {
         "value": "768",
-        "comment": "tablets",
+        "comment": "tablets and larger",
         "unit": "px"
       },
       "lg": {
         "value": "992",
-        "comment": "landscape tablets, desktops",
+        "comment": "landscape tablets, desktops and larger",
         "unit": "px"
       },
       "xl": {
         "value": "1280",
-        "comment": "large desktops",
+        "comment": "large desktops and larger",
         "unit": "px"
       }
     }
