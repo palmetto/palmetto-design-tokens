@@ -1,24 +1,24 @@
 {
   "size": {
     "breakpoint": {
-      "phone": {
-        "value": "480",
-        "comment": "viewports smaller than tablets",
+      "sm": {
+        "value": "576",
+        "comment": "small devices, landscape phones",
         "unit": "px"
       },
-      "tablet": {
+      "md": {
         "value": "768",
-        "comment": "viewports larger than phone",
+        "comment": "tablets",
         "unit": "px"
       },
-      "desktop": {
-        "value": "1024",
-        "comment": "viewports larger than tablet",
+      "lg": {
+        "value": "992",
+        "comment": "landscape tablets, desktops",
         "unit": "px"
       },
-      "hd": {
-        "value": "1440",
-        "comment": "viewports with high resolution",
+      "xl": {
+        "value": "1280",
+        "comment": "large desktops",
         "unit": "px"
       }
     }
