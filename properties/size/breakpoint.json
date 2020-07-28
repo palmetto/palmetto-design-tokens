@@ -1,22 +1,17 @@
 {
   "size": {
     "breakpoint": {
-      "sm": {
-        "value": "576",
-        "comment": "small devices, landscape phones and larger",
+      "tablet": {
+        "value": "608",
+        "comment": "landscape phones, tablets and larger",
         "unit": "px"
       },
-      "md": {
-        "value": "768",
-        "comment": "tablets and larger",
-        "unit": "px"
-      },
-      "lg": {
+      "desktop": {
         "value": "992",
         "comment": "landscape tablets, desktops and larger",
         "unit": "px"
       },
-      "xl": {
+      "hd": {
         "value": "1280",
         "comment": "large desktops and larger",
         "unit": "px"
