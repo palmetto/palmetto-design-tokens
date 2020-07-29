@@ -1,4 +1,5 @@
 const StyleDictionary = require('style-dictionary');
+const { kebabCase } = require('./utils/kebabCase');
 
 console.log('Build started...');
 console.log('\n==============================================');
@@ -133,13 +134,21 @@ StyleDictionary.registerTransform({
   },
 });
 
+StyleDictionary.registerTransform({
+  name: 'name/cti/custom-kebab',
+  type: 'name',
+  transformer: function(prop, options) {
+    return kebabCase([options.prefix].concat(prop.path).join(' '));
+  },
+});
+
 // APPLY THE CONFIGURATION
 // IMPORTANT: the registration of custom transforms
 // needs to be done _before_ applying the configuration
 StyleDictionaryExtended = StyleDictionary.extend('./config.json');
 
-
 // FINALLY, BUILD ALL THE PLATFORMS
+StyleDictionaryExtended.cleanAllPlatforms();
 StyleDictionaryExtended.buildAllPlatforms();
 
 
