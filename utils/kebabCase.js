@@ -25,6 +25,4 @@ function kebabCase(string) {
   return result;
 }
 
-module.exports = {
-  kebabCase,
-};
+module.exports = kebabCase;
