@@ -1,0 +1,21 @@
+{
+  "size": {
+    "breakpoint": {
+      "tablet": {
+        "value": "608",
+        "comment": "landscape phones, tablets and larger",
+        "unit": "px"
+      },
+      "desktop": {
+        "value": "992",
+        "comment": "landscape tablets, desktops and larger",
+        "unit": "px"
+      },
+      "hd": {
+        "value": "1280",
+        "comment": "large desktops and larger",
+        "unit": "px"
+      }
+    }
+  }
+}

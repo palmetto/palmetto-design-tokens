@@ -2,7 +2,7 @@
   "source": ["properties/**/*.json"],
   "platforms": {
     "scss": {
-      "transformGroup": "scss",
+      "transforms": ["attribute/cti", "name/cti/custom-kebab", "time/seconds", "content/icon", "size/use-unit", "color/css"],
       "buildPath": "build/scss/",
       "files": [{
         "destination": "variables-color.scss",
@@ -15,7 +15,7 @@
       }]
     },
     "css": {
-      "transformGroup": "css",
+      "transforms": ["attribute/cti", "name/cti/custom-kebab", "time/seconds", "content/icon", "size/use-unit", "color/css"],
       "buildPath": "build/css/",
       "files": [{
         "destination": "variables-color.css",
@@ -29,7 +29,7 @@
     },
     "cssUtilities": {
       "buildPath": "build/utilities/",
-      "transformGroup": "css",
+      "transforms": ["attribute/cti", "name/cti/custom-kebab", "time/seconds", "content/icon", "size/use-unit", "color/css"],
       "files": [{
         "destination": "utilities-size.css",
         "format": "utilityClass",
@@ -42,7 +42,7 @@
     },
     "sassUtilities": {
       "buildPath": "build/utilities/",
-      "transformGroup": "scss",
+      "transforms": ["attribute/cti", "name/cti/custom-kebab", "time/seconds", "content/icon", "size/use-unit", "color/css"],
       "files": [{
         "destination": "utilities-size.scss",
         "format": "utilityClass",
@@ -54,7 +54,7 @@
       }]
     },
     "js": {
-      "transformGroup": "js",
+      "transforms": ["attribute/cti", "name/cti/pascal", "size/use-unit", "color/hex"],
       "buildPath": "build/js/",
       "files": [{
         "destination": "variables-color.js",
@@ -67,7 +67,7 @@
       }]
     },
     "json": {
-      "transformGroup": "js",
+      "transforms": ["attribute/cti", "name/cti/pascal", "size/use-unit", "color/hex"],
       "buildPath": "build/json/",
       "files": [{
         "destination": "variables-color.json",
