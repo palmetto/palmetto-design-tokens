@@ -1,7 +1,7 @@
 const StyleDictionary = require('style-dictionary');
 const utilityClass = require('./formats/utilityClass');
-const useSizeUnit = require('./transforms/useSizeUnit');
-const customKebab = require('./transforms/customKebab');
+const useSizeUnit = require('./transforms/useSizeUnit/useSizeUnit');
+const customKebab = require('./transforms/customKebab/customKebab');
 
 console.log('Build started...');
 console.log('\n==============================================');
