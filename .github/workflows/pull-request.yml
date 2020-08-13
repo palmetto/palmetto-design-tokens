@@ -1,0 +1,33 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Pull Request
+
+# Controls when the action will run. Triggers the workflow on push or pull request
+# events but only for the master branch
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+  push:
+    branches: [develop, master]
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  unit-tests:
+    name: unit tests
+    runs-on: ubuntu-latest
+    env:
+      CI: true
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/cache@v1
+        with:
+          path: ~/.cache/yarn
+          key: ${{ runner.os }}-yarn-${{ hashFiles(format('{0}{1}', github.workspace, '/yarn.lock')) }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+      - name: install dependencies
+        run: yarn
+      - name: unit test
+        run: |
+          yarn test
+

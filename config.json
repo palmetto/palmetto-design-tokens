@@ -32,11 +32,11 @@
       "transforms": ["attribute/cti", "name/cti/custom-kebab", "time/seconds", "content/icon", "size/use-unit", "color/css"],
       "files": [{
         "destination": "utilities-size.css",
-        "format": "utilityClass",
+        "format": "css/utility-classes",
         "filter": "isCategorySize"
       }, {
         "destination": "utilities-color.css",
-        "format": "utilityClass",
+        "format": "css/utility-classes",
         "filter": "isCategoryColor"
       }]
     },
@@ -45,11 +45,11 @@
       "transforms": ["attribute/cti", "name/cti/custom-kebab", "time/seconds", "content/icon", "size/use-unit", "color/css"],
       "files": [{
         "destination": "utilities-size.scss",
-        "format": "utilityClass",
+        "format": "css/utility-classes",
         "filter": "isCategorySize"
       }, {
         "destination": "utilities-color.scss",
-        "format": "utilityClass",
+        "format": "css/utility-classes",
         "filter": "isCategoryColor"
       }]
     },
