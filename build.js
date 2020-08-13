@@ -1,5 +1,5 @@
 const StyleDictionary = require('style-dictionary');
-const utilityClass = require('./formats/utilityClass');
+const utilityClass = require('./formats/utilityClass/utilityClass');
 const useSizeUnit = require('./transforms/useSizeUnit/useSizeUnit');
 const customKebab = require('./transforms/customKebab/customKebab');
 
@@ -25,7 +25,7 @@ StyleDictionary.registerTransform(customKebab);
 // APPLY THE CONFIGURATION
 // IMPORTANT: the registration of custom transforms
 // needs to be done _before_ applying the configuration
-StyleDictionaryExtended = StyleDictionary.extend('./config.json');
+const StyleDictionaryExtended = StyleDictionary.extend('./config.json');
 
 // FINALLY, BUILD ALL THE PLATFORMS
 StyleDictionaryExtended.cleanAllPlatforms();
