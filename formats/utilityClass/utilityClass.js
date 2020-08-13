@@ -75,15 +75,15 @@ const generateSpacingProperties = (utility, prop, variation) => {
   // For specific sides of an element
   if (single.includes(variation)) {
     property += `-${variation}`;
-    output = `${property}: ${prop.value}`;
+    output = `${property}: ${prop.value};`;
   } else if (compound.includes(variation)) { // For values applied to multiple sides.
     property = utility.cssProp;
     if (variation === '') {
-      output = `${property}: ${prop.value}`;
+      output = `${property}: ${prop.value};`;
     } else if (variation === 'h') {
-      output = `${property}-left: ${prop.value}; ${property}-right: ${prop.value}`;
+      output = `${property}-left: ${prop.value}; ${property}-right: ${prop.value};`;
     } else if (variation === 'v') {
-      output = `${property}-top: ${prop.value}; ${property}-bottom: ${prop.value}`;
+      output = `${property}-top: ${prop.value}; ${property}-bottom: ${prop.value};`;
     }
   }
 
@@ -112,9 +112,9 @@ const generateUtilityClass = (utility, prop, variation, breakpoint) => {
     }
 
     if (tokenType === 'spacing') {
-      utilityClass = `.${utilityClass} { ${generateSpacingProperties(utility, prop, variation)} };`;
+      utilityClass = `.${utilityClass} { ${generateSpacingProperties(utility, prop, variation)} }`;
     } else {
-      utilityClass = `.${utilityClass} { ${utility.cssProp}: ${prop.value} };`;
+    utilityClass = `.${utilityClass} { ${utility.cssProp}: ${prop.value}; }`;
     }
   }
 
