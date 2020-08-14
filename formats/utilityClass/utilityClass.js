@@ -97,14 +97,16 @@ const generateUtilityClass = (utility, prop, variation, breakpoint) => {
   let utilityClass;
 
   if (tokenCategory === utility.tokenCategory && tokenType === utility.tokenType) {
-    utilityClass = `${abbreviation ? abbreviation : name}-${prop.attributes.item}`;
-
-    if (prop.attributes.subitem && prop.attributes.subitem !== 'base') {
-      utilityClass += `-${prop.attributes.subitem}`;
-    }
+    utilityClass = `${abbreviation ? abbreviation : name}`;
 
     if (variation) {
       utilityClass += `-${variation}`;
+    }
+
+    utilityClass += `-${prop.attributes.item}`
+
+    if (prop.attributes.subitem && prop.attributes.subitem !== 'base') {
+      utilityClass += `-${prop.attributes.subitem}`;
     }
 
     if (breakpoint) {
