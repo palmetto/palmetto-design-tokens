@@ -29,6 +29,19 @@ CSS Variables imported into a .css file
 ```
 
 
+SASS Utility classes imported into a .scss file
+(NOTE: SCSS and CSS utility classes are the same, we provide both if you wish to maintain consistency in file formats)
+```
+@import '~@palmetto/palmetto-design-tokens/build/utilities/utilities-color.scss'
+@import '~@palmetto/palmetto-design-tokens/build/utilities/utilities-size.scss'
+```
+
+CSS Utility Classes imported into a .css file
+```
+@import '~@palmetto/palmetto-design-tokens/build/utilities/utilities-color.css'
+@import '~@palmetto/palmetto-design-tokens/build/utilities/utilities-size.css'
+```
+
 #### Use variables as needed
 SCSS
 ```
@@ -47,6 +60,11 @@ CSS
 * Color
   * Base
   * Brand
+* Size
+  * Border Radius
+  * Breakpoint
+  * Spacing
+  * Font
 
 
 ## Local Development
@@ -56,27 +74,15 @@ In order to test any local changes you'll need to build tokens, and symlink your
 
 
 ## Releases/Publishing
-A new version of the package will be published on NPM when a new github release is created. **Releases should only be tagged off of the `master` branch, or a specific release branch, but NOT feature branches**.
+We use [semantic-release](https://github.com/semantic-release/semantic-release) for publishing new package versions. A release
+will be published when there is a merge to the master branch and the release will be based on the commit message. Use the following conventions to trigger releases.
 
-Before creating a release, ensure that you've updated the `package.json` to reflect the latest version. If you skip this step, the npm publish will fail. Please follow [Semantic Versioning](https://semver.org) as follows:
+| Commit message                                                                                                                                                                                   | Release type               |
+|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------|
+| `fix(pencil): stop graphite breaking when too much pressure applied`                                                                                                                             | Patch Release              |
+| `feat(pencil): add 'graphiteWidth' option`                                                                                                                                                       | ~~Minor~~ Feature Release  |
+| `perf(pencil): remove graphiteWidth option`<br><br>`BREAKING CHANGE: The graphiteWidth option has been removed.`<br>`The default graphite width of 10mm is always used for performance reasons.` | ~~Major~~ Breaking Release |
 
-* MAJOR version when you make incompatible API changes,
-* MINOR version when you add functionality in a backwards compatible manner, and
-* PATCH version when you make backwards compatible bug fixes.
-
-To draft a release follow these steps: 
-
-1. Under your repository name, click Releases.
-
-1. Click Draft a new release.
-
-1. Type a version number for your release. Versions are based on Git tags. We recommend naming tags that fit within semantic versioning.
-
-1. Use the drop-down menu, and select the branch that contains the project you want to release.
-
-1. Type a title and description for your release.
-
-1. If you're ready to publicize your release, click Publish release. To work on the release later, click Save draft.
 
 ## How can I contribute to this project?
 1. Find an issue that you are interested in addressing or a feature that you would like to add. See [Issues Page](https://github.com/palmetto/palmetto-design-tokens/issues). If you don't see any issues here, feel free to create one.
