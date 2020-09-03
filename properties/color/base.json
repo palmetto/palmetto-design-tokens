@@ -39,7 +39,7 @@
         "900"  : { "value": "#1C1500", "attributes": {"font": "inverse"}}
       },
       "green": {
-        "50"  : { "value": "#C3ECD8", "attributes": {"font": "base"}},
+        "50"  : { "value": "#E3FBEF", "attributes": {"font": "base"}},
         "100"  : { "value": "#C3ECD8", "attributes": {"font": "base"}},
         "200"  : { "value": "#A0DEBF", "attributes": {"font": "base"}},
         "300"  : { "value": "#7BD0A5", "attributes": {"font": "base"}},
