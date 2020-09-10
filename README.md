@@ -73,15 +73,33 @@ To build tokens locally run `npm run build` or `yarn build`
 In order to test any local changes you'll need to build tokens, and symlink your local package into any project that consumes it. See [NPM link](https://docs.npmjs.com/cli/link) or [Yarn link](https://classic.yarnpkg.com/en/docs/cli/link/) for more details.
 
 
-## Releases/Publishing
-We use [semantic-release](https://github.com/semantic-release/semantic-release) for publishing new package versions. A release
-will be published when there is a merge to the master branch and the release will be based on the commit message. Use the following conventions to trigger releases.
+## Releases
+[↥ back to top](#top)
 
-| Commit message                                                                                                                                                                                   | Release type               |
-|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------|
-| `fix(pencil): stop graphite breaking when too much pressure applied`                                                                                                                             | Patch Release              |
-| `feat(pencil): add 'graphiteWidth' option`                                                                                                                                                       | ~~Minor~~ Feature Release  |
-| `perf(pencil): remove graphiteWidth option`<br><br>`BREAKING CHANGE: The graphiteWidth option has been removed.`<br>`The default graphite width of 10mm is always used for performance reasons.` | ~~Major~~ Breaking Release |
+Palmetto Components uses the [semantic-release](https://github.com/semantic-release/semantic-release) npm package to fully automate the release workflow. Instead of manually updating the release version in `package.json`, and creating a new release tag in GitHub for each release, they are automatically triggered by prefixing the commit message when merging to `master`. Upon triggering a release, the package version is bumped depending on the type specified, a release tag is created in GitHub, and the new version is automatically published to [npm](https://www.npmjs.com/).
+
+For e.g., opening a PR to master with the commit message `fix: Resolve bug`, will trigger a minor release and bump the package's version from `0.0.0` to `0.0.1`. Opening a PR with `feat(Table): Finalize tests` will trigger a feature release and bump the package's version from `0.0.0` to `0.1.0`.
+
+The link above provides full documentation for this workflow. However, a comprehensive list of the prefix types, and their intended uses are provide below for quick reference:
+
+### Release Types
+Must be one of the following:
+
+### Major
+* **BREAKING CHANGE**: A set of breaking changes.
+
+### Minor
+* **feat**: A new feature
+
+### Patch
+* **fix**: A bug fix
+* **perf**: A code change that improves performance
+* **ci**: A change to our CI pipelines/workflows.
+* **build**: A change to the library build process (That does not break the consumer API).
+* **test**: Added or improved testing in some area of the library.
+* **refactor**: Changed code structure without affecting features.
+* **docs**: Added to, or improved documentation.
+* **style**: Change in code style without affecting features.
 
 
 ## How can I contribute to this project?
