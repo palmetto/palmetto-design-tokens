@@ -19,6 +19,7 @@
   "license": "MIT",
   "private": false,
   "devDependencies": {
+    "@semantic-release/commit-analyzer": "^8.0.1",
     "jest": "^26.2.2",
     "semantic-release": "^17.1.1",
     "style-dictionary": "^2.10.0"
