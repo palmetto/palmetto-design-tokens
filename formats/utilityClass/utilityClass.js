@@ -2,8 +2,7 @@ const createFileHeader = require('../../utils/createFileHeader/createFileHeader'
 const addNewLines = require('../../utils/addNewLines/addNewLines');
 const indentLine = require('../../utils/indentLine/indentLine');
 
-const utilities = [
-  {
+const utilities = [{
     name: 'font-color',
     tokenCategory: 'color',
     tokenType: 'font',
@@ -54,6 +53,22 @@ const utilities = [
     cssProp: 'padding',
     variations: ['', 'top', 'right', 'bottom', 'left', 'h', 'v'],
   },
+  {
+    name: 'width',
+    abbreviation: 'w',
+    tokenCategory: 'size',
+    tokenType: 'width',
+    cssProp: 'width',
+    variations: [''],
+  },
+  {
+    name: 'height',
+    abbreviation: 'h',
+    tokenCategory: 'size',
+    tokenType: 'height',
+    cssProp: 'height',
+    variations: [''],
+  },
 ];
 
 const nestInsideMediaQuery = (css, breakpoint) => {
@@ -93,7 +108,10 @@ const generateSpacingProperties = (utility, prop, variation) => {
 const generateUtilityClass = (utility, prop, variation, breakpoint) => {
   const tokenCategory = prop.attributes.category;
   const tokenType = prop.attributes.type;
-  const { name, abbreviation } = utility;
+  const {
+    name,
+    abbreviation
+  } = utility;
   let utilityClass;
 
   if (tokenCategory === utility.tokenCategory && tokenType === utility.tokenType) {
@@ -116,15 +134,19 @@ const generateUtilityClass = (utility, prop, variation, breakpoint) => {
     if (tokenType === 'spacing') {
       utilityClass = `.${utilityClass} { ${generateSpacingProperties(utility, prop, variation)} }`;
     } else {
-    utilityClass = `.${utilityClass} { ${utility.cssProp}: ${prop.value}; }`;
+      utilityClass = `.${utilityClass} { ${utility.cssProp}: ${prop.value}; }`;
     }
   }
 
   return utilityClass;
 }
 
-const processUtilities = (utilities, prop, breakpoint, options = { indentationLevel: 0 }) => {
-  const { indentationLevel } = options;
+const processUtilities = (utilities, prop, breakpoint, options = {
+  indentationLevel: 0
+}) => {
+  const {
+    indentationLevel
+  } = options;
   let output = '';
 
   utilities.forEach(utility => {
@@ -144,7 +166,7 @@ const utilityClass = {
   formatter: function (dictionary) {
     let output = createFileHeader();
     const breakpoints = dictionary.allProperties.filter(prop => prop.attributes.type === 'breakpoint');
-  
+
     dictionary.allProperties.forEach(prop => {
       output += processUtilities(utilities, prop);
     });
@@ -152,7 +174,9 @@ const utilityClass = {
     breakpoints.forEach(breakpoint => {
       let responsiveUtilities = '';
       dictionary.allProperties.forEach(prop => {
-        responsiveUtilities += processUtilities(utilities, prop, breakpoint.attributes.item, { indentationLevel: 2 });
+        responsiveUtilities += processUtilities(utilities, prop, breakpoint.attributes.item, {
+          indentationLevel: 2
+        });
       });
       output += nestInsideMediaQuery(responsiveUtilities, breakpoint);
     });
