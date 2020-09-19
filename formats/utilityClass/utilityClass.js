@@ -77,7 +77,6 @@ const utilities = [{
     cssProp: 'height',
     variations: [''],
   },
-
   {
     name: 'maxHeight',
     abbreviation: 'mh',
