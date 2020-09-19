@@ -62,11 +62,27 @@ const utilities = [{
     variations: [''],
   },
   {
+    name: 'maxWidth',
+    abbreviation: 'mw',
+    tokenCategory: 'size',
+    tokenType: 'width',
+    cssProp: 'max-width',
+    variations: [''],
+  },
+  {
     name: 'height',
     abbreviation: 'h',
     tokenCategory: 'size',
     tokenType: 'height',
     cssProp: 'height',
+    variations: [''],
+  },
+  {
+    name: 'maxHeight',
+    abbreviation: 'mh',
+    tokenCategory: 'size',
+    tokenType: 'height',
+    cssProp: 'max-height',
     variations: [''],
   },
 ];
