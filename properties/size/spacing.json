@@ -1,6 +1,7 @@
 {
   "size": {
     "spacing": {
+      "0": { "value": "0", "unit": "" },
       "2xs": { "value": "0.25", "unit": "rem" },
       "xs": { "value": "0.5", "unit": "rem" },
       "sm": { "value": "0.75", "unit": "rem" },
@@ -11,7 +12,8 @@
       "3xl": { "value": "3", "unit": "rem" },
       "4xl": { "value": "4", "unit": "rem" },
       "5xl": { "value": "5", "unit": "rem" },
-      "base": { "value": "{size.spacing.md.value}", "unit": "rem" }
+      "base": { "value": "{size.spacing.md.value}", "unit": "rem" },
+      "inherit": { "value": "inherit", "unit": "" }
     },
     "width": {
       "sm": { "value": "1", "unit": "rem" },
