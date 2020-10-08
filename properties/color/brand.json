@@ -10,7 +10,6 @@
         "darker":  { "value": "{color.base.green.800.value}" },
         "darkest":  { "value": "{color.base.green.900.value}" }
       },
-
       "secondary": {
         "lightest": { "value": "{color.base.blue.50.value}" },
         "lighter": { "value": "{color.base.blue.100.value}" },
@@ -20,7 +19,6 @@
         "darker":  { "value": "{color.base.blue.700.value}" },
         "darkest":  { "value": "{color.base.blue.800.value}" }
       },
-
       "tertiary": {
         "lightest": { "value": "{color.base.purple.50.value}" },
         "lighter": { "value": "{color.base.purple.100.value}" },
@@ -30,7 +28,6 @@
         "darker":  { "value": "{color.base.purple.700.value}" },
         "darkest":  { "value": "{color.base.purple.800.value}" }
       },
-
       "grey": {
         "lightest": { "value": "{color.base.grey.50.value}" },
         "lighter": { "value": "{color.base.grey.100.value}" },
@@ -40,7 +37,6 @@
         "darker":  { "value": "{color.base.grey.700.value}" },
         "darkest":  { "value": "{color.base.grey.800.value}" }
       },
-
       "success": {
         "lightest": { "value": "{color.base.green.50.value}" },
         "lighter": { "value": "{color.base.green.100.value}" },
@@ -50,7 +46,6 @@
         "darker":  { "value": "{color.base.green.700.value}" },
         "darkest":  { "value": "{color.base.green.800.value}" }
       },
-
       "warning": {
         "lightest": { "value": "{color.base.orange.50.value}" },
         "lighter": { "value": "{color.base.orange.100.value}" },
@@ -60,7 +55,6 @@
         "darker":  { "value": "{color.base.orange.700.value}" },
         "darkest":  { "value": "{color.base.orange.800.value}" }
       },
-
       "danger": {
         "lightest": { "value": "{color.base.red.50.value}" },
         "lighter": { "value": "{color.base.red.100.value}" },
@@ -70,7 +64,6 @@
         "darker":  { "value": "{color.base.red.700.value}" },
         "darkest":  { "value": "{color.base.red.800.value}" }
       },
-
       "info": {
         "lightest": { "value": "{color.base.blue.50.value}" },
         "lighter": { "value": "{color.base.blue.100.value}" },
@@ -80,7 +73,6 @@
         "darker":  { "value": "{color.base.blue.700.value}" },
         "darkest":  { "value": "{color.base.blue.800.value}" }
       },
-
       "dark": {
         "base":    { "value": "{color.base.grey.700.value}" }
       },
