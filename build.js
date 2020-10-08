@@ -34,7 +34,7 @@ StyleDictionary.registerTransform(customKebab);
  * Ideally the figma file version _label_ and the npm package version will match
  * but it is not required.
  */
-const FIGMA_FILE_VERSION = '489458217';
+const FIGMA_FILE_VERSION = '489618202';
 
 // APPLY THE CONFIGURATION
 // IMPORTANT: the registration of custom transforms
