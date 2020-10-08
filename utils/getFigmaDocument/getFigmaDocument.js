@@ -14,10 +14,12 @@ const requestConfig = {
 
 const requestUrl = 'https://api.figma.com/v1/files/';
 
-const getFigmaDocument = (id) => (
-  fetch(`${requestUrl}${id}`, requestConfig)
+const getFigmaDocument = (id, fileVersion) => {
+  const version = fileVersion ? `?version=${fileVersion}` : '';
+
+  return fetch(`${requestUrl}${id}${version}`, requestConfig)
     .then(response => response.json())
-    .catch(error => ({ err: error }))
-);
+    .catch(error => ({ err: error }));
+};
 
 module.exports = getFigmaDocument;
