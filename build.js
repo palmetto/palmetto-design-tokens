@@ -41,7 +41,7 @@ const FIGMA_TOKENS_DOCUMENT = 'abGRptpr7iPaMsXdEPVm6W';
  * Ideally the figma file version _label_ and the npm package version will match
  * but it is not required.
  */
-const FIGMA_FILE_VERSION = '489618202';
+const FIGMA_FILE_VERSION = '490821253';
 
 // APPLY THE CONFIGURATION
 // IMPORTANT: the registration of custom transforms
