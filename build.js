@@ -22,6 +22,11 @@ StyleDictionary.registerFilter({
   matcher: (prop) => prop.attributes.category === 'size',
 });
 
+StyleDictionary.registerFilter({
+  name: 'isBrandColor',
+  matcher: (prop) => prop.attributes.category === 'color' && prop.attributes.type === 'brand',
+});
+
 StyleDictionary.registerFormat(utilityClass);
 
 StyleDictionary.registerTransform(useSizeUnit);
@@ -41,7 +46,7 @@ const FIGMA_TOKENS_DOCUMENT = 'abGRptpr7iPaMsXdEPVm6W';
  * Ideally the figma file version _label_ and the npm package version will match
  * but it is not required.
  */
-const FIGMA_FILE_VERSION = '490821253';
+const FIGMA_FILE_VERSION = '490852397';
 
 // APPLY THE CONFIGURATION
 // IMPORTANT: the registration of custom transforms

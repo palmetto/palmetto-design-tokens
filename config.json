@@ -6,7 +6,7 @@
       "files": [{
         "destination": "variables-color.scss",
         "format": "scss/variables",
-        "filter": "isCategoryColor"
+        "filter": "isBrandColor"
       }, {
         "destination": "variables-size.scss",
         "format": "scss/variables",
@@ -19,7 +19,7 @@
       "files": [{
         "destination": "variables-color.css",
         "format": "css/variables",
-        "filter": "isCategoryColor"
+        "filter": "isBrandColor"
       }, {
         "destination": "variables-size.css",
         "format": "css/variables",
