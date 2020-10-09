@@ -41,8 +41,17 @@ const FIGMA_FILE_VERSION = '489618202';
 // needs to be done _before_ applying the configuration
 getFigmaDocument(process.env.FIGMA_TOKENS_DOCUMENT, FIGMA_FILE_VERSION)
   .then(json => {
+    /**
+     * Generate dictionary by recursively parsing FIGMA tokens document.
+     */
     let properties = parseFigmaDocumentTokens(json.document);
-    properties = mapSemanticColors(properties);
+
+    /**
+     * Generate semantic (light, lighter, etc...) colors
+     * from lightness numbers (50, 100, etc...)
+     * It keeps the original colors as well as the semantic versions.
+     */
+    properties = mapSemanticColors(properties); 
 
     const StyleDictionaryExtended = StyleDictionary.extend({
       properties,
