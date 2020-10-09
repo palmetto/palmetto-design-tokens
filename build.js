@@ -28,6 +28,13 @@ StyleDictionary.registerTransform(useSizeUnit);
 StyleDictionary.registerTransform(customKebab);
 
 /**
+ * FIGMA TOKENS DOCUMENT
+ * Id for document where we read tokens. In theory this should never change.
+ */
+const FIGMA_TOKENS_DOCUMENT = 'abGRptpr7iPaMsXdEPVm6W';
+
+/**
+ * FIGMA FILE VERSION
  * The version of the tokens figma file you want to use to build.
  * If you want to publish an updated package,
  * simply bump this version and then merge a PR with the change.
@@ -39,7 +46,7 @@ const FIGMA_FILE_VERSION = '489618202';
 // APPLY THE CONFIGURATION
 // IMPORTANT: the registration of custom transforms
 // needs to be done _before_ applying the configuration
-getFigmaDocument(process.env.FIGMA_TOKENS_DOCUMENT, FIGMA_FILE_VERSION)
+getFigmaDocument(FIGMA_TOKENS_DOCUMENT, FIGMA_FILE_VERSION)
   .then(json => {
     /**
      * Generate dictionary by recursively parsing FIGMA tokens document.
