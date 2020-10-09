@@ -18,4 +18,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          FIGMA_PERSONAL_ACCESS_TOKEN: ${{ secrets.FIGMA_PERSONAL_ACCESS_TOKEN }}
+          FIGMA_TOKENS_DOCUMENT: ${{ secrets.FIGMA_TOKENS_DOCUMENT }}
         run: yarn semantic-release
