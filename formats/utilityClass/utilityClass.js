@@ -182,12 +182,24 @@ const utilityClass = {
   formatter: function (dictionary) {
     let output = createFileHeader();
     const breakpoints = dictionary.allProperties.filter(prop => prop.attributes.type === 'breakpoint');
+    /**
+     * Since our design system uses responsive, mobile-first design,
+     * it is IMPERATIVE that these breakpoints be sorted in ascending order
+     * by their min-width value. This ensures that whenever
+     * there are two matching media queries, the LARGER one will win out.
+     * E.G if the viewport width is 1300px, all media queries match, but if 
+     * there is a class that is applied specifically for the 'hd' viewport
+     * it should win out over the others. The only way to guarantee it
+     * is to have these declared in order so the native CSS cascade works as intended.
+     */
+    const sortedBreakpoints = breakpoints.sort((a, b) => parseInt(a.original.value) - parseInt(b.original.value));
 
     dictionary.allProperties.forEach(prop => {
       output += processUtilities(utilities, prop);
     });
 
-    breakpoints.forEach(breakpoint => {
+    
+    sortedBreakpoints.forEach(breakpoint => {
       let responsiveUtilities = '';
       dictionary.allProperties.forEach(prop => {
         responsiveUtilities += processUtilities(utilities, prop, breakpoint.attributes.item, {
