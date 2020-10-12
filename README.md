@@ -58,19 +58,37 @@ CSS
 
 ## Available Tokens
 * Color
-  * Base
   * Brand
+  * Font
+  * Border
 * Size
+  * Border
   * Border Radius
   * Breakpoint
   * Spacing
   * Font
+  * Width
+  * Height
+  * Box Shadow
+  * Opacity
+  * Z-Index
+  * Line-Height
 
 
 ## Local Development
-To build tokens locally run `npm run build` or `yarn build`
+To build tokens locally run `npm run build` or `yarn build`. NOTE: you will need a local `.env` file with a Figma access token assigned to `FIGMA_PERSONAL_ACCESS_TOKEN`. See [HOW TO GET A FIGMA ACCESS TOKEN](https://www.figma.com/developers/api#authentication). If you are 
+still unsure how to get a working access token, or the process is not working for you, please reach out to one of our library owners.
 
 In order to test any local changes you'll need to build tokens, and symlink your local package into any project that consumes it. See [NPM link](https://docs.npmjs.com/cli/link) or [Yarn link](https://classic.yarnpkg.com/en/docs/cli/link/) for more details.
+
+
+## Updating Tokens
+While style-dictionary typically builds tokens off of raw JSON files, in our case we are actually pulling token names and values directly from a Figma file
+so visual designers can make changes and publish them as tokens. The build process will read the file (The id is a constant in the `build.js` file).
+
+In order to make changes to tokens, you'll need to open the [Design Tokens](https://www.figma.com/file/abGRptpr7iPaMsXdEPVm6W/Design-Tokens) file. Once you've made your changes, Save a new Version of the file in Figma by going to the hamburger menu --> File --> Save to version history...
+
+This will create a new version of the same file. The File ID will remain the same, but you should now be able to go to your file version, and extract the version ID from the URL in the browser. Replace the existing `FIGMA_FILE_VERSION` constant in `build.js` and run a build to confirm that your version is working correctly.
 
 
 ## Releases
