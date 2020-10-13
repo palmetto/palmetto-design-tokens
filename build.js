@@ -3,6 +3,7 @@ const StyleDictionary = require('style-dictionary');
 const getFigmaDocument = require('./utils/getFigmaDocument/getFigmaDocument');
 const parseFigmaDocumentTokens = require('./utils/parseFigmaDocumentTokens/parseFigmaDocumentTokens');
 const mapSemanticColors = require('./utils/mapSemanticColors/mapSemanticColors');
+const generateTokenConstants = require('./utils/generateTokenConstants/generateTokenConstants');
 const dictionaryConfig = require('./config.json');
 const utilityClass = require('./formats/utilityClass/utilityClass');
 const useSizeUnit = require('./transforms/useSizeUnit/useSizeUnit');
@@ -73,9 +74,16 @@ getFigmaDocument(FIGMA_TOKENS_DOCUMENT, FIGMA_FILE_VERSION)
     // FINALLY, BUILD ALL THE PLATFORMS
     StyleDictionaryExtended.cleanAllPlatforms();
     StyleDictionaryExtended.buildAllPlatforms();
+    console.log('\n==============================================');
+    console.log('\nStyle dictionary build completed!');
     
+    // From the built dictionary, generate constants of all token options.
+    generateTokenConstants();
+    console.log('\n==============================================');
+    console.log('\nToken constants generated!');
     
     console.log('\n==============================================');
-    console.log('\nBuild completed!');
+    console.log('\nAll done!');
+    console.log('\n==============================================');
   })
   .catch(err => console.log(err));
