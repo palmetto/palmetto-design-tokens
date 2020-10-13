@@ -78,6 +78,8 @@ getFigmaDocument(FIGMA_TOKENS_DOCUMENT, FIGMA_FILE_VERSION)
     console.log('\nStyle dictionary build completed!');
     
     // From the built dictionary, generate constants of all token options.
+    // File can't be required at the top since build files do not exist until the style dictionary is built.
+    const generateTokenConstants = require('./utils/generateTokenConstants/generateTokenConstants');
     generateTokenConstants();
     console.log('\n==============================================');
     console.log('\nToken constants generated!');
