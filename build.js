@@ -3,6 +3,7 @@ const StyleDictionary = require('style-dictionary');
 const getFigmaDocument = require('./utils/getFigmaDocument/getFigmaDocument');
 const parseFigmaDocumentTokens = require('./utils/parseFigmaDocumentTokens/parseFigmaDocumentTokens');
 const mapSemanticColors = require('./utils/mapSemanticColors/mapSemanticColors');
+const generateTokenConstants = require('./utils/generateTokenConstants/generateTokenConstants');
 const dictionaryConfig = require('./config.json');
 const utilityClass = require('./formats/utilityClass/utilityClass');
 const useSizeUnit = require('./transforms/useSizeUnit/useSizeUnit');
