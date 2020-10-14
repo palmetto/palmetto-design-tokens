@@ -46,7 +46,7 @@ const FIGMA_TOKENS_DOCUMENT = 'abGRptpr7iPaMsXdEPVm6W';
  * Ideally the figma file version _label_ and the npm package version will match
  * but it is not required.
  */
-const FIGMA_FILE_VERSION = '491147764';
+const FIGMA_FILE_VERSION = '496707122';
 
 // APPLY THE CONFIGURATION
 // IMPORTANT: the registration of custom transforms
@@ -78,10 +78,10 @@ getFigmaDocument(FIGMA_TOKENS_DOCUMENT, FIGMA_FILE_VERSION)
     
     // From the built dictionary, generate constants of all token options.
     // File can't be required at the top since build files do not exist until the style dictionary is built.
-    const generateTokenConstants = require('./utils/generateTokenConstants/generateTokenConstants');
-    generateTokenConstants();
+    const generateTokenTypes = require('./utils/generateTokenTypes/generateTokenTypes');
+    generateTokenTypes();
     console.log('\n==============================================');
-    console.log('\nToken constants generated!');
+    console.log('\nToken types generated!');
     
     console.log('\n==============================================');
     console.log('\nAll done!');
