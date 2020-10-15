@@ -85,6 +85,13 @@ const utilities = [{
     cssProp: 'max-height',
     variations: [''],
   },
+  {
+    name: 'border-width',
+    tokenCategory: 'size',
+    tokenType: 'border',
+    cssProp: 'border',
+    variations: ['', 'top', 'right', 'bottom', 'left', 'h', 'v'],
+  },
 ];
 
 const nestInsideMediaQuery = (css, breakpoint) => {
@@ -97,7 +104,7 @@ const nestInsideMediaQuery = (css, breakpoint) => {
   return output
 }
 
-const generateSpacingProperties = (utility, prop, variation) => {
+const generateShorthandProperties = (utility, prop, variation) => {
   const single = ['top', 'right', 'bottom', 'left']; // CSS Atribute specifies the variation. E.G: 'margin-bottom: <value>'
   const compound = ['', 'h', 'v']; // CSS Attribute applied to multiple sides of an element: E.G: 'margin: <value> <value>'
   let property = utility.cssProp;
@@ -147,8 +154,8 @@ const generateUtilityClass = (utility, prop, variation, breakpoint) => {
       utilityClass += `-${breakpoint}`;
     }
 
-    if (tokenType === 'spacing') {
-      utilityClass = `.${utilityClass} { ${generateSpacingProperties(utility, prop, variation)} }`;
+    if (tokenType === 'spacing' || tokenType === 'border') {
+      utilityClass = `.${utilityClass} { ${generateShorthandProperties(utility, prop, variation)} }`;
     } else {
       utilityClass = `.${utilityClass} { ${utility.cssProp}: ${prop.value}; }`;
     }
