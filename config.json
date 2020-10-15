@@ -30,26 +30,16 @@
       "buildPath": "build/utilities/",
       "transforms": ["attribute/cti", "name/cti/custom-kebab", "time/seconds", "content/icon", "size/use-unit", "color/css"],
       "files": [{
-        "destination": "utilities-size.css",
-        "format": "css/utility-classes",
-        "filter": "isCategorySize"
-      }, {
-        "destination": "utilities-color.css",
-        "format": "css/utility-classes",
-        "filter": "isCategoryColor"
+        "destination": "utilities.css",
+        "format": "css/utility-classes"
       }]
     },
     "sassUtilities": {
       "buildPath": "build/utilities/",
       "transforms": ["attribute/cti", "name/cti/custom-kebab", "time/seconds", "content/icon", "size/use-unit", "color/css"],
       "files": [{
-        "destination": "utilities-size.scss",
-        "format": "css/utility-classes",
-        "filter": "isCategorySize"
-      }, {
-        "destination": "utilities-color.scss",
-        "format": "css/utility-classes",
-        "filter": "isCategoryColor"
+        "destination": "utilities.scss",
+        "format": "css/utility-classes"
       }]
     },
     "js": {

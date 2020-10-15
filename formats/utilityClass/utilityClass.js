@@ -128,6 +128,34 @@ const generateShorthandProperties = (utility, prop, variation) => {
   return output;
 };
 
+// const generateCssBorderShorthand = (utility, prop, variation) => {
+//   let property = utility.cssProp;
+//   let output;
+
+//   switch(variation) {
+//     case '':
+//       output = `${property}: ${prop.value};`;
+//       break;
+//     case 'top':
+//       output = `${property}: ${prop.value} 0 0 0;`;
+//       break;
+//     case 'bottom':
+//       output = `${property}: 0 0 ${prop.value} 0;`;
+//       break;
+//     case 'right':
+//       output = `${property}: 0 ${prop.value} 0 0;`;
+//       break;
+//     case 'left':
+//       output = `${property}: 0 0 0 ${prop.value}`;
+//     case 'v':
+//       output = `${property}: ${prop.value} 0`;
+//     case 'h':
+//       output = `${property}: 0 ${prop.value}`;
+//   }
+
+//   return output;
+// };
+
 const generateUtilityClass = (utility, prop, variation, breakpoint) => {
   const tokenCategory = prop.attributes.category;
   const tokenType = prop.attributes.type;
@@ -154,7 +182,7 @@ const generateUtilityClass = (utility, prop, variation, breakpoint) => {
       utilityClass += `-${breakpoint}`;
     }
 
-    if (tokenType === 'spacing' || tokenType === 'border') {
+    if (tokenType === 'spacing' || name === 'border-width') {
       utilityClass = `.${utilityClass} { ${generateShorthandProperties(utility, prop, variation)} }`;
     } else {
       utilityClass = `.${utilityClass} { ${utility.cssProp}: ${prop.value}; }`;
@@ -200,12 +228,16 @@ const utilityClass = {
      * is to have these declared in order so the native CSS cascade works as intended.
      */
     const sortedBreakpoints = breakpoints.sort((a, b) => parseInt(a.original.value) - parseInt(b.original.value));
-
+    
+    /**
+     * We depend on 'COLOR' category coming in before 'SIZE' category. This is important due
+     * to CSS hierarchy of border and border-color properties. In order for border-color to successfully
+     * override border it has to be declared after border.
+     */
     dictionary.allProperties.forEach(prop => {
       output += processUtilities(utilities, prop);
     });
 
-    
     sortedBreakpoints.forEach(breakpoint => {
       let responsiveUtilities = '';
       dictionary.allProperties.forEach(prop => {
