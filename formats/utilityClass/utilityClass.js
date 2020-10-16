@@ -92,6 +92,13 @@ const utilities = [{
     cssProp: 'border',
     variations: ['', 'top', 'right', 'bottom', 'left', 'h', 'v'],
   },
+  {
+    name: 'font-weight',
+    tokenCategory: 'size',
+    tokenType: 'font-weight',
+    cssProp: 'font-weight',
+    variations: [''],
+  },
 ];
 
 const nestInsideMediaQuery = (css, breakpoint) => {
