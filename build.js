@@ -1,4 +1,4 @@
-require ('dotenv').config();
+require('dotenv').config();
 const StyleDictionary = require('style-dictionary');
 const getFigmaDocument = require('./utils/getFigmaDocument/getFigmaDocument');
 const parseFigmaDocumentTokens = require('./utils/parseFigmaDocumentTokens/parseFigmaDocumentTokens');
@@ -14,17 +14,17 @@ console.log('\n==============================================');
 // Register Custom Filters
 StyleDictionary.registerFilter({
   name: 'isCategoryColor',
-  matcher: (prop) => prop.attributes.category === 'color',
+  matcher: prop => prop.attributes.category === 'color',
 });
 
 StyleDictionary.registerFilter({
   name: 'isCategorySize',
-  matcher: (prop) => prop.attributes.category === 'size',
+  matcher: prop => prop.attributes.category === 'size',
 });
 
 StyleDictionary.registerFilter({
   name: 'isBrandColor',
-  matcher: (prop) => prop.attributes.category === 'color' && prop.attributes.type === 'brand',
+  matcher: prop => prop.attributes.category === 'color' && prop.attributes.type === 'brand',
 });
 
 StyleDictionary.registerFormat(utilityClass);
@@ -46,7 +46,7 @@ const FIGMA_TOKENS_DOCUMENT = 'abGRptpr7iPaMsXdEPVm6W';
  * Ideally the figma file version _label_ and the npm package version will match
  * but it is not required.
  */
-const FIGMA_FILE_VERSION = '499055820';
+const FIGMA_FILE_VERSION = '510681409';
 
 // APPLY THE CONFIGURATION
 // IMPORTANT: the registration of custom transforms
@@ -63,7 +63,7 @@ getFigmaDocument(FIGMA_TOKENS_DOCUMENT, FIGMA_FILE_VERSION)
      * from lightness numbers (50, 100, etc...)
      * It keeps the original colors as well as the semantic versions.
      */
-    properties = mapSemanticColors(properties); 
+    properties = mapSemanticColors(properties);
 
     const StyleDictionaryExtended = StyleDictionary.extend({
       properties,
@@ -75,14 +75,14 @@ getFigmaDocument(FIGMA_TOKENS_DOCUMENT, FIGMA_FILE_VERSION)
     StyleDictionaryExtended.buildAllPlatforms();
     console.log('\n==============================================');
     console.log('\nStyle dictionary build completed!');
-    
+
     // From the built dictionary, generate constants of all token options.
     // File can't be required at the top since build files do not exist until the style dictionary is built.
     const generateTokenTypes = require('./utils/generateTokenTypes/generateTokenTypes');
     generateTokenTypes();
     console.log('\n==============================================');
     console.log('\nToken types generated!');
-    
+
     console.log('\n==============================================');
     console.log('\nAll done!');
     console.log('\n==============================================');
