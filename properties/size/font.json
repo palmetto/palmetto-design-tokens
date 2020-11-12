@@ -1,9 +1,13 @@
 {
   "size": {
     "font": {
+      "2xs": {
+        "value": "0.625",
+        "comment": "Small and hard to read for many people so use with caution",
+        "unit": "rem"
+      },
       "xs": {
         "value": "0.75",
-        "comment": "Small and hard to read for many people so use with caution",
         "unit": "rem"
       },
       "sm": {
