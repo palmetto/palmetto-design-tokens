@@ -11,7 +11,7 @@ const customKebab = require('./transforms/customKebab/customKebab');
 console.log('Build started...');
 console.log('\n==============================================');
 
-// Register Custom Filters
+// Register Custom Filters 
 StyleDictionary.registerFilter({
   name: 'isCategoryColor',
   matcher: prop => prop.attributes.category === 'color',
