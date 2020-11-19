@@ -112,7 +112,7 @@ const nestInsideMediaQuery = (css, breakpoint) => {
 }
 
 const generateShorthandProperties = (utility, prop, variation) => {
-  const single = ['top', 'right', 'bottom', 'left']; // CSS Atribute specifies the variation. E.G: 'margin-bottom: <value>'
+  const single = ['top', 'right', 'bottom', 'left']; // CSS Attribute specifies the variation. E.G: 'margin-bottom: <value>'
   const compound = ['', 'h', 'v']; // CSS Attribute applied to multiple sides of an element: E.G: 'margin: <value> <value>'
   let property = utility.cssProp;
   let output;
@@ -121,14 +121,26 @@ const generateShorthandProperties = (utility, prop, variation) => {
   if (single.includes(variation)) {
     property += `-${variation}`;
     output = `${property}: ${prop.value};`;
+    if (property === `border-${variation}`) { 
+      output = output.concat(` ${property}-style: solid;`);
+    }
   } else if (compound.includes(variation)) { // For values applied to multiple sides.
     property = utility.cssProp;
     if (variation === '') {
       output = `${property}: ${prop.value};`;
+      if (property === 'border') { 
+        output = output.concat(` ${property}-style: solid;`);
+      }
     } else if (variation === 'h') {
       output = `${property}-left: ${prop.value}; ${property}-right: ${prop.value};`;
+      if (property === 'border') { 
+        output = output.concat(` ${property}-left-style: solid; ${property}-right-style: solid;`);
+      }
     } else if (variation === 'v') {
       output = `${property}-top: ${prop.value}; ${property}-bottom: ${prop.value};`;
+      if (property === 'border') { 
+        output = output.concat(` ${property}-top-style: solid; ${property}-bottom-style: solid;`);
+      }
     }
   }
 
