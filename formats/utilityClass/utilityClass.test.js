@@ -1,7 +1,7 @@
 const utilityClass = require('./utilityClass');
 
 const mockDictionary = {
-  "allProperties": [
+  allProperties: [
     {
       value: '#c3ecd8',
       original: { value: '{color.base.green.50.value}' },
@@ -10,9 +10,9 @@ const mockDictionary = {
         category: 'color',
         type: 'brand',
         item: 'primary',
-        subitem: 'lightest'
+        subitem: 'lightest',
       },
-      path: [ 'color', 'brand', 'primary', 'lightest' ]
+      path: ['color', 'brand', 'primary', 'lightest'],
     },
     {
       value: '5rem',
@@ -20,7 +20,15 @@ const mockDictionary = {
       original: { value: '5', unit: 'rem' },
       name: 'size-spacing-5xl',
       attributes: { category: 'size', type: 'spacing', item: '5xl' },
-      path: [ 'size', 'spacing', '5xl' ]
+      path: ['size', 'spacing', '5xl'],
+    },
+    {
+      value: '1px',
+      unit: 'px',
+      original: { value: '1', unit: 'px' },
+      name: 'size-border-width-xs',
+      attributes: { category: 'size', type: 'border', item: 'xs' },
+      path: ['size', 'border', 'xs'],
     },
     {
       value: '1280px',
@@ -29,8 +37,8 @@ const mockDictionary = {
       original: { value: '1280', comment: 'large desktops and larger', unit: 'px' },
       name: 'size-breakpoint-hd',
       attributes: { category: 'size', type: 'breakpoint', item: 'hd' },
-      path: [ 'size', 'breakpoint', 'hd' ]
-    }
+      path: ['size', 'breakpoint', 'hd'],
+    },
   ],
 };
 
@@ -72,6 +80,20 @@ const expectedOutput =
 
 .p-v-5xl { padding-top: 5rem; padding-bottom: 5rem; }
 
+.border-width-xs { border: 1px; border-style: solid; }
+
+.border-width-top-xs { border-top: 1px; border-top-style: solid; }
+
+.border-width-right-xs { border-right: 1px; border-right-style: solid; }
+
+.border-width-bottom-xs { border-bottom: 1px; border-bottom-style: solid; }
+
+.border-width-left-xs { border-left: 1px; border-left-style: solid; }
+
+.border-width-h-xs { border-left: 1px; border-right: 1px; border-left-style: solid; border-right-style: solid; }
+
+.border-width-v-xs { border-top: 1px; border-bottom: 1px; border-top-style: solid; border-bottom-style: solid; }
+
 @media (min-width: 1280px) {
   .background-color-primary-lightest-hd { background-color: #c3ecd8; }
 
@@ -104,6 +126,20 @@ const expectedOutput =
   .p-h-5xl-hd { padding-left: 5rem; padding-right: 5rem; }
 
   .p-v-5xl-hd { padding-top: 5rem; padding-bottom: 5rem; }
+
+  .border-width-xs-hd { border: 1px; border-style: solid; }
+
+  .border-width-top-xs-hd { border-top: 1px; border-top-style: solid; }
+
+  .border-width-right-xs-hd { border-right: 1px; border-right-style: solid; }
+
+  .border-width-bottom-xs-hd { border-bottom: 1px; border-bottom-style: solid; }
+
+  .border-width-left-xs-hd { border-left: 1px; border-left-style: solid; }
+
+  .border-width-h-xs-hd { border-left: 1px; border-right: 1px; border-left-style: solid; border-right-style: solid; }
+
+  .border-width-v-xs-hd { border-top: 1px; border-bottom: 1px; border-top-style: solid; border-bottom-style: solid; }
 
 }
 
