@@ -141,7 +141,6 @@ const generateShorthandProperties = (utility, prop, variation) => {
         output = `${property}-left: ${prop.value}; ${property}-right: ${prop.value};`;
       }
     } else if (variation === 'v') {
-      output = `${property}-top: ${prop.value}; ${property}-bottom: ${prop.value};`;
       if (property === 'border') {
         output = `${property}-top-width: ${prop.value}; ${property}-bottom-width: ${prop.value}; ${property}-top-style: solid; ${property}-bottom-style: solid;`;
       } else {
