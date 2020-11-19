@@ -119,10 +119,10 @@ const generateShorthandProperties = (utility, prop, variation) => {
 
   // For specific sides of an element
   if (single.includes(variation)) {
-    property += `-${variation}`;
-    if (property === `border-${variation}`) {
-      output = `${property}: ${prop.value}; ${property}-style: solid;`;
+    if (property === `border`) {
+      output = `${property}-${variation}-width: ${prop.value}; ${property}-${variation}-style: solid;`;
     } else {
+      property += `-${variation}`;
       output = `${property}: ${prop.value};`;
     }
   } else if (compound.includes(variation)) {
@@ -130,20 +130,20 @@ const generateShorthandProperties = (utility, prop, variation) => {
     property = utility.cssProp;
     if (variation === '') {
       if (property === 'border') {
-        output = `${property}: ${prop.value}; ${property}-style: solid;`;
+        output = `${property}-width: ${prop.value}; ${property}-style: solid;`;
       } else {
         output = `${property}: ${prop.value};`;
       }
     } else if (variation === 'h') {
       if (property === 'border') {
-        output = `${property}-left: ${prop.value}; ${property}-right: ${prop.value}; ${property}-left-style: solid; ${property}-right-style: solid;`;
+        output = `${property}-left-width: ${prop.value}; ${property}-right-width: ${prop.value}; ${property}-left-style: solid; ${property}-right-style: solid;`;
       } else {
         output = `${property}-left: ${prop.value}; ${property}-right: ${prop.value};`;
       }
     } else if (variation === 'v') {
       output = `${property}-top: ${prop.value}; ${property}-bottom: ${prop.value};`;
       if (property === 'border') {
-        output = `${property}-top: ${prop.value}; ${property}-bottom: ${prop.value}; ${property}-top-style: solid; ${property}-bottom-style: solid;`;
+        output = `${property}-top-width: ${prop.value}; ${property}-bottom-width: ${prop.value}; ${property}-top-style: solid; ${property}-bottom-style: solid;`;
       } else {
         output = `${property}-top: ${prop.value}; ${property}-bottom: ${prop.value};`;
       }
