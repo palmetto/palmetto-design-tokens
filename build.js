@@ -1,4 +1,5 @@
 require('dotenv').config();
+const fse = require('fs-extra');
 const StyleDictionary = require('style-dictionary');
 const getFigmaDocument = require('./utils/getFigmaDocument/getFigmaDocument');
 const parseFigmaDocumentTokens = require('./utils/parseFigmaDocumentTokens/parseFigmaDocumentTokens');
@@ -7,11 +8,12 @@ const dictionaryConfig = require('./config.json');
 const utilityClass = require('./formats/utilityClass/utilityClass');
 const useSizeUnit = require('./transforms/useSizeUnit/useSizeUnit');
 const customKebab = require('./transforms/customKebab/customKebab');
+const createIconComponents = require('./utils/createIconComponents/createIconComponents');
 
 console.log('Build started...');
 console.log('\n==============================================');
 
-// Register Custom Filters 
+// Custom Filters 
 StyleDictionary.registerFilter({
   name: 'isCategoryColor',
   matcher: prop => prop.attributes.category === 'color',
@@ -27,8 +29,12 @@ StyleDictionary.registerFilter({
   matcher: prop => prop.attributes.category === 'color' && prop.attributes.type === 'brand',
 });
 
+
+// Custom Formats
 StyleDictionary.registerFormat(utilityClass);
 
+
+// Custom Transforms
 StyleDictionary.registerTransform(useSizeUnit);
 StyleDictionary.registerTransform(customKebab);
 
@@ -48,11 +54,19 @@ const FIGMA_TOKENS_DOCUMENT = 'abGRptpr7iPaMsXdEPVm6W';
  */
 const FIGMA_FILE_VERSION = '549892788';
 
-// APPLY THE CONFIGURATION
-// IMPORTANT: the registration of custom transforms
-// needs to be done _before_ applying the configuration
+
+/**
+ * Read tokens from FIGMA file.
+ */
 getFigmaDocument(FIGMA_TOKENS_DOCUMENT, FIGMA_FILE_VERSION)
   .then(json => {
+    /**
+     * Empty build directoty
+     */
+    fse.emptyDirSync('./build');
+    console.log('\nBuild directory cleared');
+    console.log('\n==============================================');
+
     /**
      * Generate dictionary by recursively parsing FIGMA tokens document.
      */
@@ -65,6 +79,12 @@ getFigmaDocument(FIGMA_TOKENS_DOCUMENT, FIGMA_FILE_VERSION)
      */
     properties = mapSemanticColors(properties);
 
+    /**
+     * Apply the configuration.
+     * 
+     * IMPORTANT: the registration of custom transforms
+     * needs to be done BEFORE applying the configuration.
+     */
     const StyleDictionaryExtended = StyleDictionary.extend({
       properties,
       platforms: dictionaryConfig.platforms,
@@ -76,8 +96,21 @@ getFigmaDocument(FIGMA_TOKENS_DOCUMENT, FIGMA_FILE_VERSION)
     console.log('\n==============================================');
     console.log('\nStyle dictionary build completed!');
 
+    // Process Icons
+    const iconsSource = './icons';
+    const iconsDestination = './build/icons/svg';
+    fse.copySync(iconsSource, iconsDestination);
+    console.log('\n==============================================');
+    console.log("\nIcons successfully copied to build");
+
+    // Create React components based on SVG icons.
+    createIconComponents();
+    console.log('\n==============================================');
+    console.log('\nReact icons created!');
+
     // From the built dictionary, generate constants of all token options.
-    // File can't be required at the top since build files do not exist until the style dictionary is built.
+    // File can't be required at the top since build files are a dependency for this function
+    // and they do not exist until the style dictionary is built.
     const generateTokenTypes = require('./utils/generateTokenTypes/generateTokenTypes');
     generateTokenTypes();
     console.log('\n==============================================');

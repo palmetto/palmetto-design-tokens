@@ -1,4 +1,5 @@
 const fs = require('fs');
+const path = require('path');
 const colorTokens = require('../../build/json/variables-color.json');
 const sizeTokens = require('../../build/json/variables-size.json');
 
@@ -57,6 +58,15 @@ const SPACING_SIZES = 'SPACING_SIZES';
 const WIDTH_SIZES = 'WIDTH_SIZES';
 const Z_INDEX_SIZES = 'Z_INDEX_SIZES';
 
+
+/**
+ * ICONS
+ */
+const sourceIconsDir = path.join(__dirname, '..', '..', 'icons/');
+const iconFiles = fs.readdirSync(sourceIconsDir);
+const iconNames = iconFiles.map(iconFile => iconFile.substr(0, iconFile.lastIndexOf('.')));
+const ICON_NAMES = 'ICON_NAMES';
+
 /**
  * UTILITY FUNCTIONS
  */
@@ -108,6 +118,7 @@ const createSizeTokens = currentFile => {
   result = result.concat(writeArray(spacingSizeOptions, SPACING_SIZES));
   result = result.concat(writeArray(widthSizeOptions, WIDTH_SIZES));
   result = result.concat(writeArray(zIndexSizeOptions, Z_INDEX_SIZES));
+  result = result.concat(writeArray(iconNames, ICON_NAMES));
 
   return result;
 };
@@ -144,6 +155,13 @@ const createSizeTypes = currentFile => {
   return result;
 };
 
+const createIconTypes = currentFile => {
+  let result = currentFile;
+  result = result.concat(writeExport(writeUnionTypeFromArray('IconName', ICON_NAMES)));
+
+  return result;
+};
+
 /**
  * WRITE FILE
  */
@@ -156,6 +174,7 @@ const writeFile = () => {
 
   tokensData = createColorTypes(tokensData);
   tokensData = createSizeTypes(tokensData);
+  tokensData = createIconTypes(tokensData);
 
   if (!fs.existsSync(`${__dirname}/../../build/types`)){
     fs.mkdirSync(`${__dirname}/../../build/types`);
