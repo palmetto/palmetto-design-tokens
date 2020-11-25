@@ -55,6 +55,35 @@ CSS
 --my-own-shadow-variable: 1rem 1rem var(--color.base.black);
 ```
 
+#### Using Icons
+The library includes custom svg icons from the design system. They are provided in two formats, `svg` or as React components.
+
+They can be pulled from the build here:
+```
+@palmetto/palmetto-design-tokens/build/icons/svg // <-- SVG ICONS
+@palmetto/palmetto-design-tokens/build/icons/svg // <-- React Components. NOTE: there is an index file that maps all icons in a dictionary, but they can also be used individually.
+```
+
+USING RAW SVGs
+```
+<img src="../user.svg" alt="user">
+```
+
+USING REACT COMPONENTS
+```
+import UserIcon from '@palmetto/palmetto-design-tokens/build/icons/react/UserIcon'; <-- Single Icon Import
+
+// or
+import icons from '@palmetto/palmetto-design-tokens/build/icons/react; <-- Icon map
+
+const MyUserIcon = icons['user']; <-- Use icon name to.
+
+<MyUserIcon {...props} />
+
+
+// All icon names are documented in the IconName union type.
+import { IconName } from '@palmetto/palmetto-design-tokens/build/types';
+```
 
 ## Available Tokens
 * Color
@@ -90,6 +119,20 @@ In order to make changes to tokens, you'll need to open the [Design Tokens](http
 
 This will create a new version of the same file. The File ID will remain the same, but you should now be able to go to your file version, and extract the version ID from the URL in the browser. Replace the existing `FIGMA_FILE_VERSION` constant in `build.js` and run a build to confirm that your version is working correctly.
 
+## Updating Icons
+The build process handles the following:
+* mapping any svg icons in the `/icons` folder into the appropriate build directory
+* updating the `IconName` type based on the file names in the directory.
+* Creating corresponding react components for each svg, and transpiling the resulting JSX with babel.
+* Regenerating the icons index map for use in react applications.
+
+As a developer, to update icons all that needs to be done is add them to the `/icons` folder with the name that you want the icon to have. Please follow
+these rules when exporting and adding icons:
+
+* SVGs should be exported with a size of 16x16px since this will be the size of our default viewbox.
+* SVGS should be exported with default width, height of `1em` so they will inherit their size from the adjacent element font sizes, or a class/style applied directly.
+* SVGs must not include fill or stroke color, instead being exported with a value of `'currentColor'` for both these attributes. This will ensure proper inheritance.
+* SVG files should be named using `kebab-case`.
 
 ## Releases
 [↥ back to top](#top)
