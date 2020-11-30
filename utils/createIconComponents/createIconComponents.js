@@ -59,7 +59,6 @@ async function createIconComponents() {
   iconComponentsIndexFile = iconComponentsIndexFile.concat(iconComponentsExport);
 
   const compiledIndex = babel.transformSync(iconComponentsIndexFile, BABEL_OPTIONS);
-
   fs.writeFileSync(buildIconsDir + 'index.js', compiledIndex.code);
 }
 
