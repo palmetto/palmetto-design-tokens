@@ -6,6 +6,11 @@ const pascalCase = require('../pascalCase/pascalCase');
 const createFileHeader = require('../createFileHeader/createFileHeader');
 const indentLine = require('../indentLine/indentLine');
 
+const BABEL_OPTIONS = { plugins: [
+  '@babel/plugin-transform-react-jsx',
+  '@babel/plugin-transform-modules-commonjs',
+] };
+
 async function createIconComponents() {
   const icons = {};
 
@@ -31,7 +36,6 @@ async function createIconComponents() {
       fs.mkdirSync(buildIconsDir);
     }
   
-    const BABEL_OPTIONS = { plugins: ['@babel/plugin-transform-react-jsx'] };
     const compiledComponent = babel.transformSync(reactComponent, BABEL_OPTIONS);
 
     fs.writeFileSync(buildIconsDir + `${componentName}.jsx`, compiledComponent.code);
@@ -53,7 +57,9 @@ async function createIconComponents() {
   iconComponentsIndexFile = iconComponentsIndexFile.concat(iconComponentsImports);
   iconComponentsIndexFile = iconComponentsIndexFile.concat('\n');
   iconComponentsIndexFile = iconComponentsIndexFile.concat(iconComponentsExport);
-  fs.writeFileSync(buildIconsDir + 'index.js', iconComponentsIndexFile);
+
+  const compiledIndex = babel.transformSync(iconComponentsIndexFile, BABEL_OPTIONS);
+  fs.writeFileSync(buildIconsDir + 'index.js', compiledIndex.code);
 }
 
 module.exports = createIconComponents;
