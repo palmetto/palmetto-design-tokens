@@ -125,7 +125,14 @@ const createSizeTokens = currentFile => {
   result = result.concat(writeArray(spacingSizeOptions, SPACING_SIZES));
   result = result.concat(writeArray(widthSizeOptions, WIDTH_SIZES));
   result = result.concat(writeArray(zIndexSizeOptions, Z_INDEX_SIZES));
-  result = result.concat(writeExport(writeArray(iconNames, ICON_NAMES)));
+
+  return result;
+};
+
+const createIconNames = (currentFile, asConst = true) => {
+  let result = currentFile;
+
+  result = result.concat(writeExport(writeArray(iconNames, ICON_NAMES, { asConst })));
 
   return result;
 };
@@ -180,6 +187,7 @@ const writeFile = () => {
   tokensData = createFileHeader(tokensData);
   tokensData = createColorTokens(tokensData);
   tokensData = createSizeTokens(tokensData);
+  tokensData = createIconNames(tokensData);
 
   tokensData = createColorTypes(tokensData);
   tokensData = createSizeTypes(tokensData);
@@ -190,6 +198,11 @@ const writeFile = () => {
   }
 
   fs.writeFileSync(`${__dirname}/../../build/types/index.d.ts`, tokensData);
+
+  let icons = '';
+  icons = createFileHeader(icons);
+  icons = createIconNames(icons, false);
+  fs.writeFileSync(`${__dirname}/../../build/icons/index.js`, icons);
 };
 
 module.exports = writeFile;
