@@ -67,7 +67,9 @@ const Z_INDEX_SIZES = 'Z_INDEX_SIZES';
  * ICONS
  */
 const sourceIconsDir = path.join(__dirname, '..', '..', 'icons/');
-const iconFiles = fs.readdirSync(sourceIconsDir);
+const iconFiles = fs
+  .readdirSync(sourceIconsDir)
+  .filter(fileName => path.extname(fileName).toLowerCase() === '.svg');
 const iconNames = iconFiles.map(iconFile => iconFile.substr(0, iconFile.lastIndexOf('.')));
 const ICON_NAMES = 'ICON_NAMES';
 
