@@ -1,5 +1,10 @@
 const fs = require('fs');
 const path = require('path');
+const babel = require('@babel/core');
+
+const BABEL_OPTIONS = {
+  plugins: ['@babel/plugin-transform-react-jsx', '@babel/plugin-transform-modules-commonjs'],
+};
 const colorTokens = require('../../build/json/variables-color.json');
 const sizeTokens = require('../../build/json/variables-size.json');
 
@@ -201,7 +206,7 @@ const writeFile = () => {
 
   let icons = '';
   icons = createFileHeader(icons);
-  icons = createIconNames(icons, false);
+  icons = babel.transformSync(createIconNames(icons, false), BABEL_OPTIONS).code;
   fs.writeFileSync(`${__dirname}/../../build/icons/index.js`, icons);
 };
 
