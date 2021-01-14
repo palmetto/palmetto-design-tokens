@@ -52,7 +52,7 @@ const FIGMA_TOKENS_DOCUMENT = 'abGRptpr7iPaMsXdEPVm6W';
  * Ideally the figma file version _label_ and the npm package version will match
  * but it is not required.
  */
-const FIGMA_FILE_VERSION = '549892788';
+const FIGMA_FILE_VERSION = '627249640';
 
 
 /**
