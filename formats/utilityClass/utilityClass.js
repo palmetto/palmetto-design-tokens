@@ -99,6 +99,14 @@ const utilities = [{
     cssProp: 'font-weight',
     variations: [''],
   },
+  {
+    name: 'box-shadow',
+    abbreviation: 'shadow',
+    tokenCategory: 'size',
+    tokenType: 'box-shadow',
+    cssProp: 'box-shadow',
+    variations: [''],
+  },
 ];
 
 const nestInsideMediaQuery = (css, breakpoint) => {
