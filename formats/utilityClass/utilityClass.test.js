@@ -39,11 +39,18 @@ const mockDictionary = {
       attributes: { category: 'size', type: 'breakpoint', item: 'hd' },
       path: ['size', 'breakpoint', 'hd'],
     },
+    {
+      value: '1px',
+      unit: 'px',
+      original: { value: '1', unit: 'px' },
+      name: 'size-border-radius-xs',
+      attributes: { category: 'size', type: 'border-radius', item: 'xs' },
+      path: ['size', 'border-radius', 'xs'],
+    },
   ],
 };
 
-const expectedOutput =
-`/**
+const expectedOutput = `/**
  * Do not edit directly
  * Generated on Mon, 20 Jun 2016 12:08:10 GMT
  */
@@ -94,6 +101,16 @@ const expectedOutput =
 
 .border-width-v-xs { border-top-width: 1px; border-bottom-width: 1px; border-top-style: solid; border-bottom-style: solid; }
 
+.br-xs { border-radius: 1px; }
+
+.br-top-left-xs { border-top-left-radius: 1px; }
+
+.br-top-right-xs { border-top-right-radius: 1px; }
+
+.br-bottom-right-xs { border-bottom-right-radius: 1px; }
+
+.br-bottom-left-xs { border-bottom-left-radius: 1px; }
+
 @media (min-width: 1280px) {
   .background-color-primary-lightest-hd { background-color: #c3ecd8; }
 
@@ -141,6 +158,16 @@ const expectedOutput =
 
   .border-width-v-xs-hd { border-top-width: 1px; border-bottom-width: 1px; border-top-style: solid; border-bottom-style: solid; }
 
+  .br-xs-hd { border-radius: 1px; }
+
+  .br-top-left-xs-hd { border-top-left-radius: 1px; }
+
+  .br-top-right-xs-hd { border-top-right-radius: 1px; }
+
+  .br-bottom-right-xs-hd { border-bottom-right-radius: 1px; }
+
+  .br-bottom-left-xs-hd { border-bottom-left-radius: 1px; }
+
 }
 
 `;
@@ -149,9 +176,7 @@ describe('utilityClass format', () => {
   test('produces utility classes for the dictionary', () => {
     const mockDate = new Date(1466424490000);
 
-    const spy = jest
-      .spyOn(global, 'Date')
-      .mockImplementation(() => mockDate);
+    const spy = jest.spyOn(global, 'Date').mockImplementation(() => mockDate);
 
     expect(utilityClass.formatter(mockDictionary)).toBe(expectedOutput);
   });

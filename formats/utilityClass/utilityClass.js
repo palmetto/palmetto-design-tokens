@@ -32,10 +32,11 @@ const utilities = [{
   },
   {
     name: 'border-radius',
+    abbreviation: 'br',
     tokenCategory: 'size',
     tokenType: 'border-radius',
     cssProp: 'border-radius',
-    variations: ['']
+    variations: ['', 'top-left', 'top-right', 'bottom-right', 'bottom-left'],
   },
   {
     name: 'margin',
@@ -160,6 +161,22 @@ const generateShorthandProperties = (utility, prop, variation) => {
   return output;
 };
 
+const generateBorderRadiusShorthandProperties = (utility, prop, variation) => {
+  const single = ['top-left', 'top-right', 'bottom-right', 'bottom-left'];
+  let property = utility.cssProp;
+  let output;
+
+  // For specific corners of the element
+  if (single.includes(variation)) {
+    property += `-${variation}`;
+    output = `border-${variation}-radius: ${prop.value};`;
+  } else { // all corners of the element
+    output = `${property}: ${prop.value};`;
+  }
+
+  return output;
+};
+
 // const generateCssBorderShorthand = (utility, prop, variation) => {
 //   let property = utility.cssProp;
 //   let output;
@@ -216,6 +233,8 @@ const generateUtilityClass = (utility, prop, variation, breakpoint) => {
 
     if (tokenType === 'spacing' || name === 'border-width') {
       utilityClass = `.${utilityClass} { ${generateShorthandProperties(utility, prop, variation)} }`;
+    } else if (tokenType === 'border-radius') {
+      utilityClass = `.${utilityClass} { ${generateBorderRadiusShorthandProperties(utility, prop, variation)} }`;
     } else {
       utilityClass = `.${utilityClass} { ${utility.cssProp}: ${prop.value}; }`;
     }
