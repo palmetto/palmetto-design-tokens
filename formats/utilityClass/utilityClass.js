@@ -71,6 +71,14 @@ const utilities = [{
     variations: [''],
   },
   {
+    name: 'minWidth',
+    abbreviation: 'minw',
+    tokenCategory: 'size',
+    tokenType: 'width',
+    cssProp: 'min-width',
+    variations: [''],
+  },
+  {
     name: 'height',
     abbreviation: 'h',
     tokenCategory: 'size',
@@ -84,6 +92,14 @@ const utilities = [{
     tokenCategory: 'size',
     tokenType: 'height',
     cssProp: 'max-height',
+    variations: [''],
+  },
+  {
+    name: 'minHeight',
+    abbreviation: 'minh',
+    tokenCategory: 'size',
+    tokenType: 'height',
+    cssProp: 'min-height',
     variations: [''],
   },
   {
