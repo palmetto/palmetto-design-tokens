@@ -124,6 +124,7 @@ const utilities = [
     cssProp: 'max-height',
     variations: [''],
     responsive: true,
+    hover: false,
     focus: false,
   },
   {
@@ -166,7 +167,6 @@ const utilities = [
     variations: [''],
     responsive: true,
     hover: true,
-    hover: false,
     focus: true,
   }
 ];
