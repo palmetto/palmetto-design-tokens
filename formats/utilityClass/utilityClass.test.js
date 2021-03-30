@@ -109,6 +109,34 @@ const expectedOutput = `/**
 
 .border-width-v-xs { border-top-width: 1px; border-bottom-width: 1px; border-top-style: solid; border-bottom-style: solid; }
 
+.hover\\:border-width-xs:hover { border-width: 1px; border-style: solid; }
+
+.hover\\:border-width-top-xs:hover { border-top-width: 1px; border-top-style: solid; }
+
+.hover\\:border-width-right-xs:hover { border-right-width: 1px; border-right-style: solid; }
+
+.hover\\:border-width-bottom-xs:hover { border-bottom-width: 1px; border-bottom-style: solid; }
+
+.hover\\:border-width-left-xs:hover { border-left-width: 1px; border-left-style: solid; }
+
+.hover\\:border-width-h-xs:hover { border-left-width: 1px; border-right-width: 1px; border-left-style: solid; border-right-style: solid; }
+
+.hover\\:border-width-v-xs:hover { border-top-width: 1px; border-bottom-width: 1px; border-top-style: solid; border-bottom-style: solid; }
+
+.focus\\:border-width-xs:focus { border-width: 1px; border-style: solid; }
+
+.focus\\:border-width-top-xs:focus { border-top-width: 1px; border-top-style: solid; }
+
+.focus\\:border-width-right-xs:focus { border-right-width: 1px; border-right-style: solid; }
+
+.focus\\:border-width-bottom-xs:focus { border-bottom-width: 1px; border-bottom-style: solid; }
+
+.focus\\:border-width-left-xs:focus { border-left-width: 1px; border-left-style: solid; }
+
+.focus\\:border-width-h-xs:focus { border-left-width: 1px; border-right-width: 1px; border-left-style: solid; border-right-style: solid; }
+
+.focus\\:border-width-v-xs:focus { border-top-width: 1px; border-bottom-width: 1px; border-top-style: solid; border-bottom-style: solid; }
+
 .br-xs { border-radius: 1px; }
 
 .br-top-left-xs { border-top-left-radius: 1px; }
@@ -171,6 +199,20 @@ const expectedOutput = `/**
   .br-bottom-right-xs-hd { border-bottom-right-radius: 1px; }
 
   .br-bottom-left-xs-hd { border-bottom-left-radius: 1px; }
+
+  .hover\\:border-width-xs-hd:hover { border-width: 1px; border-style: solid; }
+
+  .hover\\:border-width-top-xs-hd:hover { border-top-width: 1px; border-top-style: solid; }
+
+  .hover\\:border-width-right-xs-hd:hover { border-right-width: 1px; border-right-style: solid; }
+
+  .hover\\:border-width-bottom-xs-hd:hover { border-bottom-width: 1px; border-bottom-style: solid; }
+
+  .hover\\:border-width-left-xs-hd:hover { border-left-width: 1px; border-left-style: solid; }
+
+  .hover\\:border-width-h-xs-hd:hover { border-left-width: 1px; border-right-width: 1px; border-left-style: solid; border-right-style: solid; }
+
+  .hover\\:border-width-v-xs-hd:hover { border-top-width: 1px; border-bottom-width: 1px; border-top-style: solid; border-bottom-style: solid; }
 
   .focus\\:border-width-xs-hd:focus { border-width: 1px; border-style: solid; }
 
