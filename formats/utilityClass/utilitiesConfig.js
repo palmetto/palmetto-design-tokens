@@ -145,7 +145,7 @@ const utilities = [
     cssProp: 'border',
     variations: ['', 'top', 'right', 'bottom', 'left', 'h', 'v'],
     responsive: true,
-    hover: false,
+    hover: true,
     focus: true,
   },
   {
