@@ -1,140 +1,8 @@
 const createFileHeader = require('../../utils/createFileHeader/createFileHeader');
 const addNewLines = require('../../utils/addNewLines/addNewLines');
 const indentLine = require('../../utils/indentLine/indentLine');
-
-const utilities = [{
-    name: 'font-color',
-    tokenCategory: 'color',
-    tokenType: 'font',
-    cssProp: 'color',
-    variations: ['']
-  },
-  {
-    name: 'background-color',
-    tokenCategory: 'color',
-    tokenType: 'brand',
-    cssProp: 'background-color',
-    variations: ['']
-  },
-  {
-    name: 'border-color',
-    tokenCategory: 'color',
-    tokenType: 'brand',
-    cssProp: 'border-color',
-    variations: ['']
-  },
-  {
-    name: 'font-size',
-    tokenCategory: 'size',
-    tokenType: 'font',
-    cssProp: 'font-size',
-    variations: ['']
-  },
-  {
-    name: 'border-radius',
-    abbreviation: 'br',
-    tokenCategory: 'size',
-    tokenType: 'border-radius',
-    cssProp: 'border-radius',
-    variations: ['', 'top-left', 'top-right', 'bottom-right', 'bottom-left'],
-  },
-  {
-    name: 'margin',
-    abbreviation: 'm',
-    tokenCategory: 'size',
-    tokenType: 'spacing',
-    cssProp: 'margin',
-    variations: ['', 'top', 'right', 'bottom', 'left', 'h', 'v'],
-  },
-  {
-    name: 'padding',
-    abbreviation: 'p',
-    tokenCategory: 'size',
-    tokenType: 'spacing',
-    cssProp: 'padding',
-    variations: ['', 'top', 'right', 'bottom', 'left', 'h', 'v'],
-  },
-  {
-    name: 'width',
-    abbreviation: 'w',
-    tokenCategory: 'size',
-    tokenType: 'width',
-    cssProp: 'width',
-    variations: [''],
-  },
-  {
-    name: 'maxWidth',
-    abbreviation: 'mw',
-    tokenCategory: 'size',
-    tokenType: 'width',
-    cssProp: 'max-width',
-    variations: [''],
-  },
-  {
-    name: 'minWidth',
-    abbreviation: 'minw',
-    tokenCategory: 'size',
-    tokenType: 'width',
-    cssProp: 'min-width',
-    variations: [''],
-  },
-  {
-    name: 'height',
-    abbreviation: 'h',
-    tokenCategory: 'size',
-    tokenType: 'height',
-    cssProp: 'height',
-    variations: [''],
-  },
-  {
-    name: 'maxHeight',
-    abbreviation: 'mh',
-    tokenCategory: 'size',
-    tokenType: 'height',
-    cssProp: 'max-height',
-    variations: [''],
-  },
-  {
-    name: 'minHeight',
-    abbreviation: 'minh',
-    tokenCategory: 'size',
-    tokenType: 'height',
-    cssProp: 'min-height',
-    variations: [''],
-  },
-  {
-    name: 'border-width',
-    tokenCategory: 'size',
-    tokenType: 'border',
-    cssProp: 'border',
-    variations: ['', 'top', 'right', 'bottom', 'left', 'h', 'v'],
-  },
-  {
-    name: 'font-weight',
-    tokenCategory: 'size',
-    tokenType: 'font-weight',
-    cssProp: 'font-weight',
-    variations: [''],
-  },
-  {
-    name: 'box-shadow',
-    abbreviation: 'shadow',
-    tokenCategory: 'size',
-    tokenType: 'box-shadow',
-    cssProp: 'box-shadow',
-    variations: [''],
-  },
-];
-
-const nestInsideMediaQuery = (css, breakpoint) => {
-  let output = '';
-
-  output += `@media (min-width: ${breakpoint.value}) {\n`;
-  output += css;
-  output += `}\n\n`;
-
-  return output
-}
+const nestInsideMediaQuery = require('../../utils/nestInsideMediaQuery/nestInsideMediaQuery');
+const utilities = require('./utilitiesConfig');
 
 const generateShorthandProperties = (utility, prop, variation) => {
   const single = ['top', 'right', 'bottom', 'left']; // CSS Attribute specifies the variation. E.G: 'margin-bottom: <value>'
@@ -193,45 +61,18 @@ const generateBorderRadiusShorthandProperties = (utility, prop, variation) => {
   return output;
 };
 
-// const generateCssBorderShorthand = (utility, prop, variation) => {
-//   let property = utility.cssProp;
-//   let output;
-
-//   switch(variation) {
-//     case '':
-//       output = `${property}: ${prop.value};`;
-//       break;
-//     case 'top':
-//       output = `${property}: ${prop.value} 0 0 0;`;
-//       break;
-//     case 'bottom':
-//       output = `${property}: 0 0 ${prop.value} 0;`;
-//       break;
-//     case 'right':
-//       output = `${property}: 0 ${prop.value} 0 0;`;
-//       break;
-//     case 'left':
-//       output = `${property}: 0 0 0 ${prop.value}`;
-//     case 'v':
-//       output = `${property}: ${prop.value} 0`;
-//     case 'h':
-//       output = `${property}: 0 ${prop.value}`;
-//   }
-
-//   return output;
-// };
-
-const generateUtilityClass = (utility, prop, variation, breakpoint) => {
+const generateUtilityClass = (utility, prop, variation, breakpoint, state) => {
   const tokenCategory = prop.attributes.category;
   const tokenType = prop.attributes.type;
   const {
     name,
-    abbreviation
+    abbreviation,
+    hover,
   } = utility;
-  let utilityClass;
+  let utilityClass = '';
 
   if (tokenCategory === utility.tokenCategory && tokenType === utility.tokenType) {
-    utilityClass = `${abbreviation ? abbreviation : name}`;
+    utilityClass += `${abbreviation ? abbreviation : name}`;
 
     if (variation) {
       utilityClass += `-${variation}`;
@@ -247,6 +88,10 @@ const generateUtilityClass = (utility, prop, variation, breakpoint) => {
       utilityClass += `-${breakpoint}`;
     }
 
+    if (state) {
+      utilityClass = `${state}${'\\:'}${utilityClass}:${state}`;
+    }
+
     if (tokenType === 'spacing' || name === 'border-width') {
       utilityClass = `.${utilityClass} { ${generateShorthandProperties(utility, prop, variation)} }`;
     } else if (tokenType === 'border-radius') {
@@ -260,16 +105,18 @@ const generateUtilityClass = (utility, prop, variation, breakpoint) => {
 }
 
 const processUtilities = (utilities, prop, breakpoint, options = {
-  indentationLevel: 0
+  indentationLevel: 0,
+  state: null,
 }) => {
   const {
-    indentationLevel
+    indentationLevel,
+    state,
   } = options;
   let output = '';
 
   utilities.forEach(utility => {
     utility.variations.forEach((variation) => {
-      const utilityClass = generateUtilityClass(utility, prop, variation, breakpoint);
+      const utilityClass = generateUtilityClass(utility, prop, variation, breakpoint, state);
       if (utilityClass) {
         output += addNewLines(indentLine(utilityClass, indentationLevel), 2)
       }
@@ -303,16 +150,47 @@ const utilityClass = {
      */
     dictionary.allProperties.forEach(prop => {
       output += processUtilities(utilities, prop);
+
+      /**
+       * Hover States
+       */
+      const hoverUtilities = utilities.filter(utility => utility.hover);
+      output += processUtilities(hoverUtilities, prop, null, { state: 'hover' });
+
+      /**
+       * Focus States
+       */
+      const focusUtilities = utilities.filter(utility => utility.hover);
+      output += processUtilities(focusUtilities, prop, null, { state: 'focus' });
     });
 
     sortedBreakpoints.forEach(breakpoint => {
-      let responsiveUtilities = '';
+      let responsiveUtilityClasses = '';
+      let responsiveUtilities = utilities.filter(utility => utility.responsive);
+      let responsiveAndHoverUtilities = responsiveUtilities.filter(utility => utility.hover);
+      let responsiveAndFocusUtilities = responsiveUtilities.filter(utility => utility.focus);
+
       dictionary.allProperties.forEach(prop => {
-        responsiveUtilities += processUtilities(utilities, prop, breakpoint.attributes.item, {
-          indentationLevel: 2
+        responsiveUtilityClasses += processUtilities(responsiveUtilities, prop, breakpoint.attributes.item, {
+          indentationLevel: 2,
         });
       });
-      output += nestInsideMediaQuery(responsiveUtilities, breakpoint);
+
+      dictionary.allProperties.forEach(prop => {
+        responsiveUtilityClasses += processUtilities(responsiveAndHoverUtilities, prop, breakpoint.attributes.item, {
+          indentationLevel: 2,
+          state: 'hover',
+        });
+      });
+
+      dictionary.allProperties.forEach(prop => {
+        responsiveUtilityClasses += processUtilities(responsiveAndFocusUtilities, prop, breakpoint.attributes.item, {
+          indentationLevel: 2,
+          state: 'focus',
+        });
+      });
+
+      output += nestInsideMediaQuery(responsiveUtilityClasses, breakpoint);
     });
 
     return output;

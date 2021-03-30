@@ -59,6 +59,14 @@ const expectedOutput = `/**
 
 .border-color-primary-lightest { border-color: #c3ecd8; }
 
+.hover\\:background-color-primary-lightest:hover { background-color: #c3ecd8; }
+
+.hover\\:border-color-primary-lightest:hover { border-color: #c3ecd8; }
+
+.focus\\:background-color-primary-lightest:focus { background-color: #c3ecd8; }
+
+.focus\\:border-color-primary-lightest:focus { border-color: #c3ecd8; }
+
 .m-5xl { margin: 5rem; }
 
 .m-top-5xl { margin-top: 5rem; }
@@ -101,6 +109,34 @@ const expectedOutput = `/**
 
 .border-width-v-xs { border-top-width: 1px; border-bottom-width: 1px; border-top-style: solid; border-bottom-style: solid; }
 
+.hover\\:border-width-xs:hover { border-width: 1px; border-style: solid; }
+
+.hover\\:border-width-top-xs:hover { border-top-width: 1px; border-top-style: solid; }
+
+.hover\\:border-width-right-xs:hover { border-right-width: 1px; border-right-style: solid; }
+
+.hover\\:border-width-bottom-xs:hover { border-bottom-width: 1px; border-bottom-style: solid; }
+
+.hover\\:border-width-left-xs:hover { border-left-width: 1px; border-left-style: solid; }
+
+.hover\\:border-width-h-xs:hover { border-left-width: 1px; border-right-width: 1px; border-left-style: solid; border-right-style: solid; }
+
+.hover\\:border-width-v-xs:hover { border-top-width: 1px; border-bottom-width: 1px; border-top-style: solid; border-bottom-style: solid; }
+
+.focus\\:border-width-xs:focus { border-width: 1px; border-style: solid; }
+
+.focus\\:border-width-top-xs:focus { border-top-width: 1px; border-top-style: solid; }
+
+.focus\\:border-width-right-xs:focus { border-right-width: 1px; border-right-style: solid; }
+
+.focus\\:border-width-bottom-xs:focus { border-bottom-width: 1px; border-bottom-style: solid; }
+
+.focus\\:border-width-left-xs:focus { border-left-width: 1px; border-left-style: solid; }
+
+.focus\\:border-width-h-xs:focus { border-left-width: 1px; border-right-width: 1px; border-left-style: solid; border-right-style: solid; }
+
+.focus\\:border-width-v-xs:focus { border-top-width: 1px; border-bottom-width: 1px; border-top-style: solid; border-bottom-style: solid; }
+
 .br-xs { border-radius: 1px; }
 
 .br-top-left-xs { border-top-left-radius: 1px; }
@@ -112,10 +148,6 @@ const expectedOutput = `/**
 .br-bottom-left-xs { border-bottom-left-radius: 1px; }
 
 @media (min-width: 1280px) {
-  .background-color-primary-lightest-hd { background-color: #c3ecd8; }
-
-  .border-color-primary-lightest-hd { border-color: #c3ecd8; }
-
   .m-5xl-hd { margin: 5rem; }
 
   .m-top-5xl-hd { margin-top: 5rem; }
@@ -167,6 +199,34 @@ const expectedOutput = `/**
   .br-bottom-right-xs-hd { border-bottom-right-radius: 1px; }
 
   .br-bottom-left-xs-hd { border-bottom-left-radius: 1px; }
+
+  .hover\\:border-width-xs-hd:hover { border-width: 1px; border-style: solid; }
+
+  .hover\\:border-width-top-xs-hd:hover { border-top-width: 1px; border-top-style: solid; }
+
+  .hover\\:border-width-right-xs-hd:hover { border-right-width: 1px; border-right-style: solid; }
+
+  .hover\\:border-width-bottom-xs-hd:hover { border-bottom-width: 1px; border-bottom-style: solid; }
+
+  .hover\\:border-width-left-xs-hd:hover { border-left-width: 1px; border-left-style: solid; }
+
+  .hover\\:border-width-h-xs-hd:hover { border-left-width: 1px; border-right-width: 1px; border-left-style: solid; border-right-style: solid; }
+
+  .hover\\:border-width-v-xs-hd:hover { border-top-width: 1px; border-bottom-width: 1px; border-top-style: solid; border-bottom-style: solid; }
+
+  .focus\\:border-width-xs-hd:focus { border-width: 1px; border-style: solid; }
+
+  .focus\\:border-width-top-xs-hd:focus { border-top-width: 1px; border-top-style: solid; }
+
+  .focus\\:border-width-right-xs-hd:focus { border-right-width: 1px; border-right-style: solid; }
+
+  .focus\\:border-width-bottom-xs-hd:focus { border-bottom-width: 1px; border-bottom-style: solid; }
+
+  .focus\\:border-width-left-xs-hd:focus { border-left-width: 1px; border-left-style: solid; }
+
+  .focus\\:border-width-h-xs-hd:focus { border-left-width: 1px; border-right-width: 1px; border-left-style: solid; border-right-style: solid; }
+
+  .focus\\:border-width-v-xs-hd:focus { border-top-width: 1px; border-bottom-width: 1px; border-top-style: solid; border-bottom-style: solid; }
 
 }
 
