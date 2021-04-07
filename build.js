@@ -59,7 +59,8 @@ const FIGMA_FILE_VERSION = '684180290';
  * Read tokens from FIGMA file.
  */
 getFigmaDocument(FIGMA_TOKENS_DOCUMENT, FIGMA_FILE_VERSION)
-  .then(json => {
+  .then(response => response.json())
+  .then(figmaJson => {
     /**
      * Empty build directoty
      */
@@ -70,7 +71,7 @@ getFigmaDocument(FIGMA_TOKENS_DOCUMENT, FIGMA_FILE_VERSION)
     /**
      * Generate dictionary by recursively parsing FIGMA tokens document.
      */
-    let properties = parseFigmaDocumentTokens(json.document);
+    let properties = parseFigmaDocumentTokens(figmaJson.document);
 
     /**
      * Generate semantic (light, lighter, etc...) colors
@@ -120,4 +121,6 @@ getFigmaDocument(FIGMA_TOKENS_DOCUMENT, FIGMA_FILE_VERSION)
     console.log('\nAll done!');
     console.log('\n==============================================');
   })
-  .catch(err => console.log(err));
+  .catch(err => {
+    console.log(err);
+  });
