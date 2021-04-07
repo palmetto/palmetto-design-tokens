@@ -15,6 +15,8 @@ jobs:
       - name: test
         run: yarn test
       - name: build
+        env:
+          FIGMA_PERSONAL_ACCESS_TOKEN: ${{ secrets.FIGMA_PERSONAL_ACCESS_TOKEN }}
         run: yarn build
       - name: Release
         env:
