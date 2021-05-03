@@ -70,7 +70,7 @@
     },
     "jsonNested": {
       "transforms": ["attribute/cti", "color/css", "name/cti/custom-kebab"],
-      "buildPath": "build/variables/",
+      "buildPath": "build/json/values/",
       "files": [{
         "destination": "variables-color.json",
         "format": "json/nested",

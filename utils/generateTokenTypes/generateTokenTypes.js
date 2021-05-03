@@ -12,7 +12,6 @@ const sizeTokens = require('../../build/json/variables-size.json');
  * COLORS
  */
 const brandColors = colorTokens.color.brand;
-const fontColors = colorTokens.color.font;
 const BRAND_COLORS = 'BRAND_COLORS';
 const FONT_COLORS = 'FONT_COLORS';
 const BRAND_COLOR_NAMES = 'BRAND_COLOR_NAMES';
@@ -30,7 +29,7 @@ const brandColorNames = Object.keys(brandColors);
 
 const fontColorOptions = [].concat.apply(
   [],
-  Object.keys(fontColors).map(colorName =>
+  Object.keys(brandColors).map(colorName =>
     Object.keys(brandColors[colorName]).map(colorGrade =>
       colorGrade === 'base' ? colorName : `${colorName}-${colorGrade}`,
     ),
