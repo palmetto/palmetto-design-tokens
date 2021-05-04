@@ -55,13 +55,19 @@ const expectedOutput = `/**
  * Generated on Mon, 20 Jun 2016 12:08:10 GMT
  */
 
+.font-color-primary-lightest { color: #c3ecd8; }
+
 .background-color-primary-lightest { background-color: #c3ecd8; }
 
 .border-color-primary-lightest { border-color: #c3ecd8; }
 
+.hover\\:font-color-primary-lightest:hover { color: #c3ecd8; }
+
 .hover\\:background-color-primary-lightest:hover { background-color: #c3ecd8; }
 
 .hover\\:border-color-primary-lightest:hover { border-color: #c3ecd8; }
+
+.focus\\:font-color-primary-lightest:focus { color: #c3ecd8; }
 
 .focus\\:background-color-primary-lightest:focus { background-color: #c3ecd8; }
 
