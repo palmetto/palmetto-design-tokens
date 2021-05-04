@@ -75,6 +75,10 @@
         "destination": "variables-color.json",
         "format": "json/nested",
         "filter": "isCategoryColor"
+      }, {
+        "destination": "variables-size.json",
+        "format": "json/nested",
+        "filter": "isCategorySize"
       }]
     }
   }
