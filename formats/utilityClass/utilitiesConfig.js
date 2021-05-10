@@ -2,7 +2,7 @@ const utilities = [
   {
     name: 'font-color',
     tokenCategory: 'color',
-    tokenType: 'font',
+    tokenType: 'brand',
     cssProp: 'color',
     variations: [''],
     responsive: false,

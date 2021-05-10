@@ -67,6 +67,19 @@
         "format": "json",
         "filter": "isCategorySize"
       }]
+    },
+    "jsonNested": {
+      "transforms": ["attribute/cti", "color/css", "name/cti/custom-kebab"],
+      "buildPath": "build/json/values/",
+      "files": [{
+        "destination": "variables-color.json",
+        "format": "json/nested",
+        "filter": "isCategoryColor"
+      }, {
+        "destination": "variables-size.json",
+        "format": "json/nested",
+        "filter": "isCategorySize"
+      }]
     }
   }
 }
