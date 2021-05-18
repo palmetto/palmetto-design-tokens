@@ -43,7 +43,7 @@
       }]
     },
     "js": {
-      "transforms": ["attribute/cti", "name/cti/pascal", "size/use-unit", "color/hex"],
+      "transforms": ["attribute/cti", "name/cti/pascal", "size/use-unit", "color/css"],
       "buildPath": "build/js/",
       "files": [{
         "destination": "variables-color.js",
@@ -56,7 +56,7 @@
       }]
     },
     "json": {
-      "transforms": ["attribute/cti", "name/cti/pascal", "size/use-unit", "color/hex"],
+      "transforms": ["attribute/cti", "name/cti/pascal", "size/use-unit", "color/css"],
       "buildPath": "build/json/",
       "files": [{
         "destination": "variables-color.json",
