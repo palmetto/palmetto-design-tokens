@@ -39,7 +39,7 @@ async function createIconComponents() {
 
     const compiledComponent = babel.transformSync(reactComponent, BABEL_OPTIONS);
 
-    fs.writeFileSync(buildIconsDir + `${componentName}.jsx`, compiledComponent.code);
+    fs.writeFileSync(buildIconsDir + `${componentName}.js`, compiledComponent.code);
   }
 
   let iconComponentsIndexFile = '';
