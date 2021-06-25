@@ -168,7 +168,17 @@ const utilities = [
     responsive: true,
     hover: true,
     focus: true,
-  }
+  },
+  {
+    name: 'font-family',
+    tokenCategory: 'asset',
+    tokenType: 'fonts',
+    cssProp: 'font-family',
+    variations: [''],
+    responsive: true,
+    hover: false,
+    focus: false,
+  },
 ];
 
 module.exports = utilities;
