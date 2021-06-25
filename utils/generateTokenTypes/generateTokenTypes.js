@@ -7,6 +7,7 @@ const BABEL_OPTIONS = {
 };
 const colorTokens = require('../../build/json/variables-color.json');
 const sizeTokens = require('../../build/json/variables-size.json');
+const assetTokens = require('../../build/json/variables-asset.json');
 
 /**
  * COLORS
@@ -66,6 +67,15 @@ const OPACITY_SIZES = 'OPACITY_SIZES';
 const SPACING_SIZES = 'SPACING_SIZES';
 const WIDTH_SIZES = 'WIDTH_SIZES';
 const Z_INDEX_SIZES = 'Z_INDEX_SIZES';
+
+/**
+ * ASSETS 
+ */
+ const { asset } = assetTokens;
+
+ const fontFamilyOptions = Object.keys(asset.fonts);
+
+ const FONT_FAMILY_OPTIONS = 'FONT_FAMILY_OPTIONS';
 
 /**
  * ICONS
@@ -133,6 +143,14 @@ const createSizeTokens = currentFile => {
   return result;
 };
 
+const createAssetTokens = currentFile => {
+  let result = currentFile;
+
+  result = result.concat(writeArray(fontFamilyOptions, FONT_FAMILY_OPTIONS));
+
+  return result;
+}
+
 const createIconNames = (currentFile, asConst = true) => {
   let result = currentFile;
 
@@ -175,6 +193,14 @@ const createSizeTypes = currentFile => {
   return result;
 };
 
+
+const createAssetTypes = currentFile => {
+  let result = currentFile;
+  result = result.concat(writeExport(writeUnionTypeFromArray('FontFamily', FONT_FAMILY_OPTIONS)));
+
+  return result;
+};
+
 const createIconTypes = currentFile => {
   let result = currentFile;
   result = result.concat(writeExport(writeUnionTypeFromArray('IconName', ICON_NAMES)));
@@ -191,10 +217,12 @@ const writeFile = () => {
   tokensData = createFileHeader(tokensData);
   tokensData = createColorTokens(tokensData);
   tokensData = createSizeTokens(tokensData);
+  tokensData = createAssetTokens(tokensData);
   tokensData = createIconNames(tokensData);
 
   tokensData = createColorTypes(tokensData);
   tokensData = createSizeTypes(tokensData);
+  tokensData = createAssetTypes(tokensData);
   tokensData = createIconTypes(tokensData);
 
   if (!fs.existsSync(`${__dirname}/../../build/types`)) {
