@@ -115,7 +115,7 @@
           "filter": "isCategorySize"
         },
         {
-          "destination": "variables-asset.js",
+          "destination": "variables-asset.json",
           "format": "json/nested",
           "filter": "isCategoryAsset"
         }
