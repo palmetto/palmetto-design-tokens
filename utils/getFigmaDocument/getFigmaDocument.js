@@ -4,7 +4,7 @@ require('dotenv').config();
 if (!process.env.FIGMA_PERSONAL_ACCESS_TOKEN) {
   throw new Error(`Put your Figma token in a .env in the root directory of this directory.
   The .env file should look like this:
-  PERSONAL_ACCESS_TOKEN='xxxx'`);
+  FIGMA_PERSONAL_ACCESS_TOKEN='xxxx'`);
 }
 
 const requestConfig = {
