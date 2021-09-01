@@ -179,6 +179,16 @@ const utilities = [
     hover: false,
     focus: false,
   },
+  {
+    name: 'z-index',
+    tokenCategory: 'size',
+    tokenType: 'z-index',
+    cssProp: 'z-index',
+    variations: [''],
+    responsive: true,
+    hover: false,
+    focus: false,
+  },
 ];
 
 module.exports = utilities;
