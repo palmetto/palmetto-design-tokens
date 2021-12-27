@@ -47,7 +47,7 @@ StyleDictionary.registerTransform(customKebab);
  * FIGMA TOKENS DOCUMENT
  * Id for document where we read tokens. In theory this should never change.
  */
-const FIGMA_TOKENS_DOCUMENT = 'abGRptpr7iPaMsXdEPVm6W';
+const FIGMA_TOKENS_DOCUMENT = 'KCJ2oUyX2sAtYuAmjmF4lg';
 
 /**
  * FIGMA FILE VERSION
@@ -57,7 +57,7 @@ const FIGMA_TOKENS_DOCUMENT = 'abGRptpr7iPaMsXdEPVm6W';
  * Ideally the figma file version _label_ and the npm package version will match
  * but it is not required.
  */
-const FIGMA_FILE_VERSION = '914604941';
+const FIGMA_FILE_VERSION = '1286326116';
 
 
 /**
