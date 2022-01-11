@@ -4,40 +4,53 @@ const indentLine = require('../../utils/indentLine/indentLine');
 const nestInsideMediaQuery = require('../../utils/nestInsideMediaQuery/nestInsideMediaQuery');
 const utilities = require('./utilitiesConfig');
 
+const generateCssVariable = (prop) => {
+  const {
+    category,
+    type,
+    item,
+    subitem,
+  } = prop.attributes;
+
+  return `var(--${category}-${type}-${item}${subitem ? '-' + subitem : ''})`;
+}
+
 const generateShorthandProperties = (utility, prop, variation) => {
   const single = ['top', 'right', 'bottom', 'left']; // CSS Attribute specifies the variation. E.G: 'margin-bottom: <value>'
   const compound = ['', 'h', 'v']; // CSS Attribute applied to multiple sides of an element: E.G: 'margin: <value> <value>'
   let property = utility.cssProp;
   let output;
 
+  const value = generateCssVariable(prop);
+
   // For specific sides of an element
   if (single.includes(variation)) {
     if (property === `border`) {
-      output = `${property}-${variation}-width: ${prop.value}; ${property}-${variation}-style: solid;`;
+      output = `${property}-${variation}-width: ${value}; ${property}-${variation}-style: solid;`;
     } else {
       property += `-${variation}`;
-      output = `${property}: ${prop.value};`;
+      output = `${property}: ${value};`;
     }
   } else if (compound.includes(variation)) {
     // For values applied to multiple sides.
     property = utility.cssProp;
     if (variation === '') {
       if (property === 'border') {
-        output = `${property}-width: ${prop.value}; ${property}-style: solid;`;
+        output = `${property}-width: ${value}; ${property}-style: solid;`;
       } else {
-        output = `${property}: ${prop.value};`;
+        output = `${property}: ${value};`;
       }
     } else if (variation === 'h') {
       if (property === 'border') {
-        output = `${property}-left-width: ${prop.value}; ${property}-right-width: ${prop.value}; ${property}-left-style: solid; ${property}-right-style: solid;`;
+        output = `${property}-left-width: ${value}; ${property}-right-width: ${value}; ${property}-left-style: solid; ${property}-right-style: solid;`;
       } else {
-        output = `${property}-left: ${prop.value}; ${property}-right: ${prop.value};`;
+        output = `${property}-left: ${value}; ${property}-right: ${value};`;
       }
     } else if (variation === 'v') {
       if (property === 'border') {
-        output = `${property}-top-width: ${prop.value}; ${property}-bottom-width: ${prop.value}; ${property}-top-style: solid; ${property}-bottom-style: solid;`;
+        output = `${property}-top-width: ${value}; ${property}-bottom-width: ${value}; ${property}-top-style: solid; ${property}-bottom-style: solid;`;
       } else {
-        output = `${property}-top: ${prop.value}; ${property}-bottom: ${prop.value};`;
+        output = `${property}-top: ${value}; ${property}-bottom: ${value};`;
       }
     }
   }
@@ -50,12 +63,14 @@ const generateBorderRadiusShorthandProperties = (utility, prop, variation) => {
   let property = utility.cssProp;
   let output;
 
+  const value = generateCssVariable(prop);
+
   // For specific corners of the element
   if (single.includes(variation)) {
     property += `-${variation}`;
-    output = `border-${variation}-radius: ${prop.value};`;
+    output = `border-${variation}-radius: ${value};`;
   } else { // all corners of the element
-    output = `${property}: ${prop.value};`;
+    output = `${property}: ${value};`;
   }
 
   return output;
@@ -64,6 +79,7 @@ const generateBorderRadiusShorthandProperties = (utility, prop, variation) => {
 const generateUtilityClass = (utility, prop, variation, breakpoint, state) => {
   const tokenCategory = prop.attributes.category;
   const tokenType = prop.attributes.type;
+
   const {
     name,
     abbreviation,
@@ -97,7 +113,7 @@ const generateUtilityClass = (utility, prop, variation, breakpoint, state) => {
     } else if (tokenType === 'border-radius') {
       utilityClass = `.${utilityClass} { ${generateBorderRadiusShorthandProperties(utility, prop, variation)} }`;
     } else {
-      utilityClass = `.${utilityClass} { ${utility.cssProp}: ${prop.value}; }`;
+      utilityClass = `.${utilityClass} { ${utility.cssProp}: ${generateCssVariable(prop)}; }`;
     }
   }
 
