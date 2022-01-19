@@ -16,7 +16,7 @@
         },
         {
           "destination": "variables-asset.scss",
-          "format": "scss/variables",
+          "format": "scss/variables/font",
           "filter": "isCategoryAsset"
         }
       ]
@@ -37,7 +37,7 @@
         },
         {
           "destination": "variables-asset.css",
-          "format": "css/variables",
+          "format": "css/variables/font",
           "filter": "isCategoryAsset"
         }
       ]
