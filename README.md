@@ -105,8 +105,7 @@ import { IconName } from '@palmetto/palmetto-design-tokens/build/types';
 
 
 ## Local Development
-To build tokens locally run `npm run build` or `yarn build`. NOTE: you will need a local `.env` file with a Figma access token assigned to `FIGMA_PERSONAL_ACCESS_TOKEN`. See [HOW TO GET A FIGMA ACCESS TOKEN](https://www.figma.com/developers/api#authentication). If you are
-still unsure how to get a working access token, or the process is not working for you, please reach out to one of our library owners.
+To build tokens locally run `npm run build` or `yarn build`. NOTE: you will need a local `.env` file with a Figma access token assigned to `FIGMA_PERSONAL_ACCESS_TOKEN`. See [HOW TO GET A FIGMA ACCESS TOKEN](https://www.figma.com/developers/api#authentication). If you are still unsure how to get a working access token, or the process is not working for you, please reach out to one of our library owners.
 
 In order to test any local changes you'll need to build tokens, and symlink your local package into any project that consumes it. See [NPM link](https://docs.npmjs.com/cli/link) or [Yarn link](https://classic.yarnpkg.com/en/docs/cli/link/) for more details.
 
