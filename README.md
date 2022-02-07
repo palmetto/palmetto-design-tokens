@@ -105,8 +105,7 @@ import { IconName } from '@palmetto/palmetto-design-tokens/build/types';
 
 
 ## Local Development
-To build tokens locally run `npm run build` or `yarn build`. NOTE: you will need a local `.env` file with a Figma access token assigned to `FIGMA_PERSONAL_ACCESS_TOKEN`. See [HOW TO GET A FIGMA ACCESS TOKEN](https://www.figma.com/developers/api#authentication). If you are 
-still unsure how to get a working access token, or the process is not working for you, please reach out to one of our library owners.
+To build tokens locally run `npm run build` or `yarn build`. NOTE: you will need a local `.env` file with a Figma access token assigned to `FIGMA_PERSONAL_ACCESS_TOKEN`. See [HOW TO GET A FIGMA ACCESS TOKEN](https://www.figma.com/developers/api#authentication). If you are still unsure how to get a working access token, or the process is not working for you, please reach out to one of our library owners.
 
 In order to test any local changes you'll need to build tokens, and symlink your local package into any project that consumes it. See [NPM link](https://docs.npmjs.com/cli/link) or [Yarn link](https://classic.yarnpkg.com/en/docs/cli/link/) for more details.
 
@@ -139,7 +138,7 @@ these rules when exporting and adding icons:
 
 Palmetto Components uses the [semantic-release](https://github.com/semantic-release/semantic-release) npm package to fully automate the release workflow. Instead of manually updating the release version in `package.json`, and creating a new release tag in GitHub for each release, they are automatically triggered by prefixing the commit message when merging to `main`. Upon triggering a release, the package version is bumped depending on the type specified, a release tag is created in GitHub, and the new version is automatically published to [npm](https://www.npmjs.com/).
 
-For e.g., opening a PR to main with the commit message `fix: Resolve bug`, will trigger a minor release and bump the package's version from `0.0.0` to `0.0.1`. Opening a PR with `feat(Table): Finalize tests` will trigger a feature release and bump the package's version from `0.0.0` to `0.1.0`.
+For example, opening a PR to main with the commit message `fix: Resolve bug`, will trigger a minor release and bump the package's version from `0.0.0` to `0.0.1`. Opening a PR with `feat(Table): Finalize tests` will trigger a feature release and bump the package's version from `0.0.0` to `0.1.0`.
 
 The link above provides full documentation for this workflow. However, a comprehensive list of the prefix types, and their intended uses are provide below for quick reference:
 
@@ -162,6 +161,10 @@ Must be one of the following:
 * **docs**: Added to, or improved documentation.
 * **style**: Change in code style without affecting features.
 
+### Prerelease
+If your code includes major changes or any breaking changes to the codebase, I.E, a new major version, or a large refactor, that will require a pre-release,
+and more extensive testing. To publish a pre-release, open (and eventually merge) your PR against the `beta` branch. This will
+publish the package with a @beta tag which can then be easily consumed and tested by other consumers locally.
 
 ## How can I contribute to this project?
 1. Find an issue that you are interested in addressing or a feature that you would like to add. See [Issues Page](https://github.com/palmetto/palmetto-design-tokens/issues). If you don't see any issues here, feel free to create one.
