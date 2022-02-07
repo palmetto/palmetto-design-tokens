@@ -6,6 +6,8 @@ const parseFigmaDocumentTokens = require('./utils/parseFigmaDocumentTokens/parse
 const mapSemanticColors = require('./utils/mapSemanticColors/mapSemanticColors');
 const dictionaryConfig = require('./config.json');
 const utilityClass = require('./formats/utilityClass/utilityClass');
+const cssVariablesFont = require('./formats/cssVariablesFont/cssVariablesFont');
+const scssVariablesFont = require('./formats/scssVariablesFont/scssVariablesFont');
 const useSizeUnit = require('./transforms/useSizeUnit/useSizeUnit');
 const customKebab = require('./transforms/customKebab/customKebab');
 const createIconComponents = require('./utils/createIconComponents/createIconComponents');
@@ -13,7 +15,7 @@ const createIconComponents = require('./utils/createIconComponents/createIconCom
 console.log('Build started...');
 console.log('\n==============================================');
 
-// Custom Filters 
+// Custom Filters
 StyleDictionary.registerFilter({
   name: 'isCategoryColor',
   matcher: prop => prop.attributes.category === 'color',
@@ -34,10 +36,10 @@ StyleDictionary.registerFilter({
   matcher: prop => prop.attributes.category === 'color' && prop.attributes.type === 'brand',
 });
 
-
 // Custom Formats
 StyleDictionary.registerFormat(utilityClass);
-
+StyleDictionary.registerFormat(cssVariablesFont);
+StyleDictionary.registerFormat(scssVariablesFont);
 
 // Custom Transforms
 StyleDictionary.registerTransform(useSizeUnit);
@@ -57,8 +59,7 @@ const FIGMA_TOKENS_DOCUMENT = 'abGRptpr7iPaMsXdEPVm6W';
  * Ideally the figma file version _label_ and the npm package version will match
  * but it is not required.
  */
-const FIGMA_FILE_VERSION = '914604941';
-
+const FIGMA_FILE_VERSION = '1472455088';
 
 /**
  * Read tokens from FIGMA file.
@@ -87,7 +88,7 @@ getFigmaDocument(FIGMA_TOKENS_DOCUMENT, FIGMA_FILE_VERSION)
 
     /**
      * Apply the configuration.
-     * 
+     *
      * IMPORTANT: the registration of custom transforms
      * needs to be done BEFORE applying the configuration.
      */
@@ -107,7 +108,7 @@ getFigmaDocument(FIGMA_TOKENS_DOCUMENT, FIGMA_FILE_VERSION)
     const iconsDestination = './build/icons/svg';
     fse.copySync(iconsSource, iconsDestination);
     console.log('\n==============================================');
-    console.log("\nIcons successfully copied to build");
+    console.log('\nIcons successfully copied to build');
 
     // Create React components based on SVG icons.
     createIconComponents();
