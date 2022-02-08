@@ -68,7 +68,7 @@ getFigmaDocument(FIGMA_TOKENS_DOCUMENT, FIGMA_FILE_VERSION)
   .then(response => response.json())
   .then(figmaJson => {
     /**
-     * Empty build directoty
+     * Empty build directory
      */
     fse.emptyDirSync('./build');
     console.log('\nBuild directory cleared');
