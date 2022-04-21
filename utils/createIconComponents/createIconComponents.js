@@ -44,6 +44,7 @@ async function createIconComponents() {
 
   let iconComponentsIndexFile = '';
   let iconComponentsImports = '';
+  let iconComponentsIndividualExports = "";
   let iconComponentsExport = `const icons = {\n`;
   iconComponentsIndexFile = createFileHeader(iconComponentsIndexFile);
 
@@ -53,6 +54,11 @@ async function createIconComponents() {
     iconComponentsImports = iconComponentsImports.concat(
       `import ${componentName} from './${componentName}';\n`,
     );
+
+    iconComponentsIndividualExports = iconComponentsIndividualExports.concat(
+      `export {${componentName}};\n`
+    );
+
     iconComponentsExport = iconComponentsExport.concat(
       indentLine(`'${iconName}': ${componentName},\n`, 2),
     );
@@ -60,6 +66,8 @@ async function createIconComponents() {
 
   iconComponentsExport = iconComponentsExport.concat('};\n\n export default icons;\n');
   iconComponentsIndexFile = iconComponentsIndexFile.concat(iconComponentsImports);
+  iconComponentsIndexFile = iconComponentsIndexFile.concat("\n");
+  iconComponentsIndexFile = iconComponentsIndexFile.concat(iconComponentsIndividualExports);
   iconComponentsIndexFile = iconComponentsIndexFile.concat('\n');
   iconComponentsIndexFile = iconComponentsIndexFile.concat(iconComponentsExport);
 
