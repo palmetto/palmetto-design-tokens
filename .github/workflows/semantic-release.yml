@@ -8,6 +8,8 @@ jobs:
     permissions:
       actions: write
       contents: write
+      packages: write
+
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
@@ -21,9 +23,18 @@ jobs:
         env:
           FIGMA_PERSONAL_ACCESS_TOKEN: ${{ secrets.FIGMA_PERSONAL_ACCESS_TOKEN }}
         run: yarn build
-      - name: Release
+      - name: Release to NPM
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           FIGMA_PERSONAL_ACCESS_TOKEN: ${{ secrets.FIGMA_PERSONAL_ACCESS_TOKEN }}
+        run: yarn semantic-release
+      - name: Setup Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+          registry-url: https://npm.pkg.github.com/
+      - name: Release to GitHub Packages
+        env:
+          NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: yarn semantic-release
