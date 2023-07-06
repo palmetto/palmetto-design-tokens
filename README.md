@@ -131,7 +131,10 @@ these rules when exporting and adding icons:
 * SVGs should be exported with a size of 16x16px since this will be the size of our default viewbox.
 * SVGS should be exported with default width, height of `1em` so they will inherit their size from the adjacent element font sizes, or a class/style applied directly.
 * SVGs must not include fill or stroke color, instead being exported with a value of `'currentColor'` for both these attributes. This will ensure proper inheritance.
+* Remove any `classNames` or `title` that might be in the svg file
 * SVG files should be named using `kebab-case`.
+* Commit your changes using the following commit message format: 'feat(Icon): new-icon-name, new-icon-name2`
+* Open a pull request and get it approved for publishing
 
 ## Releases
 [↥ back to top](#top)
