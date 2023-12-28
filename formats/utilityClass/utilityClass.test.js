@@ -101,6 +101,12 @@ const expectedOutput = `/**
 
 .p-v-5xl { padding-top: var(--size-spacing-5xl); padding-bottom: var(--size-spacing-5xl); }
 
+.g-5xl { gap: var(--size-spacing-5xl); }
+
+.rg-5xl { row-gap: var(--size-spacing-5xl); }
+
+.cg-5xl { column-gap: var(--size-spacing-5xl); }
+
 .border-width-xs { border-width: var(--size-border-xs); border-style: solid; }
 
 .border-width-top-xs { border-top-width: var(--size-border-xs); border-top-style: solid; }
@@ -181,6 +187,12 @@ const expectedOutput = `/**
   .p-h-5xl-hd { padding-left: var(--size-spacing-5xl); padding-right: var(--size-spacing-5xl); }
 
   .p-v-5xl-hd { padding-top: var(--size-spacing-5xl); padding-bottom: var(--size-spacing-5xl); }
+
+  .g-5xl-hd { gap: var(--size-spacing-5xl); }
+
+  .rg-5xl-hd { row-gap: var(--size-spacing-5xl); }
+
+  .cg-5xl-hd { column-gap: var(--size-spacing-5xl); }
 
   .border-width-xs-hd { border-width: var(--size-border-xs); border-style: solid; }
 
