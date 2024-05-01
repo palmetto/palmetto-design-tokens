@@ -8,7 +8,7 @@ on:
   pull_request:
     types: [opened, synchronize, reopened]
   push:
-    branches: [main]
+    branches: [main, beta]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -30,4 +30,3 @@ jobs:
       - name: unit test
         run: |
           yarn test
-
