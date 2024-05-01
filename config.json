@@ -1,7 +1,14 @@
 {
   "platforms": {
     "scss": {
-      "transforms": ["attribute/cti", "name/cti/custom-kebab", "time/seconds", "content/icon", "size/use-unit", "color/css"],
+      "transforms": [
+        "attribute/cti",
+        "name/cti/custom-kebab",
+        "time/seconds",
+        "content/icon",
+        "size/use-unit",
+        "color/css"
+      ],
       "buildPath": "build/scss/",
       "files": [
         {
@@ -22,7 +29,14 @@
       ]
     },
     "css": {
-      "transforms": ["attribute/cti", "name/cti/custom-kebab", "time/seconds", "content/icon", "size/use-unit", "color/css"],
+      "transforms": [
+        "attribute/cti",
+        "name/cti/custom-kebab",
+        "time/seconds",
+        "content/icon",
+        "size/use-unit",
+        "color/css"
+      ],
       "buildPath": "build/css/",
       "files": [
         {
@@ -44,22 +58,45 @@
     },
     "cssUtilities": {
       "buildPath": "build/utilities/",
-      "transforms": ["attribute/cti", "name/cti/custom-kebab", "time/seconds", "content/icon", "size/use-unit", "color/css"],
-      "files": [{
-        "destination": "utilities.css",
-        "format": "css/utility-classes"
-      }]
+      "transforms": [
+        "attribute/cti",
+        "name/cti/custom-kebab",
+        "time/seconds",
+        "content/icon",
+        "size/use-unit",
+        "color/css"
+      ],
+      "files": [
+        {
+          "destination": "utilities.css",
+          "format": "css/utility-classes"
+        }
+      ]
     },
     "sassUtilities": {
       "buildPath": "build/utilities/",
-      "transforms": ["attribute/cti", "name/cti/custom-kebab", "time/seconds", "content/icon", "size/use-unit", "color/css"],
-      "files": [{
-        "destination": "utilities.scss",
-        "format": "css/utility-classes"
-      }]
+      "transforms": [
+        "attribute/cti",
+        "name/cti/custom-kebab",
+        "time/seconds",
+        "content/icon",
+        "size/use-unit",
+        "color/css"
+      ],
+      "files": [
+        {
+          "destination": "utilities.scss",
+          "format": "css/utility-classes"
+        }
+      ]
     },
     "js": {
-      "transforms": ["attribute/cti", "name/cti/pascal", "size/use-unit", "color/css"],
+      "transforms": [
+        "attribute/cti",
+        "name/cti/pascal",
+        "size/use-unit",
+        "color/css"
+      ],
       "buildPath": "build/js/",
       "files": [
         {
@@ -80,7 +117,12 @@
       ]
     },
     "json": {
-      "transforms": ["attribute/cti", "name/cti/pascal", "size/use-unit", "color/css"],
+      "transforms": [
+        "attribute/cti",
+        "name/cti/pascal",
+        "size/use-unit",
+        "color/css"
+      ],
       "buildPath": "build/json/",
       "files": [
         {
