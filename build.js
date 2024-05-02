@@ -1,4 +1,5 @@
 require('dotenv').config();
+const util = require('util');
 const fse = require('fs-extra');
 const StyleDictionary = require('style-dictionary');
 const getFigmaDocument = require('./utils/getFigmaDocument/getFigmaDocument');
@@ -37,6 +38,16 @@ StyleDictionary.registerFilter({
     prop.attributes.category === 'color' && prop.attributes.type === 'brand',
 });
 
+StyleDictionary.registerFilter({
+  name: 'isColor',
+  matcher: token => token.attributes.category === 'color',
+});
+
+StyleDictionary.registerFilter({
+  name: 'isDarkColor',
+  matcher: token => token.darkValue && token.attributes.category === 'color',
+});
+
 // Custom Formats
 StyleDictionary.registerFormat(utilityClass);
 StyleDictionary.registerFormat(cssVariablesFont);
@@ -60,7 +71,7 @@ const FIGMA_TOKENS_DOCUMENT = 'abGRptpr7iPaMsXdEPVm6W';
  * Ideally the figma file version _label_ and the npm package version will match
  * but it is not required.
  */
-const FIGMA_FILE_VERSION = '5496945385';
+const FIGMA_FILE_VERSION = '5680304673';
 
 /**
  * Read tokens from FIGMA file.
@@ -80,12 +91,13 @@ getFigmaDocument(FIGMA_TOKENS_DOCUMENT, FIGMA_FILE_VERSION)
      */
     let properties = parseFigmaDocumentTokens(figmaJson.document);
 
-    /**
-     * Generate semantic (light, lighter, etc...) colors
-     * from lightness numbers (50, 100, etc...)
-     * It keeps the original colors as well as the semantic versions.
-     */
-    properties = mapSemanticColors(properties);
+    console.log(
+      util.inspect(properties, {
+        showHidden: false,
+        depth: null,
+        colors: true,
+      }),
+    );
 
     /**
      * Apply the configuration.

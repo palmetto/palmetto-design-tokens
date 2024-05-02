@@ -42,7 +42,12 @@
         {
           "destination": "variables-color.css",
           "format": "css/variables",
-          "filter": "isBrandColor"
+          "filter": "isColor"
+        },
+        {
+          "destination": "variables-color-dark.css",
+          "format": "css/variables",
+          "filter": "isDarkColor"
         },
         {
           "destination": "variables-size.css",
