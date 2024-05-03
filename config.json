@@ -46,7 +46,8 @@
         },
         {
           "destination": "variables-color-dark.css",
-          "format": "css/variables",
+          "format": "cssDark",
+          "options": { "selector": ":root.dark" },
           "filter": "isDarkColor"
         },
         {
