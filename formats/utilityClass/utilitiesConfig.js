@@ -10,6 +10,16 @@ const utilities = [
     focus: true,
   },
   {
+    name: 'font-color',
+    tokenCategory: 'color',
+    tokenType: 'text',
+    cssProp: 'color',
+    variations: [''],
+    responsive: false,
+    hover: true,
+    focus: true,
+  },
+  {
     name: 'background-color',
     tokenCategory: 'color',
     tokenType: 'brand',

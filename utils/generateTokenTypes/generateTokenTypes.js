@@ -17,6 +17,7 @@ const assetTokens = require('../../build/json/variables-asset.json');
  */
 const brandColors = colorTokens.color.brand;
 const backgroundColors = colorTokens.color.background;
+const fontColors = colorTokens.color.text;
 const BRAND_COLORS = 'BRAND_COLORS';
 const BACKGROUND_COLORS = 'BACKGROUND_COLORS';
 const FONT_COLORS = 'FONT_COLORS';
@@ -41,11 +42,7 @@ const backgroundColorNames = Object.keys(backgroundColors);
 
 const fontColorOptions = [].concat.apply(
   [],
-  Object.keys(brandColors).map(colorName =>
-    Object.keys(brandColors[colorName]).map(colorGrade =>
-      colorGrade === 'base' ? colorName : `${colorName}-${colorGrade}`,
-    ),
-  ),
+  Object.keys(fontColors).map(colorName => colorName),
 );
 
 /**
@@ -135,8 +132,8 @@ const createColorTokens = currentFile => {
   let result = currentFile;
 
   result = result.concat(writeExport(writeArray(brandColorOptions, BRAND_COLORS)));
-  result = result.concat(writeExport(writeArray([...brandColorOptions, ...backgroundColorOptions],BACKGROUND_COLORS)));
-  result = result.concat(writeExport(writeArray(fontColorOptions, FONT_COLORS)));
+  result = result.concat(writeExport(writeArray([...backgroundColorOptions, ...brandColorOptions],BACKGROUND_COLORS)));
+  result = result.concat(writeExport(writeArray([...fontColorOptions, ...brandColorOptions], FONT_COLORS)));
   result = result.concat(writeArray(brandColorNames, BRAND_COLOR_NAMES));
 
   return result;
