@@ -1,5 +1,4 @@
 require('dotenv').config();
-const util = require('util');
 const fse = require('fs-extra');
 const StyleDictionary = require('style-dictionary');
 const getFigmaDocument = require('./utils/getFigmaDocument/getFigmaDocument');
@@ -121,14 +120,6 @@ getFigmaDocument(FIGMA_TOKENS_DOCUMENT, FIGMA_FILE_VERSION)
      * Generate dictionary by recursively parsing FIGMA tokens document.
      */
     let properties = parseFigmaDocumentTokens(figmaJson.document);
-
-    console.log(
-      util.inspect(properties, {
-        showHidden: false,
-        depth: null,
-        colors: true,
-      }),
-    );
 
     /**
      * Apply the configuration.
