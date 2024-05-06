@@ -3,7 +3,6 @@ const fse = require('fs-extra');
 const StyleDictionary = require('style-dictionary');
 const getFigmaDocument = require('./utils/getFigmaDocument/getFigmaDocument');
 const parseFigmaDocumentTokens = require('./utils/parseFigmaDocumentTokens/parseFigmaDocumentTokens');
-const mapSemanticColors = require('./utils/mapSemanticColors/mapSemanticColors');
 const dictionaryConfig = require('./config.json');
 const utilityClass = require('./formats/utilityClass/utilityClass');
 const cssVariablesFont = require('./formats/cssVariablesFont/cssVariablesFont');
