@@ -17,9 +17,11 @@ const assetTokens = require('../../build/json/variables-asset.json');
  */
 const brandColors = colorTokens.color.brand;
 const backgroundColors = colorTokens.color.background;
+const borderColors = colorTokens.color.border;
 const fontColors = colorTokens.color.text;
 const BRAND_COLORS = 'BRAND_COLORS';
 const BACKGROUND_COLORS = 'BACKGROUND_COLORS';
+const BORDER_COLORS = 'BORDER_COLORS';
 const FONT_COLORS = 'FONT_COLORS';
 const BRAND_COLOR_NAMES = 'BRAND_COLOR_NAMES';
 
@@ -35,6 +37,11 @@ const brandColorOptions = [].concat.apply(
 const backgroundColorOptions = [].concat.apply(
   [],
   Object.keys(backgroundColors).map(colorName => colorName),
+);
+
+const borderColorOptions = [].concat.apply(
+  [],
+  Object.keys(borderColors).map(colorName => colorName),
 );
 
 const brandColorNames = Object.keys(brandColors);
@@ -133,6 +140,7 @@ const createColorTokens = currentFile => {
 
   result = result.concat(writeExport(writeArray(brandColorOptions, BRAND_COLORS)));
   result = result.concat(writeExport(writeArray([...backgroundColorOptions, ...brandColorOptions],BACKGROUND_COLORS)));
+  result = result.concat(writeExport(writeArray([...borderColorOptions, ...brandColorOptions],BORDER_COLORS)));
   result = result.concat(writeExport(writeArray([...fontColorOptions, ...brandColorOptions], FONT_COLORS)));
   result = result.concat(writeArray(brandColorNames, BRAND_COLOR_NAMES));
 
@@ -184,6 +192,7 @@ const createColorTypes = currentFile => {
 
   result = result.concat(writeExport(writeUnionTypeFromArray('BrandColor', BRAND_COLORS)));
   result = result.concat(writeExport(writeUnionTypeFromArray('BackgroundColor', BACKGROUND_COLORS)));
+  result = result.concat(writeExport(writeUnionTypeFromArray('BorderColor', BORDER_COLORS)));
   result = result.concat(writeExport(writeUnionTypeFromArray('FontColor', FONT_COLORS)));
   result = result.concat(writeExport(writeUnionTypeFromArray('ColorName', BRAND_COLOR_NAMES)));
 

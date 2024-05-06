@@ -50,6 +50,16 @@ const utilities = [
     focus: true,
   },
   {
+    name: 'border-color',
+    tokenCategory: 'color',
+    tokenType: 'border',
+    cssProp: 'border-color',
+    variations: [''],
+    responsive: false,
+    hover: true,
+    focus: true,
+  },
+  {
     name: 'font-size',
     tokenCategory: 'size',
     tokenType: 'font',
