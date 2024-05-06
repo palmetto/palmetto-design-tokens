@@ -138,7 +138,10 @@ getFigmaDocument(FIGMA_TOKENS_DOCUMENT, FIGMA_FILE_VERSION)
      */
     const StyleDictionaryExtended = StyleDictionary.extend({
       properties,
-      format: { cssDark: darkFormatWrapper(`css/variables`) },
+      format: {
+        cssDark: darkFormatWrapper(`css/variables`),
+        scssDark: darkFormatWrapper(`scss/variables`),
+      },
       platforms: dictionaryConfig.platforms,
     });
 

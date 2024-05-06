@@ -17,6 +17,12 @@
           "filter": "isBrandColor"
         },
         {
+          "destination": "variables-color-dark.scss",
+          "format": "scssDark",
+          "options": { "selector": ":root.dark" },
+          "filter": "isDarkColor"
+        },
+        {
           "destination": "variables-size.scss",
           "format": "scss/variables",
           "filter": "isCategorySize"
