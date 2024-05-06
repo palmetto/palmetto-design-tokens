@@ -3,7 +3,10 @@ const path = require('path');
 const babel = require('@babel/core');
 
 const BABEL_OPTIONS = {
-  plugins: ['@babel/plugin-transform-react-jsx', '@babel/plugin-transform-modules-commonjs'],
+  plugins: [
+    '@babel/plugin-transform-react-jsx',
+    '@babel/plugin-transform-modules-commonjs',
+  ],
 };
 const colorTokens = require('../../build/json/variables-color.json');
 const sizeTokens = require('../../build/json/variables-size.json');
@@ -13,7 +16,12 @@ const assetTokens = require('../../build/json/variables-asset.json');
  * COLORS
  */
 const brandColors = colorTokens.color.brand;
+const backgroundColors = colorTokens.color.background;
+const borderColors = colorTokens.color.border;
+const fontColors = colorTokens.color.text;
 const BRAND_COLORS = 'BRAND_COLORS';
+const BACKGROUND_COLORS = 'BACKGROUND_COLORS';
+const BORDER_COLORS = 'BORDER_COLORS';
 const FONT_COLORS = 'FONT_COLORS';
 const BRAND_COLOR_NAMES = 'BRAND_COLOR_NAMES';
 
@@ -26,15 +34,22 @@ const brandColorOptions = [].concat.apply(
   ),
 );
 
+const backgroundColorOptions = [].concat.apply(
+  [],
+  Object.keys(backgroundColors).map(colorName => colorName),
+);
+
+const borderColorOptions = [].concat.apply(
+  [],
+  Object.keys(borderColors).map(colorName => colorName),
+);
+
 const brandColorNames = Object.keys(brandColors);
+const backgroundColorNames = Object.keys(backgroundColors);
 
 const fontColorOptions = [].concat.apply(
   [],
-  Object.keys(brandColors).map(colorName =>
-    Object.keys(brandColors[colorName]).map(colorGrade =>
-      colorGrade === 'base' ? colorName : `${colorName}-${colorGrade}`,
-    ),
-  ),
+  Object.keys(fontColors).map(colorName => colorName),
 );
 
 /**
@@ -69,13 +84,13 @@ const WIDTH_SIZES = 'WIDTH_SIZES';
 const Z_INDEX_SIZES = 'Z_INDEX_SIZES';
 
 /**
- * ASSETS 
+ * ASSETS
  */
- const { asset } = assetTokens;
+const { asset } = assetTokens;
 
- const fontFamilyOptions = Object.keys(asset.fonts);
+const fontFamilyOptions = Object.keys(asset.fonts);
 
- const FONT_FAMILY_OPTIONS = 'FONT_FAMILY_OPTIONS';
+const FONT_FAMILY_OPTIONS = 'FONT_FAMILY_OPTIONS';
 
 /**
  * ICONS
@@ -84,13 +99,19 @@ const sourceIconsDir = path.join(__dirname, '..', '..', 'icons/');
 const iconFiles = fs
   .readdirSync(sourceIconsDir)
   .filter(fileName => path.extname(fileName).toLowerCase() === '.svg');
-const iconNames = iconFiles.map(iconFile => iconFile.substr(0, iconFile.lastIndexOf('.')));
+const iconNames = iconFiles.map(iconFile =>
+  iconFile.substr(0, iconFile.lastIndexOf('.')),
+);
 const ICON_NAMES = 'ICON_NAMES';
 
 /**
  * UTILITY FUNCTIONS
  */
-const writeArray = (array, arrayName, options = { lineBreak: true, asConst: true }) => {
+const writeArray = (
+  array,
+  arrayName,
+  options = { lineBreak: true, asConst: true },
+) => {
   const { lineBreak, asConst } = options;
 
   let result = `const ${arrayName} = [`;
@@ -118,7 +139,9 @@ const createColorTokens = currentFile => {
   let result = currentFile;
 
   result = result.concat(writeExport(writeArray(brandColorOptions, BRAND_COLORS)));
-  result = result.concat(writeExport(writeArray(fontColorOptions, FONT_COLORS)));
+  result = result.concat(writeExport(writeArray([...backgroundColorOptions, ...brandColorOptions],BACKGROUND_COLORS)));
+  result = result.concat(writeExport(writeArray([...borderColorOptions, ...brandColorOptions],BORDER_COLORS)));
+  result = result.concat(writeExport(writeArray([...fontColorOptions, ...brandColorOptions], FONT_COLORS)));
   result = result.concat(writeArray(brandColorNames, BRAND_COLOR_NAMES));
 
   return result;
@@ -149,12 +172,14 @@ const createAssetTokens = currentFile => {
   result = result.concat(writeArray(fontFamilyOptions, FONT_FAMILY_OPTIONS));
 
   return result;
-}
+};
 
 const createIconNames = (currentFile, asConst = true) => {
   let result = currentFile;
 
-  result = result.concat(writeExport(writeArray(iconNames, ICON_NAMES, { asConst })));
+  result = result.concat(
+    writeExport(writeArray(iconNames, ICON_NAMES, { asConst })),
+  );
 
   return result;
 };
@@ -166,6 +191,8 @@ const createColorTypes = currentFile => {
   let result = currentFile;
 
   result = result.concat(writeExport(writeUnionTypeFromArray('BrandColor', BRAND_COLORS)));
+  result = result.concat(writeExport(writeUnionTypeFromArray('BackgroundColor', BACKGROUND_COLORS)));
+  result = result.concat(writeExport(writeUnionTypeFromArray('BorderColor', BORDER_COLORS)));
   result = result.concat(writeExport(writeUnionTypeFromArray('FontColor', FONT_COLORS)));
   result = result.concat(writeExport(writeUnionTypeFromArray('ColorName', BRAND_COLOR_NAMES)));
 
@@ -176,9 +203,7 @@ const createSizeTypes = currentFile => {
   let result = currentFile;
 
   result = result.concat(writeExport(writeUnionTypeFromArray('BorderSize', BORDER_SIZES)));
-  result = result.concat(
-    writeExport(writeUnionTypeFromArray('BorderRadiusSize', BORDER_RADIUS_SIZES)),
-  );
+  result = result.concat(writeExport(writeUnionTypeFromArray('BorderRadiusSize',BORDER_RADIUS_SIZES),));
   result = result.concat(writeExport(writeUnionTypeFromArray('BoxShadowSize', BOX_SHADOW_SIZES)));
   result = result.concat(writeExport(writeUnionTypeFromArray('BreakpointSize', BREAKPOINT_SIZES)));
   result = result.concat(writeExport(writeUnionTypeFromArray('FontSize', FONT_SIZES)));
@@ -188,22 +213,24 @@ const createSizeTypes = currentFile => {
   result = result.concat(writeExport(writeUnionTypeFromArray('OpacitySize', OPACITY_SIZES)));
   result = result.concat(writeExport(writeUnionTypeFromArray('SpacingSize', SPACING_SIZES)));
   result = result.concat(writeExport(writeUnionTypeFromArray('WidthSize', WIDTH_SIZES)));
-  result = result.concat(writeExport(writeUnionTypeFromArray('ZIndexSize', Z_INDEX_SIZES)));
+  result = result.concat(writeExport(writeUnionTypeFromArray('ZIndexSize', Z_INDEX_SIZES))
+);
 
   return result;
 };
 
-
 const createAssetTypes = currentFile => {
   let result = currentFile;
-  result = result.concat(writeExport(writeUnionTypeFromArray('FontFamily', FONT_FAMILY_OPTIONS)));
+  result = result.concat(writeExport(writeUnionTypeFromArray('FontFamily', FONT_FAMILY_OPTIONS))
+  );
 
   return result;
 };
 
 const createIconTypes = currentFile => {
   let result = currentFile;
-  result = result.concat(writeExport(writeUnionTypeFromArray('IconName', ICON_NAMES)));
+  result = result.concat(writeExport(writeUnionTypeFromArray('IconName', ICON_NAMES))
+  );
 
   return result;
 };
@@ -233,7 +260,10 @@ const writeFile = () => {
 
   let icons = '';
   icons = createFileHeader(icons);
-  icons = babel.transformSync(createIconNames(icons, false), BABEL_OPTIONS).code;
+  icons = babel.transformSync(
+    createIconNames(icons, false),
+    BABEL_OPTIONS,
+  ).code;
   fs.writeFileSync(`${__dirname}/../../build/icons/index.js`, icons);
 };
 

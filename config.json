@@ -1,13 +1,26 @@
 {
   "platforms": {
     "scss": {
-      "transforms": ["attribute/cti", "name/cti/custom-kebab", "time/seconds", "content/icon", "size/use-unit", "color/css"],
+      "transforms": [
+        "attribute/cti",
+        "name/cti/custom-kebab",
+        "time/seconds",
+        "content/icon",
+        "size/use-unit",
+        "color/css"
+      ],
       "buildPath": "build/scss/",
       "files": [
         {
           "destination": "variables-color.scss",
           "format": "scss/variables",
           "filter": "isBrandColor"
+        },
+        {
+          "destination": "variables-color-dark.scss",
+          "format": "scssDark",
+          "options": { "selector": ":root.dark" },
+          "filter": "isDarkColor"
         },
         {
           "destination": "variables-size.scss",
@@ -22,13 +35,26 @@
       ]
     },
     "css": {
-      "transforms": ["attribute/cti", "name/cti/custom-kebab", "time/seconds", "content/icon", "size/use-unit", "color/css"],
+      "transforms": [
+        "attribute/cti",
+        "name/cti/custom-kebab",
+        "time/seconds",
+        "content/icon",
+        "size/use-unit",
+        "color/css"
+      ],
       "buildPath": "build/css/",
       "files": [
         {
           "destination": "variables-color.css",
           "format": "css/variables",
-          "filter": "isBrandColor"
+          "filter": "isColor"
+        },
+        {
+          "destination": "variables-color-dark.css",
+          "format": "cssDark",
+          "options": { "selector": ":root.dark" },
+          "filter": "isDarkColor"
         },
         {
           "destination": "variables-size.css",
@@ -44,22 +70,45 @@
     },
     "cssUtilities": {
       "buildPath": "build/utilities/",
-      "transforms": ["attribute/cti", "name/cti/custom-kebab", "time/seconds", "content/icon", "size/use-unit", "color/css"],
-      "files": [{
-        "destination": "utilities.css",
-        "format": "css/utility-classes"
-      }]
+      "transforms": [
+        "attribute/cti",
+        "name/cti/custom-kebab",
+        "time/seconds",
+        "content/icon",
+        "size/use-unit",
+        "color/css"
+      ],
+      "files": [
+        {
+          "destination": "utilities.css",
+          "format": "css/utility-classes"
+        }
+      ]
     },
     "sassUtilities": {
       "buildPath": "build/utilities/",
-      "transforms": ["attribute/cti", "name/cti/custom-kebab", "time/seconds", "content/icon", "size/use-unit", "color/css"],
-      "files": [{
-        "destination": "utilities.scss",
-        "format": "css/utility-classes"
-      }]
+      "transforms": [
+        "attribute/cti",
+        "name/cti/custom-kebab",
+        "time/seconds",
+        "content/icon",
+        "size/use-unit",
+        "color/css"
+      ],
+      "files": [
+        {
+          "destination": "utilities.scss",
+          "format": "css/utility-classes"
+        }
+      ]
     },
     "js": {
-      "transforms": ["attribute/cti", "name/cti/pascal", "size/use-unit", "color/css"],
+      "transforms": [
+        "attribute/cti",
+        "name/cti/pascal",
+        "size/use-unit",
+        "color/css"
+      ],
       "buildPath": "build/js/",
       "files": [
         {
@@ -80,7 +129,12 @@
       ]
     },
     "json": {
-      "transforms": ["attribute/cti", "name/cti/pascal", "size/use-unit", "color/css"],
+      "transforms": [
+        "attribute/cti",
+        "name/cti/pascal",
+        "size/use-unit",
+        "color/css"
+      ],
       "buildPath": "build/json/",
       "files": [
         {

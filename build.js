@@ -12,6 +12,37 @@ const useSizeUnit = require('./transforms/useSizeUnit/useSizeUnit');
 const customKebab = require('./transforms/customKebab/customKebab');
 const createIconComponents = require('./utils/createIconComponents/createIconComponents');
 
+/**
+ * This function will wrap a built-in format and replace `.value` with `.darkValue`
+ * if a token has a `.darkValue`.
+ * @param {String} format - the name of the built-in format
+ * @returns {Function}
+ */
+function darkFormatWrapper(format) {
+  return function (args) {
+    const dictionary = Object.assign({}, args.dictionary);
+    // Override each token's `value` with `darkValue`
+    dictionary.allTokens = dictionary.allTokens.map(token => {
+      const { darkValue } = token;
+      if (darkValue) {
+        return Object.assign({}, token, {
+          value: token.darkValue,
+          original: {
+            value: token.darkValue,
+            darkValue: token.darkValue,
+          },
+        });
+      } else {
+        return token;
+      }
+    });
+
+    // Use the built-in format but with our customized dictionary object
+    // so it will output the darkValue instead of the value
+    return StyleDictionary.format[format]({ ...args, dictionary });
+  };
+}
+
 console.log('Build started...');
 console.log('\n==============================================');
 
@@ -37,6 +68,16 @@ StyleDictionary.registerFilter({
     prop.attributes.category === 'color' && prop.attributes.type === 'brand',
 });
 
+StyleDictionary.registerFilter({
+  name: 'isColor',
+  matcher: token => token.attributes.category === 'color',
+});
+
+StyleDictionary.registerFilter({
+  name: 'isDarkColor',
+  matcher: token => token.darkValue && token.attributes.category === 'color',
+});
+
 // Custom Formats
 StyleDictionary.registerFormat(utilityClass);
 StyleDictionary.registerFormat(cssVariablesFont);
@@ -60,7 +101,7 @@ const FIGMA_TOKENS_DOCUMENT = 'abGRptpr7iPaMsXdEPVm6W';
  * Ideally the figma file version _label_ and the npm package version will match
  * but it is not required.
  */
-const FIGMA_FILE_VERSION = '5496945385';
+const FIGMA_FILE_VERSION = '5702376608';
 
 /**
  * Read tokens from FIGMA file.
@@ -69,7 +110,7 @@ getFigmaDocument(FIGMA_TOKENS_DOCUMENT, FIGMA_FILE_VERSION)
   .then(response => response.json())
   .then(figmaJson => {
     /**
-     * Empty build directoty
+     * Empty build directory
      */
     fse.emptyDirSync('./build');
     console.log('\nBuild directory cleared');
@@ -81,13 +122,6 @@ getFigmaDocument(FIGMA_TOKENS_DOCUMENT, FIGMA_FILE_VERSION)
     let properties = parseFigmaDocumentTokens(figmaJson.document);
 
     /**
-     * Generate semantic (light, lighter, etc...) colors
-     * from lightness numbers (50, 100, etc...)
-     * It keeps the original colors as well as the semantic versions.
-     */
-    properties = mapSemanticColors(properties);
-
-    /**
      * Apply the configuration.
      *
      * IMPORTANT: the registration of custom transforms
@@ -95,6 +129,10 @@ getFigmaDocument(FIGMA_TOKENS_DOCUMENT, FIGMA_FILE_VERSION)
      */
     const StyleDictionaryExtended = StyleDictionary.extend({
       properties,
+      format: {
+        cssDark: darkFormatWrapper(`css/variables`),
+        scssDark: darkFormatWrapper(`scss/variables`),
+      },
       platforms: dictionaryConfig.platforms,
     });
 
