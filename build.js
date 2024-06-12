@@ -100,7 +100,7 @@ const FIGMA_TOKENS_DOCUMENT = 'abGRptpr7iPaMsXdEPVm6W';
  * Ideally the figma file version _label_ and the npm package version will match
  * but it is not required.
  */
-const FIGMA_FILE_VERSION = '5930369477';
+const FIGMA_FILE_VERSION = '5985925266';
 
 /**
  * Read tokens from FIGMA file.
