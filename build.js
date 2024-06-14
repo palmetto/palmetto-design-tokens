@@ -97,8 +97,11 @@ const FIGMA_TOKENS_DOCUMENT = 'abGRptpr7iPaMsXdEPVm6W';
  * The version of the tokens figma file you want to use to build.
  * If you want to publish an updated package,
  * simply bump this version and then merge a PR with the change.
- * Ideally the figma file version _label_ and the npm package version will match
- * but it is not required.
+ * To get the figma version id, in figma
+ * 1. open version history in the right sidebar.
+ * 2. In the right sidebar, click  next to the version and select Copy link.
+ * 3. The link will contain the version id as a querystring variable.
+ * 4. Paste the version id here.
  */
 const FIGMA_FILE_VERSION = '6003234177';
 
