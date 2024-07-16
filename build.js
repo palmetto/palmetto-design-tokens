@@ -103,7 +103,8 @@ const FIGMA_TOKENS_DOCUMENT = 'abGRptpr7iPaMsXdEPVm6W';
  * 3. The link will contain the version id as a querystring variable.
  * 4. Paste the version id here.
  */
-const FIGMA_FILE_VERSION = '6220736849';
+const FIGMA_FILE_VERSION = '6229118981';
+
 /**
  * Read tokens from FIGMA file.
  */
